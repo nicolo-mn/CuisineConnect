@@ -148,7 +148,7 @@ strong {
 }
 
 small {
-  font-size: 0.875em;
+  font-size: 0.75rem;
 }
 
 mark {
@@ -200,7 +200,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
-  font-size: 0.875em;
+  font-size: 0.75rem;
 }
 pre code {
   font-size: inherit;
@@ -209,7 +209,7 @@ pre code {
 }
 
 code {
-  font-size: 0.875em;
+  font-size: 0.75rem;
   color: #d63384;
   word-wrap: break-word;
 }
@@ -219,7 +219,7 @@ a > code {
 
 kbd {
   padding: 0.2rem 0.4rem;
-  font-size: 0.875em;
+  font-size: 0.75rem;
   color: #fff;
   background-color: #212529;
   border-radius: 0.2rem;
