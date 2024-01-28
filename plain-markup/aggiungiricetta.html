@@ -17,7 +17,7 @@
                 <i class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></i>
             </div>
             <div class="col d-md-none">
-                <h2 class="text-secondary text-center">Le mie ricette</h2>
+                <h2 class="text-secondary text-center">Aggiunta ricetta</h2>
             </div>
             <div class="col d-md-none d-flex justify-content-end">
                 <i class="fa-solid fa-burger fa-2x text-secondary bg-primary p-3 me-2 rounded-circle"></i>
@@ -52,20 +52,29 @@
         </div>
     </header>
     <main class="container-fluid">
-        <h2 class="d-none d-md-block text-secondary text-center fw-bold mb-5">Le mie ricette</h2>
-        <div class="row row-cols-3 pt-2 col-md-8 mx-md-auto">
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
+        <h2 class="d-none d-md-block text-secondary text-center mb-5 fw-bold">Aggiunta ricetta</h2>
+        <div class="row mb-5">
+            <form action="#" class="col-md-10 mx-auto d-flex flex-column gap-5">
+                <input type="text" class="form-control bg-dark border-0 rounded-3" id="nome" placeholder="Nome ricetta">
+                <textarea type="text" class="form-control bg-dark border-0 rounded-3" id="bio" rows="5" placeholder="Procedimento"></textarea>
+                <fieldset>
+                    <div class="row justify-content-start gap-3">
+                        <div class="col-7">
+                            <input type="text" class="form-control bg-dark border-0 rounded-3" id="ingrediente" placeholder="Ingrediente">
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control bg-dark border-0 rounded-3" id="Quantità">
+                        </div>
+                        <div class="col-1">
+                            <p class="text-secondary">g</p>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row justify-content-between mt-7">
+                    <input type="reset" value="Cancella" class="bg-secondary rounded-pill border-0 fw-bold py-2 col-5 ms-3">
+                    <input type="submit" value="Salva modifiche" class="bg-secondary rounded-pill border-0 fw-bold py-2 col-5 me-3">
+                </div>
+            </form>
         </div>
     </main>
 </body>
