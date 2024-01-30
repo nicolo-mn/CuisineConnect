@@ -27,5 +27,10 @@ class Database
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-
+    public function insertPost($UserID, $Titolo, $Descrizione, $Foto){
+        $query = "INSERT INTO Posts (UserID, Titolo, Descrizione, Foto) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('isss',$UserID, $Titolo, $Descrizione, $Foto);
+        return $stmt->execute();
+    }
 }
