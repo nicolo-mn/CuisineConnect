@@ -4,3 +4,34 @@
     font-size: .9rem;
     font-weight: 300;
 }
+@media screen and (max-width: 768px) {
+    .abs-section {
+        top: -100px;
+        position: absolute;
+    }
+    
+    .description {
+        overflow: hidden;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+    
+    .nav-post {
+        position: fixed;
+        width: 100%;
+    }
+    
+    .post {
+        height: 100vh;
+    }    
+
+    .info-block {
+        position: relative;
+    }
+
+    .expand-icon {
+        position: absolute;
+        top: -25px;
+        right: 100px;
+    }
+}
