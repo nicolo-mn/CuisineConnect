@@ -34,4 +34,11 @@ class UserController
         }
     }
 
+    public function loadMyProfile() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $user = $db->getUser($_SESSION["user_id"]);
+        // Renderer::render("account.php", $user);
+    }
+
 }

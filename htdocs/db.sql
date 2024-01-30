@@ -67,3 +67,8 @@ CREATE TABLE IF NOT EXISTS Followers (
     FOREIGN KEY (FollowerUserID) REFERENCES Utenti(UserID),
     FOREIGN KEY (FollowingUserID) REFERENCES Utenti(UserID)
 );
+
+-- Dati
+-- user: admin password: pass
+INSERT INTO Utenti (Username, Email, Nome, Bio, Password, ImmagineProfilo)
+VALUES ('admin', 'admin@email.com', 'Signor Admin', 'Ciao sono il signor Admin e sono il capo del dipartimento', '$2y$10$lZftLrWf7DjoyUVga25BM.OhZEPFwjsI9lO0alQ4tdHsiklsebbu.', 'path/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg');

@@ -23,9 +23,8 @@ $router->addRoute('GET', '/register', function () {
     Renderer::render("login.php");
 });
 
-
-$router->addRoute('GET', '/user/?', function () {
-    Renderer::render("login.php");
+$router->addRoute('GET', '/account', function () {
+    (new UserController)->loadMyProfile();
 });
 
 // POST routes
@@ -37,8 +36,5 @@ $router->addRoute('POST', '/login', function () {
     (new UserController())->login($_POST);
 });
 
-$router->addRoute('POST', '/submit-post', function () {
-    (new PostController())->addPost($_FILES["file"]);
-});
 
 $router->matchRoute();
