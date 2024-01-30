@@ -9,4 +9,23 @@ class Database
             die("Connection failed: " . $this->db->connect_error);
         }
     }
+
+    public function insertUser($username, $email, $password){
+        $query = "INSERT INTO Utenti (Username, Email, Password) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss',$username, $email, $password);
+        return $stmt->execute();
+    }
+
+    public function login($username){
+        $query = "SELECT UserID, Username, Password FROM Utenti WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
 }

@@ -18,4 +18,10 @@
     </header>
 </section>
 
-<?php require("login-form.php");?>
+<?php
+if ($_SERVER["REQUEST_URI"] === "/login") {
+    require "form/login-form.php";
+} else {
+    require "form/register-form.php";
+}
+?>
