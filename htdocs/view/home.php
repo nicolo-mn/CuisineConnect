@@ -46,12 +46,28 @@
     document.addEventListener("DOMContentLoaded", function () {
         $(document).ready(function () {
             // Ascolta l'evento di sottoposizione del form
-            let form = $("#postForm");
+
+
             $("#post").on("click", function (event) {
                 // Esegui la validazione
                 if (validateForm()) {
+                    let form = $("#postForm")[0];
+                    let formData = new FormData(form);
                     // Se la validazione non passa, annulla la sottoposizione del form
-                    console.log("valido")
+                    $.ajax({
+                        type: "POST",
+                        url: "/submit-post", // Sostituisci con l'URL della tua route
+                        data: formData,
+                        processData: false,  // Non processare i dati (FormData si occupa di questo)
+                        contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (error) {
+                            // Gestisci gli errori della richiesta
+                            console.error("Errore nella richiesta AJAX: ", error);
+                        }
+                    });
                 }
             });
         });

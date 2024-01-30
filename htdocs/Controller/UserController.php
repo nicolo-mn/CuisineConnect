@@ -2,7 +2,6 @@
 include_once "SessionController.php";
 class UserController
 {
-
     public function __construct()
     {
     }
@@ -28,7 +27,7 @@ class UserController
         $db = $GLOBALS['db'];
         if($result = $db->login($request["username"])){
             $user = $result[0];
-            if ( password_verify($request["password"], $user["Password"])){
+            if (password_verify($request["password"], $user["Password"])){
                 SessionController::RegisterSession($user["UserID"], $request["username"]);
                 header("Location:/");
             }
