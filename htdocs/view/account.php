@@ -37,18 +37,11 @@
             </div>
         </div>
         <div class="row row-cols-3 pt-2">
+            <?php foreach((new UserController)->getPosts() as $post): ?>
             <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
+                <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
             </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
-            <div class="col g-0">
-                <img src="img/profile-pic.jpg" alt="food" class="img-fluid">
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 

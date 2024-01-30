@@ -27,6 +27,10 @@ $router->addRoute('GET', '/account', function () {
     (new UserController)->loadMyProfile();
 });
 
+$router->addRoute('GET', '/user/?', function () {
+    (new UserController)->loadUserProfile();
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     (new UserController())->registerUser($_POST);

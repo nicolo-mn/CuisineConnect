@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-primary">
-    <header>
+    <header class="container-fluid">
         <div class="row py-6 py-md-8 d-flex justify-content-between align-items-center">
             <!-- Navbar mobile -->
             <div class="col d-md-none">

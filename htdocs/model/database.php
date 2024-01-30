@@ -42,4 +42,13 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getPosts($UserID) {
+        $query = "SELECT * FROM Posts WHERE UserID = ? ORDER BY DataCreazione DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

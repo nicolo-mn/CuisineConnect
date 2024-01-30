@@ -71,4 +71,8 @@ CREATE TABLE IF NOT EXISTS Followers (
 -- Dati
 -- user: admin password: pass
 INSERT INTO Utenti (Username, Email, Nome, Bio, Password, ImmagineProfilo)
-VALUES ('admin', 'admin@email.com', 'Signor Admin', 'Ciao sono il signor Admin e sono il capo del dipartimento', '$2y$10$lZftLrWf7DjoyUVga25BM.OhZEPFwjsI9lO0alQ4tdHsiklsebbu.', 'path/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg');
+VALUES ('admin', 'admin@email.com', 'Signor Admin', 'Ciao sono il signor Admin e sono il capo del dipartimento', '$2y$10$lZftLrWf7DjoyUVga25BM.OhZEPFwjsI9lO0alQ4tdHsiklsebbu.', 'pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg');
+
+-- Posts
+INSERT INTO Posts (UserID, Titolo, Descrizione, Foto)
+VALUES (1, 'Titolo del Post', 'Ciao sono il direttore di dipartimento', 'pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg');
