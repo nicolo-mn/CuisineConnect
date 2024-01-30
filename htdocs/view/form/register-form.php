@@ -42,9 +42,6 @@
             var password = $("#password").val();
             var confirmPassword = $("#password2").val();
 
-            // Resetta gli errori
-            $(".error").html("");
-
             // Validazione Email
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
