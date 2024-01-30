@@ -38,7 +38,11 @@ class UserController
         /** @var Database $db */
         $db = $GLOBALS['db'];
         $user = $db->getUser($_SESSION["user_id"]);
-        // Renderer::render("account.php", $user);
+        // metti in templateparams
+        $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
+        //fai il render
+        var_dump($GLOBALS["templateParams"]);
+        Renderer::render("account.php");
     }
 
 }

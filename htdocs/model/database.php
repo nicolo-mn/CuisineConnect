@@ -33,4 +33,13 @@ class Database
         $stmt->bind_param('isss',$UserID, $Titolo, $Descrizione, $Foto);
         return $stmt->execute();
     }
+
+    public function getUser($UserID) {
+        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo FROM Utenti WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
