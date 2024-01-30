@@ -5,9 +5,9 @@
     font-weight: 300;
 }
 @media screen and (max-width: 768px) {
-    .profile-info {
-        position: absolute;
+    .abs-section {
         top: -100px;
+        position: absolute;
     }
     
     .description {
@@ -27,5 +27,11 @@
 
     .info-block {
         position: relative;
+    }
+
+    .expand-icon {
+        position: absolute;
+        top: -25px;
+        right: 100px;
     }
 }
