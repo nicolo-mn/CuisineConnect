@@ -23,12 +23,16 @@ $router->addRoute('GET', '/register', function () {
     Renderer::render("login.php");
 });
 
-$router->addRoute('GET', '/account', function () {
+$router->addRoute('GET', '/profile', function () {
     (new UserController)->loadMyProfile();
 });
 
 $router->addRoute('GET', '/user/?', function () {
     (new UserController)->loadUserProfile();
+});
+
+$router->addRoute('GET', '/editprofile', function () {
+    (new UserController)->loadEditProfile();
 });
 
 // POST routes

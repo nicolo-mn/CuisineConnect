@@ -39,7 +39,7 @@ class UserController
         $db = $GLOBALS['db'];
         $user = $db->getUser($_SESSION["user_id"]);
         $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
-        Renderer::render("account.php");
+        Renderer::render("profile.php");
     }
 
     public function loadUserProfile() {
@@ -47,7 +47,7 @@ class UserController
         $db = $GLOBALS['db'];
         $user = $db->getUser($_GET["Username"]);
         $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
-        Renderer::render("account.php");
+        Renderer::render("profile.php");
     }
 
     public function getPosts() {
@@ -55,6 +55,14 @@ class UserController
         $db = $GLOBALS['db'];
         $posts = $db->getPosts($GLOBALS["templateParams"]["UserID"]);
         return $posts;
+    }
+
+    public function loadEditProfile() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $user = $db->getUser($_SESSION["user_id"]);
+        $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
+        Renderer::render("editprofile.php");
     }
 
 }
