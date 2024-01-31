@@ -52,4 +52,9 @@ class UserController extends Controller
         }
     }
 
+    public function updateProfile($nome, $bio) {
+        $this->db->updateProfile(SessionController::getInstance()->getSessionUserID(), $nome, $bio);
+        header("Location:/profile");
+    }
+
 }

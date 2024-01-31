@@ -118,4 +118,11 @@ class Database
         $stmt->bind_param('ii',$followingUserID, $followedUserID);
         return $stmt->execute();
     }
+
+    public function updateProfile($UserID, $Nome, $Bio) {
+        $query = "UPDATE Utenti SET Nome = ?, Bio = ? WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssi',$Nome, $Bio, $UserID);
+        return $stmt->execute();
+    }
 }
