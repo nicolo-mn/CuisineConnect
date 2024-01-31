@@ -39,9 +39,22 @@ class UserController extends Controller
         Renderer::render("editprofile.php");
     }
 
-    public function isUserFollowed() {
-        $followed = $this->db->getFollowID($_SESSION["user_id"], $GLOBALS["templateParams"]["UserID"]);
+    public function isUserFollowed($followedUserID) {
+        $followed = $this->db->getFollowID($_SESSION["user_id"], $followedUserID);
         return !empty($followed);
+    }
+
+    public function changeUserFollowStatus($followedUserID) {
+        if($this->isUserFollowed($followedUserID)) {
+            $this->db->unfollowUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
+        } else {
+            $this->db->followUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
+        }
+    }
+
+    public function updateProfile($nome, $bio) {
+        $this->db->updateProfile(SessionController::getInstance()->getSessionUserID(), $nome, $bio);
+        header("Location:/profile");
     }
 
 }

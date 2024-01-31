@@ -1,5 +1,5 @@
 ::placeholder {
-    color: white;
+    color: white !important;
     font-style: italic;
     font-size: .9rem;
     font-weight: 300;

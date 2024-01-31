@@ -54,9 +54,9 @@
         }
         ?>
     </main>
-    <script src="./web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
+    <script src="/web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
     <script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
-    <script src="./web/js/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
     <script type="javascript">$=jquery</script>
 </body>
 

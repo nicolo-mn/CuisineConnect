@@ -1,46 +1,80 @@
 <?php $templateParams = $GLOBALS['templateParams']?>
-    <div class="col-md-8 mx-auto">
-        <div class="row d-flex align-items-center py-7">
-            <div class="col-4 col-md-3">
-                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture" class="img-fluid rounded-circle">
-            </div>
-            <section class="col-8 col-md-9">
-                <h2 class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
-                <section>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
-                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollower'] ?> <br> seguaci</p>
-                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
-                    </div>
-                </section>
+<div class="col-md-8 mx-auto">
+    <div class="row d-flex align-items-center py-7">
+        <div class="col-4 col-md-3">
+            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture" class="img-fluid rounded-circle">
+        </div>
+        <section class="col-8 col-md-9">
+            <h2 class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
+            <section>
+                <div class="d-flex justify-content-around align-items-center">
+                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollower'] ?> <br> seguaci</p>
+                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
+                </div>
             </section>
+        </section>
+    </div>
+    <div class="row">
+        <section class="d-flex flex-column">
+            <h2 class="text-white fs-lg pb-3"><?php echo $templateParams["Nome"]?></h2>
+            <p class="text-white fs-4">
+            <?php echo $templateParams["Bio"]?>
+            </p>
+            <?php if($templateParams["UserID"] != $_SESSION["user_id"]): ?>
+            <input type="submit" id="followBtn" value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Smetti di seguire" : "Segui" ?>" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
+            <?php endif; ?>
+        </section>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center align-items-center border-bottom py-3">
+            <i class="fa-solid fa-table-cells fa-2x text-white"></i>
         </div>
-        <div class="row">
-            <section class="d-flex flex-column">
-                <h2 class="text-white fs-lg pb-3"><?php echo $templateParams["Nome"]?></h2>
-                <p class="text-white fs-4">
-                <?php echo $templateParams["Bio"]?>
-                </p>
-                <?php if($templateParams["UserID"] != $_SESSION["user_id"]): ?>
-                <input type="submit" value="<?php echo UserController::getInstance()->isUserFollowed() ? "Smetti di seguire" : "Segui" ?>" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
-                <?php endif; ?>
-            </section>
-        </div>
-        <div class="row">
-            <div class="col-6 d-flex justify-content-center align-items-center border-bottom py-3">
-                <i class="fa-solid fa-table-cells fa-2x text-white"></i>
-            </div>
-            <div class="col-6 d-flex justify-content-center align-items-center py-3">
-                <i class="fa-solid fa-user-group fa-2x text-white"></i>
-            </div>
-        </div>
-        <div class="row row-cols-3 pt-2">
-            <?php foreach(PostController::getInstance()->getUserPosts() as $post): ?>
-            <div class="col g-0">
-                <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
-            </div>
-            <?php endforeach; ?>
+        <div class="col-6 d-flex justify-content-center align-items-center py-3">
+            <i class="fa-solid fa-user-group fa-2x text-white"></i>
         </div>
     </div>
+    <div class="row row-cols-3 pt-2">
+        <?php foreach(PostController::getInstance()->getUserPosts() as $post): ?>
+        <div class="col g-0">
+            <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $=jQuery;
+        $(document).ready(function () {
+            // Ascolta l'evento di sottoposizione del form
+
+
+            $("#followBtn").on("click", function (event) {
+                let form = $("#postForm")[0];
+                let formData = new FormData();
+                formData.append("UserID","<?php echo $templateParams["UserID"] ?>");
+                $.ajax({
+                    type: "POST",
+                    url: "/follow-unfollow", // Sostituisci con l'URL della tua route
+                    data: formData,
+                    processData: false,  // Non processare i dati (FormData si occupa di questo)
+                    contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
+                    success: function (response) {
+                        // console.log("Risultato: ", response);
+                        const newValue = $("#followBtn").val() === "Segui" ? "Smetti di seguire" : "Segui";
+                        $("#followBtn").val(newValue);
+                    },
+                    error: function (error) {
+                        // Gestisci gli errori della richiesta
+                        console.error("Errore nella richiesta AJAX: ", error);
+                    }
+                });
+            });
+        });
+
+    });
+
+</script>
     
