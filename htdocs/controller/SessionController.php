@@ -9,4 +9,12 @@ class SessionController extends Controller
         $_SESSION["username"] = $username;
         $_SESSION["user_id"] = $id;
     }
+
+    public function getSessionUser() {
+        if(isset($_SESSION["username"])){
+            return $_SESSION["username"];
+        }
+
+        return false;
+    }
 }

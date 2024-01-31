@@ -2,12 +2,29 @@
 class Database
 {
     private $db;
+    private static $instance;
+
     public function __construct($servername, $username, $password, $dbname, $port)
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
             die("Connection failed: " . $this->db->connect_error);
         }
+    }
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            $envVariables = parse_ini_file(__DIR__ . '/.env');
+            self::$instance = new self(
+                $envVariables["DB_HOST"],
+                $envVariables["DB_USER"],
+                $envVariables["DB_PASSWORD"],
+                $envVariables["DB_NAME"],
+                $envVariables["DB_PORT"],);
+        }
+
+        return self::$instance;
     }
 
     public function insertUser($username, $email, $password){

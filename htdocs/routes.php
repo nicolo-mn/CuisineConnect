@@ -3,8 +3,9 @@ require_once "core/Router.php";
 require_once "core/Renderer.php";
 require_once "Controller/UserController.php";
 require_once "Controller/PostController.php";
-$router = new Router();
+require_once "Controller/SessionController.php";
 
+$router = new Router();
 
 // GET routes
 $router->addRoute('GET', '/', function () {
@@ -24,11 +25,11 @@ $router->addRoute('GET', '/register', function () {
 });
 
 $router->addRoute('GET', '/profile', function () {
-    UserController::getInstance()->loadMyProfile();
+    UserController::getInstance()->loadUserProfile(SessionController::getInstance()->getSessionUser());
 });
 
 $router->addRoute('GET', '/user/{username}', function ($username) {
-    (new UserController)->loadUserProfile($username);
+    UserController::getInstance()->loadUserProfile($username);
 });
 
 $router->addRoute('GET', '/user\?name={name}&?surname={surname}', function ($name, $surname) {
