@@ -18,10 +18,15 @@ class Controller {
      * @return object|Controller
      */
     public static function getInstance() {
-        if ( !isset(self::$instance) ) {
-            $calledClass = get_called_class();
-            self::$instance = new $calledClass();
+        static $instances = array();
+
+        $calledClass = get_called_class();
+
+        if (!isset($instances[$calledClass]))
+        {
+            $instances[$calledClass] = new $calledClass();
         }
-        return self::$instance;
+
+        return $instances[$calledClass];
     }
 }
