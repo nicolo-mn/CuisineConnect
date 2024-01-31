@@ -1,9 +1,10 @@
 <?php
 
+require_once "./core/Controller.php";
 class ImageController {
     private const UPLOAD_DIR = "pub/media/";
 
-    private function addImage($image) {
+    public function addImage($image) {
         var_dump($image);
         $imageName = hash_file("sha256", $image["tmp_name"]);
         $path = self::UPLOAD_DIR.$imageName.".".pathinfo($image["name"], PATHINFO_EXTENSION);

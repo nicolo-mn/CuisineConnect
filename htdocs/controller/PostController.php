@@ -1,8 +1,9 @@
 <?php
 
 require_once "ImageController.php";
+require_once "./core/Controller.php";
 
-class PostController
+class PostController extends Controller
 {
     public function addPost($image) {
         $result = (new ImageController())->addImage($image);

@@ -24,25 +24,32 @@ $router->addRoute('GET', '/register', function () {
 });
 
 $router->addRoute('GET', '/profile', function () {
-    (new UserController)->loadMyProfile();
+    UserController::getInstance()->loadMyProfile();
 });
 
 $router->addRoute('GET', '/user/{username}', function ($username) {
     echo $username;
 });
 
+$router->addRoute('GET', '/user\?name={name}&?surname={surname}', function ($name, $surname) {
+    echo $name." ".$surname;
+});
+
 $router->addRoute('GET', '/editprofile', function () {
-    (new UserController)->loadEditProfile();
+    UserController::getInstance()->loadEditProfile();
 });
 
 // POST routes
 $router->addRoute('POST', '/register', function () {
-    (new UserController())->registerUser($_POST);
+    UserController::getInstance()->registerUser($_POST);
 });
 
 $router->addRoute('POST', '/login', function () {
-    (new UserController())->login($_POST);
+    UserController::getInstance()->login($_POST);
 });
 
+$router->addRoute('POST', '/submit-post', function () {
+    PostController::getInstance()->addPost($_FILES["file"]);
+});
 
 $router->matchRoute();

@@ -13,10 +13,10 @@ class Router
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $url = $_SERVER['REQUEST_URI'];
-        $names = [];
 
         if (isset($this->routes[$method])) {
             foreach ($this->routes[$method] as $routeUrl => $target) {
+                $names = [];
                 if (preg_match_all('/\{(\w+)(:[^}]+)?}/', trim($routeUrl, "/"), $matches)) {
                     $names = $matches[1];
                 }

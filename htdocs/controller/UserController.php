@@ -1,11 +1,8 @@
 <?php
 include_once "SessionController.php";
-class UserController
+require_once "./core/Controller.php";
+class UserController extends Controller
 {
-    public function __construct()
-    {
-    }
-
     public function registerUser($request): bool
     {
         /** @var Database $db */

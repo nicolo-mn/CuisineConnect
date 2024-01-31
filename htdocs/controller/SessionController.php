@@ -1,6 +1,8 @@
 <?php
 
-class SessionController
+require_once "./core/Controller.php";
+
+class SessionController extends Controller
 {
     public static function RegisterSession($id, $username)
     {
