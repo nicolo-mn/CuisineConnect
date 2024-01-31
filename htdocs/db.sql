@@ -10,7 +10,21 @@ CREATE TABLE IF NOT EXISTS Utenti (
     Nome VARCHAR(255) NOT NULL,
     Bio TEXT,
     Password VARCHAR(255) NOT NULL,
-    ImmagineProfilo VARCHAR(255)
+    ImmagineProfilo VARCHAR(255),
+    NumeroPost INT DEFAULT 0,
+    NumeroFollower INT DEFAULT 0,
+    NumeroFollowing INT DEFAULT 0
+);
+
+-- Tabella Ricette
+CREATE TABLE IF NOT EXISTS Ricette (
+    RecipeID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    Nome VARCHAR(255) NOT NULL,
+    Descrizione TEXT,
+    Ingredienti TEXT,
+    Procedimento TEXT,
+    FOREIGN KEY (UserID) REFERENCES Utenti(UserID)
 );
 
 -- Tabella Posts
@@ -20,43 +34,24 @@ CREATE TABLE IF NOT EXISTS Posts (
     Titolo VARCHAR(255) NOT NULL,
     Descrizione TEXT,
     Foto VARCHAR(255),
+    RecipeID INT,
     DataCreazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES Utenti(UserID)
-);
-
--- Tabella Ricette
-CREATE TABLE IF NOT EXISTS Ricette (
-    RecipeID INT PRIMARY KEY AUTO_INCREMENT,
-    PostID INT,
-    Nome VARCHAR(255) NOT NULL,
-    Descrizione TEXT,
-    FotoRealizzazione VARCHAR(255),
-    Ingredienti TEXT,
-    Procedimento TEXT,
-    FOREIGN KEY (PostID) REFERENCES Posts(PostID)
-);
-
--- Tabella Interazioni
-CREATE TABLE IF NOT EXISTS Interazioni (
-    InteractionID INT PRIMARY KEY AUTO_INCREMENT,
-    UserID INT,
-    PostID INT,
-    Tipo ENUM('Like', 'Commento') NOT NULL,
-    Testo TEXT,
-    DataInterazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (UserID) REFERENCES Utenti(UserID),
-    FOREIGN KEY (PostID) REFERENCES Posts(PostID)
+    FOREIGN KEY (RecipeID) REFERENCES Ricette(RecipeID)
 );
 
 -- Tabella Notifiche
 CREATE TABLE IF NOT EXISTS Notifiche (
     NotificationID INT PRIMARY KEY AUTO_INCREMENT,
-    UserID INT,
+    UserIDUtenteNotificato INT,
+    UserIDUtenteNotificante INT,
     Testo TEXT,
-    Link VARCHAR(255),
+    PostID INT,
+    Tipo ENUM('Like', 'Commento', 'Segui', 'Menzione') NOT NULL,
     DataNotifica TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Letta BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (UserID) REFERENCES Utenti(UserID)
+    FOREIGN KEY (UserIDUtenteNotificato) REFERENCES Utenti(UserID),
+    FOREIGN KEY (UserIDUtenteNotificante) REFERENCES Utenti(UserID)
 );
 
 -- Tabella Followers
