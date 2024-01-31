@@ -9,14 +9,24 @@ class Router {
     public function matchRoute() {
         $method = $_SERVER['REQUEST_METHOD'];
         $url = $_SERVER['REQUEST_URI'];
+        echo "url: ".$url;
+
         if (isset($this->routes[$method])) {
             foreach ($this->routes[$method] as $routeUrl => $target) {
-                // Use named subpatterns in the regular expression pattern to capture each parameter value separately
-                $pattern = preg_replace('/\/:([^\/]+)/', '/(?P<$1>[^/]+)', $routeUrl);
-                if (preg_match('#^' . $pattern . '$#', explode("?", $url, 2)[0], $matches)) {
-                    // Pass the captured parameter values as named arguments to the target function
-                    $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY); // Only keep named subpattern matches
-                    call_user_func_array($target, $params);
+                echo $routeUrl."<br>";
+                if (preg_match_all('/\{(\w+)(:[^}]+)?}/', trim($routeUrl,"/"), $matches)) {
+                    $names = $matches[1];
+                }
+                $regex = "@^" . preg_replace_callback('/\{\w+(:([^}]+))?}/', fn($m) => isset($m[2]) ? "({$m[2]})" : '(\w+)', trim($routeUrl, "/")) . "$@";
+
+
+                if (preg_match_all($regex, trim($url, '/'), $valueMatches)) {
+                    for ($i = 1; $i < count($valueMatches); $i++) {
+                        $values[] = $valueMatches[$i][0];
+                    }
+                    $routeParams = array_combine($names, $values);
+
+                    call_user_func_array($target, $routeParams);
                     return;
                 }
             }

@@ -27,8 +27,8 @@ $router->addRoute('GET', '/account', function () {
     (new UserController)->loadMyProfile();
 });
 
-$router->addRoute('GET', '/user/?', function () {
-    (new UserController)->loadUserProfile();
+$router->addRoute('GET', '/user/{username}', function ($username) {
+    echo $username;
 });
 
 // POST routes
