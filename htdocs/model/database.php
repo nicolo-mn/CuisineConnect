@@ -35,7 +35,7 @@ class Database
     }
 
     public function getUser($Username) {
-        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo FROM Utenti WHERE Username = ?";
+        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo, NumeroPost, NumeroFollowing, NumeroFollower FROM Utenti WHERE Username = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $Username);
         $stmt->execute();

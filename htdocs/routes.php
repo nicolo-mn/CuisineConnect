@@ -24,11 +24,11 @@ $router->addRoute('GET', '/register', function () {
 });
 
 $router->addRoute('GET', '/profile', function () {
-    UserController::getInstance()->loadMyProfile();
+    UserController::getInstance()->loadUserProfile($_SESSION["username"]);
 });
 
 $router->addRoute('GET', '/user/{username}', function ($username) {
-    (new UserController)->loadUserProfile($username);
+    UserController::getInstance()->loadUserProfile($username);
 });
 
 $router->addRoute('GET', '/user\?name={name}&?surname={surname}', function ($name, $surname) {
