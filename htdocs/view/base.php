@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Titolo</title>
-    <link rel="stylesheet" type="text/css" href="./web/bootstrap-5.0.2/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="./web/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/web/bootstrap-5.0.2/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/web/css/style.css" />
 
 </head>
 
@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-0 p-0">
+                        <a href="/profile" class="nav-link m-0 p-0">
                             <i class="fa-solid fa-user text-secondary bg-primary p-3 rounded-circle"></i>
                         </a>
                     </li>

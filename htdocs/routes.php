@@ -28,7 +28,7 @@ $router->addRoute('GET', '/profile', function () {
 });
 
 $router->addRoute('GET', '/user/{username}', function ($username) {
-    echo $username;
+    (new UserController)->loadUserProfile($username);
 });
 
 $router->addRoute('GET', '/user\?name={name}&?surname={surname}', function ($name, $surname) {
