@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Ricette (
 CREATE TABLE IF NOT EXISTS Posts (
     PostID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT NOT NULL,
+    Titolo VARCHAR(255) NOT NULL,
     Descrizione TEXT,
     Foto VARCHAR(255) NOT NULL,
     RecipeID INT,
@@ -70,10 +71,10 @@ VALUES ('user1', 'user1@email.com', 'Signor user1', 'Ciao sono il signor user1 e
        ('user3', 'user3@email.com', 'Signor user3', 'Ciao sono il signor user3', '$2y$10$lZftLrWf7DjoyUVga25BM.OhZEPFwjsI9lO0alQ4tdHsiklsebbu.', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 1, 0, 2);
 
 -- Posts
-INSERT INTO Posts (UserID, Descrizione, Foto, NumeroLike)
-VALUES (1, 'Ciao sono user1', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 2),
-       (2, 'Ciao sono user2', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 0),
-       (3, 'Ciao sono user3', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 0);
+INSERT INTO Posts (UserID, Titolo, Descrizione, Foto, NumeroLike)
+VALUES (1, 'TitoloPost', 'Ciao sono user1', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 2),
+       (2, 'TitoloPost', 'Ciao sono user2', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 0),
+       (3, 'TitoloPost', 'Ciao sono user3', '/pub/media/ff25b63820574d47939e01c9bd54d490dd70e52a2339fde21ec1be8a9aac4071.jpeg', 0);
 
 -- Followers
 INSERT INTO Followers (FollowedUserID, FollowingUserID)
