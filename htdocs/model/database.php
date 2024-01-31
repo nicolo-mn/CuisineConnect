@@ -104,4 +104,18 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function followUser($followingUserID, $followedUserID) {
+        $query = "INSERT INTO Followers (FollowingUserID, FollowedUserID) VALUES (?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$followingUserID, $followedUserID);
+        return $stmt->execute();
+    }
+
+    public function unfollowUser($followingUserID, $followedUserID) {
+        $query = "DELETE FROM Followers WHERE FollowingUserID = ? AND FollowedUserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$followingUserID, $followedUserID);
+        return $stmt->execute();
+    }
 }

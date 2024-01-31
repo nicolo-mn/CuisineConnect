@@ -53,4 +53,8 @@ $router->addRoute('POST', '/submit-post', function () {
     PostController::getInstance()->addPost($_FILES["file"]);
 });
 
+$router->addRoute('POST', '/follow-unfollow', function () {
+    UserController::getInstance()->changeUserFollowStatus($_POST["UserID"]);
+});
+
 $router->matchRoute();
