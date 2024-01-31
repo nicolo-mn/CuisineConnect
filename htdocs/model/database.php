@@ -34,10 +34,10 @@ class Database
         return $stmt->execute();
     }
 
-    public function getUser($UserID) {
-        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo FROM Utenti WHERE UserID = ?";
+    public function getUser($Username) {
+        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo FROM Utenti WHERE Username = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$UserID);
+        $stmt->bind_param('s', $Username);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -45,6 +45,33 @@ class Database
 
     public function getPosts($UserID) {
         $query = "SELECT * FROM Posts WHERE UserID = ? ORDER BY DataCreazione DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getFollowers($UserID) {
+        $query = "SELECT NumeroFollower FROM Utenti WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);    
+    }
+
+    public function getFollowing($UserID) {
+        $query = "SELECT NumeroFollowing FROM Utenti WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getPostsNumber($UserID) {
+        $query = "SELECT NumeroPost FROM Utenti WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$UserID);
         $stmt->execute();

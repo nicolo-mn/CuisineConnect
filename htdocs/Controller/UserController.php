@@ -37,15 +37,15 @@ class UserController
     public function loadMyProfile() {
         /** @var Database $db */
         $db = $GLOBALS['db'];
-        $user = $db->getUser($_SESSION["user_id"]);
+        $user = $db->getUser($_SESSION["username"]);
         $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
         Renderer::render("profile.php");
     }
 
-    public function loadUserProfile() {
+    public function loadUserProfile($username) {
         /** @var Database $db */
         $db = $GLOBALS['db'];
-        $user = $db->getUser($_GET["Username"]);
+        $user = $db->getUser($username);
         $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
         Renderer::render("profile.php");
     }
@@ -60,9 +60,30 @@ class UserController
     public function loadEditProfile() {
         /** @var Database $db */
         $db = $GLOBALS['db'];
-        $user = $db->getUser($_SESSION["user_id"]);
+        $user = $db->getUser($_SESSION["username"]);
         $GLOBALS["templateParams"] = array_merge($GLOBALS["templateParams"], $user[0]);
         Renderer::render("editprofile.php");
+    }
+
+    public function getFollowers() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $followers = $db->getFollowers($GLOBALS["templateParams"]["UserID"])[0]["NumeroFollower"];
+        return $followers;
+    }
+
+    public function getFollowing() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $followed = $db->getFollowing($GLOBALS["templateParams"]["UserID"])[0]["NumeroFollowing"];
+        return $followed;
+    }
+
+    public function getPostsNumber() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $posts = $db->getPostsNumber($GLOBALS["templateParams"]["UserID"])[0]["NumeroPost"];
+        return $posts;
     }
 
 }
