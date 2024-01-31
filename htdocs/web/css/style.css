@@ -4,6 +4,34 @@
     font-size: .9rem;
     font-weight: 300;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+.profile-pic-container {
+    height: 75px;
+    width: 75px;
+}
+
+img {
+    object-fit: cover;
+}
+
+#feed {
+    display: flex;
+    flex-direction: column;
+
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
+
+#feed > section {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
 @media screen and (max-width: 768px) {
     .abs-section {
         top: -100px;

@@ -60,10 +60,19 @@ class Database
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getPosts($UserID) {
+    public function getUserPosts($UserID) {
         $query = "SELECT * FROM Posts WHERE UserID = ? ORDER BY DataCreazione DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getPosts($userID) {
+        $query = "SELECT * FROM Posts WHERE Posts.UserID in (SELECT FollowedUserID from Followers where FollowingUserID=?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$userID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -100,6 +109,17 @@ class Database
         $query = "SELECT * FROM Followers WHERE FollowingUserID = ? AND FollowedUserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$followingUserID, $followedUserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCommentsFromPost($postID)
+    {
+
+        $query = "SELECT Notifiche.*, Utenti.Username, Utenti.ImmagineProfilo FROM Notifiche, Utenti WHERE Tipo='Commento' and PostID=? AND UtenteNotificanteUserID = Utenti.UserID";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $postID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

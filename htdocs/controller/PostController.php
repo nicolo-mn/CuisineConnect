@@ -1,6 +1,7 @@
 <?php
 
 require_once "ImageController.php";
+require_once "InteractionController.php";
 require_once "./core/Controller.php";
 
 class PostController extends Controller
@@ -15,12 +16,16 @@ class PostController extends Controller
     }
 
     public function getUserPosts() {
-        /** @var Database $db */
-        $posts = $this->db->getPosts($GLOBALS["templateParams"]["UserID"]);
+        $posts = $this->db->getUserPosts($GLOBALS["templateParams"]["UserID"]);
         return $posts;
     }
 
     public function getPosts() {
+        $posts = $this->db->getPosts(SessionController::getInstance()->getSessionUserID());
+        foreach ($posts as &$post) {
+            $post["Commenti"] = InteractionController::getInstance()->getCommentsFromPost($post["PostID"]);
+        }
 
+        return $posts;
     }
 }

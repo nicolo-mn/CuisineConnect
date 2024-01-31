@@ -7,7 +7,7 @@ class Controller {
      */
     private static object $instance;
 
-    protected $db;
+    protected Database $db;
 
     /**
      * Costruttore privato per prevenire che venga istanziato da codice esterno.

@@ -9,9 +9,9 @@
 
 </head>
 
-<body class="bg-primary">
+<body class="bg-primary d-flex flex-column">
     <header class="container-fluid">
-        <div class="row py-6 py-md-8 d-flex justify-content-between align-items-center">
+        <div class="row py-3 d-flex justify-content-between align-items-center">
             <!-- Navbar mobile -->
             <div class="col d-md-none">
                 <i class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></i>
@@ -48,7 +48,7 @@
             </div>
         </div>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid flex-grow-1 overflow-hidden">
         <?php if (isset($templateParams["nome"])) {
             require($templateParams["nome"]);
         }
