@@ -8,9 +8,9 @@
                 <h2 class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
                 <section>
                     <div class="d-flex justify-content-around align-items-center">
-                        <p class="text-white text-center fs-3"><?php echo (new UserController)->getPostsNumber() ?> <br> posts</p>
-                        <p class="text-white text-center fs-3"><?php echo (new UserController)->getFollowers() ?> <br> seguaci</p>
-                        <p class="text-white text-center fs-3"><?php echo (new UserController)->getFollowing() ?> <br> seguiti</p>
+                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollower'] ?> <br> seguaci</p>
+                        <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
                     </div>
                 </section>
             </section>
@@ -22,7 +22,7 @@
                 <?php echo $templateParams["Bio"]?>
                 </p>
                 <?php if($templateParams["UserID"] != $_SESSION["user_id"]): ?>
-                <input type="submit" value="Segui" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
+                <input type="submit" value="<?php echo UserController::getInstance()->isUserFollowed() ? "Smetti di seguire" : "Segui" ?>" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
                 <?php endif; ?>
             </section>
         </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row row-cols-3 pt-2">
-            <?php foreach((new UserController)->getPosts() as $post): ?>
+            <?php foreach(PostController::getInstance()->getUserPosts() as $post): ?>
             <div class="col g-0">
                 <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
             </div>

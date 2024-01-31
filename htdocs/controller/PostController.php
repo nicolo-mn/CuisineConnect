@@ -14,6 +14,13 @@ class PostController extends Controller
         }
     }
 
+    public function getUserPosts() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $posts = $db->getPosts($GLOBALS["templateParams"]["UserID"]);
+        return $posts;
+    }
+
     public function getPosts() {
 
     }

@@ -52,7 +52,7 @@ class Database
     }
 
     public function getUser($Username) {
-        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo FROM Utenti WHERE Username = ?";
+        $query = "SELECT UserID, Username, Email, Nome, Bio, ImmagineProfilo, NumeroPost, NumeroFollowing, NumeroFollower FROM Utenti WHERE Username = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $Username);
         $stmt->execute();
@@ -91,6 +91,15 @@ class Database
         $query = "SELECT NumeroPost FROM Utenti WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getFollowID($followingUserID, $followedUserID) {
+        $query = "SELECT * FROM Followers WHERE FollowingUserID = ? AND FollowedUserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$followingUserID, $followedUserID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
