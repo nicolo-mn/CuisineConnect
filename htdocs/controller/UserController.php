@@ -83,4 +83,11 @@ class UserController extends Controller
         return $posts;
     }
 
+    public function isUserFollowed() {
+        /** @var Database $db */
+        $db = $GLOBALS['db'];
+        $followed = $db->getFollowID($_SESSION["user_id"], $GLOBALS["templateParams"]["UserID"]);
+        return !empty($followed);
+    }
+
 }

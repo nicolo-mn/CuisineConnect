@@ -13,7 +13,7 @@ class Router
     {
         $method = $_SERVER['REQUEST_METHOD'];
         $url = $_SERVER['REQUEST_URI'];
-
+        
         if (isset($this->routes[$method])) {
             foreach ($this->routes[$method] as $routeUrl => $target) {
                 $names = [];

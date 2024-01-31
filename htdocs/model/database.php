@@ -78,4 +78,13 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getFollowID($followingUserID, $followedUserID) {
+        $query = "SELECT * FROM Followers WHERE FollowingUserID = ? AND FollowedUserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$followingUserID, $followedUserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

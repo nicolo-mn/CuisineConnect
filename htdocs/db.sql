@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS Notifiche (
 
 -- Tabella Followers
 CREATE TABLE IF NOT EXISTS Followers (
-    FollowerID INT PRIMARY KEY AUTO_INCREMENT,
+    FollowID INT PRIMARY KEY AUTO_INCREMENT,
     FollowedUserID INT NOT NULL,
     FollowingUserID INT NOT NULL,
     FOREIGN KEY (FollowedUserID) REFERENCES Utenti(UserID),
