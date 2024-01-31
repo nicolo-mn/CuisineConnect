@@ -13,7 +13,7 @@ class Controller {
      * Costruttore privato per prevenire che venga istanziato da codice esterno.
      */
     private function __construct() {
-        $db = Database::getInstance();
+        $this->db = Database::getInstance();
     }
 
     /**
