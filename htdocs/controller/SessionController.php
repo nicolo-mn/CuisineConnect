@@ -17,4 +17,12 @@ class SessionController extends Controller
 
         return false;
     }
+
+    public function getSessionUserID() {
+        if(isset($_SESSION["user_id"])){
+            return $_SESSION["user_id"];
+        }
+
+        return false;
+    }
 }
