@@ -15,7 +15,7 @@ class Database
     public static function getInstance()
     {
         if (self::$instance === null) {
-            $envVariables = parse_ini_file(__DIR__ . '/.env');
+            $envVariables = parse_ini_file('.env');
             self::$instance = new self(
                 $envVariables["DB_HOST"],
                 $envVariables["DB_USER"],
