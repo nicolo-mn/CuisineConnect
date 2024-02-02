@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let form = $("#postForm")[0];
             let formData = new FormData();
             let username = document.getElementById("username").innerText.replace(/@/g, '');;
-            formData.append("UserID", username);
+            formData.append("username", username);
             $.ajax({
                 type: "POST",
                 url: "/follow-unfollow", // Sostituisci con l'URL della tua route

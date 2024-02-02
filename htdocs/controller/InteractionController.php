@@ -6,4 +6,8 @@ class InteractionController extends Controller {
     public function getCommentsFromPost($postID){
         return $this->db->getCommentsFromPost($postID);
     }
+
+    public function notifyFollow($followingUserID, $followedUserID) {
+        return $this->db->notifyFollow($followingUserID, $followedUserID);
+    }
 }

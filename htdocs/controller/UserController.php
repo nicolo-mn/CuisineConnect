@@ -49,7 +49,7 @@ class UserController extends Controller
             $this->db->unfollowUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
         } else {
             $this->db->followUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
-            
+            InteractionController::getInstance()->notifyFollow(SessionController::getInstance()->getSessionUserID(), $followedUserID);
         }
     }
 
@@ -61,5 +61,10 @@ class UserController extends Controller
     public function searchUserFromString($searchString, $username) {
         $users = $this->db->searchUserFromString($searchString, $username);
         echo json_encode(array_values($users));
+    }
+
+    public function getUserID($username) {
+        $user = $this->db->getUser($username);
+        return $user[0]["UserID"];
     }
 }

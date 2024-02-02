@@ -155,4 +155,11 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function notifyFollow($followingUserID, $followedUserID) {
+        $query = "INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID) VALUES (?, ?, 'Follow', NULL)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii',$followedUserID, $followingUserID);
+        return $stmt->execute();
+    }
 }
