@@ -157,9 +157,32 @@ class Database
     }
 
     public function notifyFollow($followingUserID, $followedUserID) {
-        $query = "INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID) VALUES (?, ?, 'Follow', NULL)";
+        $query = "INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID) VALUES (?, ?, 'Segui', NULL)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$followedUserID, $followingUserID);
+        return $stmt->execute();
+    }
+
+    public function getNotifications($UserID) {
+        $query = "SELECT Notifiche.*, Utenti.Nome, Utenti.Username, Utenti.ImmagineProfilo, Posts.PostID, Posts.Foto
+                  FROM Notifiche
+                  JOIN Utenti ON Utenti.UserID = Notifiche.UtenteNotificanteUserID
+                  LEFT JOIN Posts ON Notifiche.PostID = Posts.PostID
+                  WHERE Notifiche.UtenteNotificatoUserID = ?
+                  ORDER BY Notifiche.DataNotifica DESC;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function readNotifications($UserID) {
+        $query = "UPDATE Notifiche 
+                  WHERE UtenteNotificatoUserID = ?
+                  SET Letta = 1;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
         return $stmt->execute();
     }
 }

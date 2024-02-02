@@ -44,6 +44,10 @@ $router->addRoute('GET', '/search', function () {
     Renderer::render("search.php");
 });
 
+$router->addRoute('GET', '/notifications', function () {
+    InteractionController::getInstance()->loadNotifications();
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     UserController::getInstance()->registerUser($_POST);
