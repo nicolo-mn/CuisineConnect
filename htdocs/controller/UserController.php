@@ -49,6 +49,7 @@ class UserController extends Controller
             $this->db->unfollowUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
         } else {
             $this->db->followUser(SessionController::getInstance()->getSessionUserID(), $followedUserID);
+            
         }
     }
 
