@@ -66,7 +66,7 @@ $router->addRoute('POST', '/update-profile', function () {
 });
 
 $router->addRoute('POST', '/search-user', function () {
-    UserController::getInstance()->searchUserFromString($_POST["searchString"], $_POST["username"]);
+    UserController::getInstance()->searchUserFromString($_POST["searchString"], $_SESSION["username"]);
 }); 
 
 $router->matchRoute();

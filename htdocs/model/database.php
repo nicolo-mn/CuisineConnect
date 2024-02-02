@@ -145,4 +145,14 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function searchUserFromString($searchString, $username) {
+        $query = "SELECT Username, ImmagineProfilo FROM Utenti WHERE Username LIKE ? AND Username != ?";
+        $stmt = $this->db->prepare($query);
+        $searchString = "%".$searchString."%";
+        $stmt->bind_param('ss', $searchString, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
