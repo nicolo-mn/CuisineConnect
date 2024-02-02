@@ -179,8 +179,8 @@ class Database
 
     public function readNotifications($UserID) {
         $query = "UPDATE Notifiche 
-                  WHERE UtenteNotificatoUserID = ?
-                  SET Letta = 1;";
+                  SET Letta = 1
+                  WHERE UtenteNotificatoUserID = ?;";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $UserID);
         return $stmt->execute();
