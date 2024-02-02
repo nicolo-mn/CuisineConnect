@@ -58,7 +58,7 @@ $router->addRoute('POST', '/submit-post', function () {
 });
 
 $router->addRoute('POST', '/follow-unfollow', function () {
-    UserController::getInstance()->changeUserFollowStatus($_POST["UserID"]);
+    UserController::getInstance()->changeUserFollowStatus($_SESSION["user_id"]);
 });
 
 $router->addRoute('POST', '/update-profile', function () {
