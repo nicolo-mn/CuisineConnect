@@ -40,6 +40,10 @@ $router->addRoute('GET', '/editprofile', function () {
     UserController::getInstance()->loadEditProfile();
 });
 
+$router->addRoute('GET', '/search', function () {
+    Renderer::render("search.php");
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     UserController::getInstance()->registerUser($_POST);
@@ -60,5 +64,9 @@ $router->addRoute('POST', '/follow-unfollow', function () {
 $router->addRoute('POST', '/update-profile', function () {
     UserController::getInstance()->updateProfile($_POST["nome"], $_POST["bio"]);
 });
+
+$router->addRoute('POST', '/search-user', function () {
+    UserController::getInstance()->searchUserFromString($_POST["searchString"], $_POST["username"]);
+}); 
 
 $router->matchRoute();

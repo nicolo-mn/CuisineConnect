@@ -57,4 +57,17 @@ class UserController extends Controller
         header("Location:/profile");
     }
 
+    public function searchUserFromString($searchString, $username) {
+        $users = $this->db->searchUserFromString($searchString, $username);
+        foreach ($users as $key => $user) {
+            echo '<div class="row user-searched">
+                    <section class="d-flex justify-content-start py-3 align-items-center">
+                        <img src="' . $user["ImmagineProfilo"] . '" alt="" class="img-fluid rounded-circle col-1 me-3">
+                        <p class="text-white m-0">
+                            @' . $user["Username"] . '
+                        </p>
+                    </section>
+                  </div><br>';
+        }
+    }
 }
