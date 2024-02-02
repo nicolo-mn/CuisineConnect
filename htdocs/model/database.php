@@ -118,14 +118,34 @@ class Database
         $query = "INSERT INTO Followers (FollowingUserID, FollowedUserID) VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$followingUserID, $followedUserID);
-        return $stmt->execute();
+        $stmt->execute();
+
+        $query = "UPDATE Utenti SET NumeroFollower = NumeroFollower + 1 WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$followedUserID);
+        $stmt->execute();
+
+        $query = "UPDATE Utenti SET NumeroFollowing = NumeroFollowing + 1 WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$followingUserID);
+        $stmt->execute();
     }
 
     public function unfollowUser($followingUserID, $followedUserID) {
         $query = "DELETE FROM Followers WHERE FollowingUserID = ? AND FollowedUserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii',$followingUserID, $followedUserID);
-        return $stmt->execute();
+        $stmt->execute();
+
+        $query = "UPDATE Utenti SET NumeroFollower = NumeroFollower - 1 WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$followedUserID);
+        $stmt->execute();
+
+        $query = "UPDATE Utenti SET NumeroFollowing = NumeroFollowing - 1 WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$followingUserID);
+        $stmt->execute();
     }
 
     public function updateProfile($UserID, $Nome, $Bio) {

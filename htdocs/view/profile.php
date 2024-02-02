@@ -2,14 +2,14 @@
 <div class="col-md-8 mx-auto">
     <div class="row d-flex align-items-center py-7">
         <div class="col-4 col-md-3">
-            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture" class="img-fluid rounded-circle">
+            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
         </div>
         <section class="col-8 col-md-9">
             <h2 id="username" class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
             <section>
                 <div class="d-flex justify-content-around align-items-center">
                     <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollower'] ?> <br> seguaci</p>
+                    <p class="text-white text-center fs-3"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
                     <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
                 </div>
             </section>

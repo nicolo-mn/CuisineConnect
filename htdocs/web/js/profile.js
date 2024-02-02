@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    $=jQuery;
     $(document).ready(function () {
         $("#followBtn").on("click", function (event) {
             let form = $("#postForm")[0];
@@ -13,9 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 processData: false,  // Non processare i dati (FormData si occupa di questo)
                 contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
                 success: function (response) {
-                    // console.log("Risultato: ", response);
-                    const newValue = $("#followBtn").val() === "Segui" ? "Smetti di seguire" : "Segui";
-                    $("#followBtn").val(newValue);
+                    let newValue;
+                    let followers = parseInt(document.getElementById("followers").innerHTML);
+                    if (document.getElementById("followBtn").value === "Segui") {
+                        newValue = "Smetti di seguire";
+                        followers++;
+                    } else {
+                        newValue = "Segui";
+                        followers--;
+                    }
+                    document.getElementById("followers").innerHTML = followers;
+                    document.getElementById("followBtn").value = newValue;
                 },
                 error: function (error) {
                     // Gestisci gli errori della richiesta

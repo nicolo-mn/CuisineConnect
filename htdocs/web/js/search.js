@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         `;
                     });
                     document.getElementById("searchResults").innerHTML = result;
+                    console.log("Risultato: ", response);
                 },
                 error: function(error) {
                     console.error("Errore nella richiesta AJAX: ", error);
