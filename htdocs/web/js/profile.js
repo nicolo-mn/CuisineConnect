@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     processData: false, 
                     contentType: false,  
                     success: function (response) {
-                        console.log(response);
                         const posts = JSON.parse(response);
                         let result = "";
                         posts.forEach(post => {
@@ -72,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             loadPosts("posted");
         });
+
+        loadPosts("posted");
     });
 
 });

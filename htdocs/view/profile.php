@@ -27,7 +27,7 @@
         </section>
     </div>
     <div class="row">
-        <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
+        <a href="#" class="text-decoration-none col-6" id="posted">
             <div class="d-flex justify-content-center align-items-center py-3">
                 <i class="fa-solid fa-table-cells fa-2x text-white"></i>
             </div>
@@ -38,13 +38,7 @@
             </div>
         </a>
     </div>
-    <div class="row row-cols-3 pt-2" id="post-tab">
-        <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
-        <div class="col g-0">
-            <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
-        </div>
-        <?php endforeach; ?>
-    </div>
+    <div class="row row-cols-3 pt-2" id="post-tab"></div>
 </div>
 
 
