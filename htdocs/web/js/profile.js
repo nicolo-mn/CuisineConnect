@@ -71,8 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             loadPosts("posted");
         });
-
-        loadPosts("posted");
     });
 
 });
