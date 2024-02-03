@@ -205,4 +205,17 @@ class Database
         $stmt->bind_param('i', $UserID);
         return $stmt->execute();
     }
+
+    public function getMentionedPosts($UserID) {
+        $query = "SELECT Posts.*
+                  FROM Posts, Notifiche
+                  WHERE Posts.PostID = Notifiche.PostID
+                  AND Notifiche.UtenteNotificatoUserID = ?
+                  AND Notifiche.Tipo = 'Menzione'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

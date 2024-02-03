@@ -39,7 +39,7 @@
         </a>
     </div>
     <div class="row row-cols-3 pt-2" id="post-tab">
-        <?php foreach(PostController::getInstance()->getUserPosts() as $post): ?>
+        <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
         <div class="col g-0">
             <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
         </div>

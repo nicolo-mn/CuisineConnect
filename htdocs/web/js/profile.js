@@ -25,36 +25,52 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("followBtn").value = newValue;
                 },
                 error: function (error) {
-                    // Gestisci gli errori della richiesta
                     console.error("Errore nella richiesta AJAX: ", error);
                 }
             });
         });
 
-        $("#mentioned").on("click", function (event) {
-            event.preventDefault();
-            if (!$(this).hasClass('border-bottom')) {
+        const loadPosts = (clickedTab) => {
+            if (!$("#" + clickedTab).hasClass('border-bottom')) {
                 $(".border-bottom").removeClass('border-bottom');
-                $(this).addClass('border-bottom');
-                let username = document.getElementById("username").innerText.replace(/@/g, '');
+                $("#" + clickedTab).addClass('border-bottom');
                 let formData = new FormData();
+                let username = document.getElementById("username").innerText.replace(/@/g, '');;
                 formData.append("username", username);
                 $.ajax({
                     type: "POST",
-                    url: "/mentioned-posts", 
+                    url: "/" + clickedTab + "-posts", 
                     data: formData,
                     processData: false, 
-                    contentType: false, 
+                    contentType: false,  
                     success: function (response) {
                         console.log(response);
+                        const posts = JSON.parse(response);
+                        let result = "";
+                        posts.forEach(post => {
+                            result += `
+                            <div class="col g-0">
+                                <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                            </div>
+                            `;
+                        });
+                        $("#post-tab").html(result);
                     },
                     error: function (error) {
-                        // Gestisci gli errori della richiesta
                         console.error("Errore nella richiesta AJAX: ", error);
                     }
                 });
             }
+        }
 
+        $("#mentioned").on("click", function (event) {
+            event.preventDefault();
+            loadPosts("mentioned");
+        });
+
+        $("#posted").on("click", function (event) { 
+            event.preventDefault();
+            loadPosts("posted");
         });
     });
 

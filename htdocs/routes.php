@@ -73,4 +73,16 @@ $router->addRoute('POST', '/search-user', function () {
     UserController::getInstance()->searchUserFromString($_POST["searchString"], $_SESSION["username"]);
 }); 
 
+$router->addRoute('POST', '/mentioned-posts', function () {
+    $UserID = UserController::getInstance()->getUserID($_POST["username"]);
+    PostController::getInstance()->getMentionedPosts($UserID);
+});
+
+$router->addRoute('POST', '/posted-posts', function () {
+    $UserID = UserController::getInstance()->getUserID($_POST["username"]);
+    echo json_encode(PostController::getInstance()->getUserPosts($UserID));
+});
+
+
+
 $router->matchRoute();
