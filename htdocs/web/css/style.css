@@ -10,6 +10,7 @@ body {
     height: 100%;
 }
 
+
 .profile-pic-container {
     height: 75px;
     width: 75px;
@@ -22,7 +23,7 @@ img {
 #feed {
     display: flex;
     flex-direction: column;
-
+    
     scroll-snap-type: y mandatory;
     overflow-y: auto;
 }
@@ -31,6 +32,10 @@ img {
     flex-shrink: 0;
     scroll-snap-align: start;
 }
+
+/* .current-tab{
+    border-bottom: 2px solid white !important;
+} */
 
 @media screen and (max-width: 768px) {
     .abs-section {

@@ -30,6 +30,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
+        $("#mentioned").on("click", function (event) {
+            event.preventDefault();
+            if (!$(this).hasClass('border-bottom')) {
+                $(".border-bottom").removeClass('border-bottom');
+                $(this).addClass('border-bottom');
+                let username = document.getElementById("username").innerText.replace(/@/g, '');
+                let formData = new FormData();
+                formData.append("username", username);
+                $.ajax({
+                    type: "POST",
+                    url: "/mentioned-posts", 
+                    data: formData,
+                    processData: false, 
+                    contentType: false, 
+                    success: function (response) {
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        // Gestisci gli errori della richiesta
+                        console.error("Errore nella richiesta AJAX: ", error);
+                    }
+                });
+            }
+
+        });
     });
 
 });
