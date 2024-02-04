@@ -307,6 +307,40 @@ $spacers: (
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 // scss-docs-end spacer-variables-maps
 
+// scss-docs-start sizes-map
+$default-size: 1rem !default;
+
+$size-values: (
+  1: $default-size,
+  2: $default-size * 2,
+  3: $default-size * 3,
+  4: $default-size * 4,
+  5: $default-size * 5,
+  6: $default-size * 6,
+  7: $default-size * 7,
+  8: $default-size * 8,
+  9: $default-size * 9,
+  10: $default-size * 10,
+  11: $default-size * 11,
+  12: $default-size * 12,
+  13: $default-size * 13,
+  14: $default-size * 14,
+  15: $default-size * 15,
+  16: $default-size * 16,
+  17: $default-size * 17,
+  18: $default-size * 18,
+  19: $default-size * 19,
+  20: $default-size * 20,
+  1\/5: 20%,
+  1\/4: 25%,
+  1\/2: 50%,
+  3\/4: 75%,
+  4\/5: 80%,
+  100: 100%,
+  auto: auto
+) !default;
+// scss-docs-end sizes-map
+
 // Position
 //
 // Define the edge positioning anchors of the position utilities.

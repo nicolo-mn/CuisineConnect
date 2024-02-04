@@ -70,9 +70,15 @@ class Database
     }
 
     public function getPosts($userID) {
-        $query = "SELECT * FROM Posts WHERE Posts.UserID in (SELECT FollowedUserID from Followers where FollowingUserID=?);";
+        $query = "SELECT p.*, u.Username, u.ImmagineProfilo, (SELECT count(*) from Notifiche 
+                                                            WHERE UtenteNotificanteUserID = ? 
+                                                              and Tipo = \"like\" 
+                                                              and PostID = p.PostID) as isLike 
+FROM Posts p, Utenti u 
+WHERE p.UserID in (SELECT FollowedUserID from Followers where FollowingUserID=?) 
+  and u.UserID = p.UserID;";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$userID);
+        $stmt->bind_param('ii',$userID, $userID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

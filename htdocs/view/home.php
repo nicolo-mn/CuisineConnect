@@ -101,3 +101,32 @@ $posts = PostController::getInstance()->getPosts();
     });
 
 </script>
+
+<script>
+    function toggleDescription(postId) {
+        let post = $("#"+postId)[0];
+        console.log(post);
+        let image = $(post).find(".post-image")[0];
+        let content = $(post).find(".post-content")[0];
+        let description =$(content).find(".description")[0];
+
+        if($(image).hasClass("h-4/5")) {
+            $(image).removeClass("h-4/5");
+            $(content).removeClass("h-1/5");
+
+            $(image).addClass("h-1/5", 300, "swing");
+            $(content).addClass("h-4/5", 300, "swing");
+            $(description).removeClass("text-nowrap");
+        } else {
+            $(image).removeClass("h-1/5");
+            $(content).removeClass("h-4/5");
+
+            $(image).addClass("h-4/5");
+            $(content).addClass("h-1/5");
+            $(description).addClass("text-nowrap");
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function (){
+
+    });
+</script>

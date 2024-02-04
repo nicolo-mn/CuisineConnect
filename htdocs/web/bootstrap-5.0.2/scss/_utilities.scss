@@ -53,6 +53,7 @@ $utilities: map-merge(
     // scss-docs-end utils-shadow
     // scss-docs-start utils-position
     "position": (
+      responsive: true,
       property: position,
       values: static relative absolute fixed sticky
     ),
@@ -136,15 +137,10 @@ $utilities: map-merge(
     // Sizing utilities
     // scss-docs-start utils-sizing
     "width": (
+      responsive: true,
       property: width,
       class: w,
-      values: (
-        25: 25%,
-        50: 50%,
-        75: 75%,
-        100: 100%,
-        auto: auto
-      )
+      values: $size-values
     ),
     "max-width": (
       property: max-width,
@@ -162,15 +158,10 @@ $utilities: map-merge(
       values: (100: 100vw)
     ),
     "height": (
+      responsive: true,
       property: height,
       class: h,
-      values: (
-        25: 25%,
-        50: 50%,
-        75: 75%,
-        100: 100%,
-        auto: auto
-      )
+      values: $size-values
     ),
     "max-height": (
       property: max-height,
@@ -483,6 +474,7 @@ $utilities: map-merge(
       values: lowercase uppercase capitalize
     ),
     "white-space": (
+      responsive: true,
       property: white-space,
       class: text,
       values: (

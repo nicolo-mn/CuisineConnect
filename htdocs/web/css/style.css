@@ -10,9 +10,14 @@ body {
     height: 100%;
 }
 
+.profile-pic-wrapper {
+    height: 80px;
+    width: 80px;
+}
+
 .profile-pic-container {
-    height: 75px;
-    width: 75px;
+    height: 72px;
+    width: 72px;
 }
 
 img {
@@ -27,9 +32,17 @@ img {
     overflow-y: auto;
 }
 
-#feed > section {
+#feed > article {
     flex-shrink: 0;
     scroll-snap-align: start;
+}
+
+.post-image.inactive {
+    height: 20% !important;
+}
+
+.post-content.active {
+    height: 80% !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -37,29 +50,26 @@ img {
         top: -100px;
         position: absolute;
     }
-    
+
     .description {
         overflow: hidden;
-        text-wrap: nowrap;
         text-overflow: ellipsis;
     }
-    
+
     .nav-post {
         position: fixed;
         width: 100%;
     }
-    
+
     .post {
         height: 100vh;
-    }    
+    }
 
     .info-block {
         position: relative;
     }
 
     .expand-icon {
-        position: absolute;
-        top: -25px;
-        right: 100px;
+        transform: translate(0, -50%);
     }
 }

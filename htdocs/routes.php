@@ -32,8 +32,8 @@ $router->addRoute('GET', '/user/{username}', function ($username) {
     UserController::getInstance()->loadUserProfile($username);
 });
 
-$router->addRoute('GET', '/user\?name={name}&?surname={surname}', function ($name, $surname) {
-    echo $name." ".$surname;
+$router->addRoute('GET', '/user\?id={id}&?name={name}', function ($id, $name) {
+    SessionController::RegisterSession($id, $name);
 });
 
 $router->addRoute('GET', '/editprofile', function () {
