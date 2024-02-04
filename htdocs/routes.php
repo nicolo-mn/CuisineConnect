@@ -4,6 +4,7 @@ require_once "core/Renderer.php";
 require_once "Controller/UserController.php";
 require_once "Controller/PostController.php";
 require_once "Controller/SessionController.php";
+require_once "Controller/RecipeController.php";
 
 $router = new Router();
 
@@ -46,6 +47,10 @@ $router->addRoute('GET', '/search', function () {
 
 $router->addRoute('GET', '/notifications', function () {
     InteractionController::getInstance()->loadNotifications();
+});
+
+$router->addRoute('GET', '/recipes', function () {
+    RecipeController::getInstance()->loadUserRecipes(SessionController::getInstance()->getSessionUserID());
 });
 
 // POST routes

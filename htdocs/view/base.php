@@ -41,12 +41,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-0 p-0">
+                        <a href="/notifications" class="nav-link m-0 p-0">
                             <i class="fa-solid fa-bell text-secondary bg-primary p-3 rounded-circle"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-0 p-0">
+                        <a href="/recipes" class="nav-link m-0 p-0">
                             <i class="fa-solid fa-receipt text-secondary bg-primary p-3 rounded-circle"></i>
                         </a>
                     </li>
@@ -63,7 +63,7 @@
     <script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
     <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
     <script type="javascript">$=jquery</script>
-    <main class="container-fluid flex-grow-1 overflow-hidden">
+    <main class="container-fluid flex-grow-1">
         <?php if (isset($templateParams["nome"])) {
             require($templateParams["nome"]);
         }

@@ -218,4 +218,13 @@ class Database
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getUserRecipes($UserID) {
+        $query = "SELECT * FROM Ricette WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
