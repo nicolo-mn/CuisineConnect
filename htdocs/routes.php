@@ -4,6 +4,7 @@ require_once "core/Renderer.php";
 require_once "Controller/UserController.php";
 require_once "Controller/PostController.php";
 require_once "Controller/SessionController.php";
+require_once "Controller/RecipeController.php";
 
 $router = new Router();
 
@@ -48,6 +49,14 @@ $router->addRoute('GET', '/notifications', function () {
     InteractionController::getInstance()->loadNotifications();
 });
 
+$router->addRoute('GET', '/recipes', function () {
+    RecipeController::getInstance()->loadUserRecipes(SessionController::getInstance()->getSessionUserID());
+});
+
+$router->addRoute('GET', '/newrecipe', function () {
+    Renderer::render("newrecipe.php");
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     UserController::getInstance()->registerUser($_POST);
@@ -72,5 +81,17 @@ $router->addRoute('POST', '/update-profile', function () {
 $router->addRoute('POST', '/search-user', function () {
     UserController::getInstance()->searchUserFromString($_POST["searchString"], $_SESSION["username"]);
 }); 
+
+$router->addRoute('POST', '/mentioned-posts', function () {
+    $UserID = UserController::getInstance()->getUserID($_POST["username"]);
+    PostController::getInstance()->getMentionedPosts($UserID);
+});
+
+$router->addRoute('POST', '/posted-posts', function () {
+    $UserID = UserController::getInstance()->getUserID($_POST["username"]);
+    echo json_encode(PostController::getInstance()->getUserPosts($UserID));
+});
+
+
 
 $router->matchRoute();

@@ -15,8 +15,8 @@ class PostController extends Controller
         }
     }
 
-    public function getUserPosts() {
-        $posts = $this->db->getUserPosts($GLOBALS["templateParams"]["UserID"]);
+    public function getUserPosts($UserID) {
+        $posts = $this->db->getUserPosts($UserID);
         return $posts;
     }
 
@@ -27,5 +27,10 @@ class PostController extends Controller
         }
 
         return $posts;
+    }
+
+    public function getMentionedPosts($UserID) {
+        $posts = $this->db->getMentionedPosts($UserID);
+        echo json_encode($posts);
     }
 }

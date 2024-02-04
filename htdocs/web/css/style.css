@@ -37,6 +37,10 @@ img {
     scroll-snap-align: start;
 }
 
+/* .current-tab{
+    border-bottom: 2px solid white !important;
+} */
+
 .post-image.inactive {
     height: 20% !important;
 }

@@ -95,4 +95,8 @@ INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, Po
 VALUES (1, 2, 'Like', 1),
        (1, 3, 'Like', 1);
 
+INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID)
+VALUES (1, 2, 'Menzione', 2),
+       (1, 3, 'Menzione', 3);
+
 

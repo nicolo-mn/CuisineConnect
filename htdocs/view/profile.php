@@ -27,15 +27,19 @@
         </section>
     </div>
     <div class="row">
-        <div class="col-6 d-flex justify-content-center align-items-center border-bottom py-3">
-            <i class="fa-solid fa-table-cells fa-2x text-white"></i>
-        </div>
-        <div class="col-6 d-flex justify-content-center align-items-center py-3">
-            <i class="fa-solid fa-user-group fa-2x text-white"></i>
-        </div>
+        <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
+            <div class="d-flex justify-content-center align-items-center py-3">
+                <i class="fa-solid fa-table-cells fa-2x text-white"></i>
+            </div>
+        </a>
+        <a href="#" class="text-decoration-none col-6" id="mentioned">
+            <div class="d-flex justify-content-center align-items-center py-3">
+                <i class="fa-solid fa-user-group fa-2x text-white"></i>
+            </div>
+        </a>
     </div>
-    <div class="row row-cols-3 pt-2">
-        <?php foreach(PostController::getInstance()->getUserPosts() as $post): ?>
+    <div class="row row-cols-3 pt-2" id="post-tab">
+        <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
         <div class="col g-0">
             <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
         </div>
