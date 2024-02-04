@@ -33,7 +33,7 @@
                 <input type="text" class="form-control border-0 bg-dark text-white" placeholder="Trova i tuoi amici su CuisineConnect!">
             </div> -->
             <?php endif; ?>
-            <div class="d-none d-md-block col-md-3">
+            <div class="d-none d-md-block col-md-5">
                 <ul class="nav d-flex justify-content-end align-items-center gap-2">
                     <li class="nav-item">
                         <a href="/search" class="nav-link m-0 p-0">
@@ -53,6 +53,11 @@
                     <li class="nav-item">
                         <a href="/profile" class="nav-link m-0 p-0">
                             <i class="fa-solid fa-user text-secondary bg-primary p-3 rounded-circle"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/editprofile" class="nav-link m-0 p-0">
+                            <i class="fa-solid fa-pen-to-square text-secondary bg-primary p-3 rounded-circle"></i>
                         </a>
                     </li>
                 </ul>

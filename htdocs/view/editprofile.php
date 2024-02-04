@@ -9,7 +9,10 @@
         <label for="bio" class="text-white mb-3">Bio</label>
         <textarea type="text" name="bio" class="form-control bg-dark border-0 rounded-3 text-white" id="bio" rows="5"><?php echo $templateParams["Bio"]?></textarea>
         <div class="row justify-content-between mt-7">
-            <input type="reset" value="Cancella" class="bg-secondary rounded-pill border-0 fw-bold py-2 col-5 ms-3">
+            <!-- <a href="/profile" class="bg-secondary rounded-pill border-0 fw-bold m-0 p-0 py-2 col-5 ms-3 text-decoration-none text-center">Annulla</a> -->
+            <a href="/profile" class="col-5 m-0 p-0">
+                <input type="reset" value="Cancella" class="bg-secondary rounded-pill border-0 fw-bold py-2 col-12 ms-3">
+            </a>
             <input type="submit" value="Salva modifiche"
                 class="bg-secondary rounded-pill border-0 fw-bold py-2 col-5 me-3">
         </div>
