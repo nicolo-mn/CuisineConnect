@@ -53,6 +53,10 @@ $router->addRoute('GET', '/recipes', function () {
     RecipeController::getInstance()->loadUserRecipes(SessionController::getInstance()->getSessionUserID());
 });
 
+$router->addRoute('GET', '/newrecipe', function () {
+    Renderer::render("newrecipe.php");
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     UserController::getInstance()->registerUser($_POST);
