@@ -60,7 +60,7 @@ class UserController extends Controller
 
     public function searchUserFromString($searchString, $username) {
         $users = $this->db->searchUserFromString($searchString, $username);
-        echo json_encode(array_values($users));
+        echo json_encode($users);
     }
 
     public function getUserID($username) {

@@ -13,7 +13,7 @@ class InteractionController extends Controller {
 
     public function loadNotifications() {
         $notifications = $this->db->getNotifications(SessionController::getInstance()->getSessionUserID());
-        $GLOBALS["templateParams"]["Notifiche"] = array_values($notifications);
+        $GLOBALS["templateParams"]["Notifiche"] = $notifications;
         $this->db->readNotifications(SessionController::getInstance()->getSessionUserID());
         Renderer::render("notifications.php");
     }
