@@ -1,15 +1,20 @@
 <h2 class="d-none d-md-block text-secondary text-center mb-5 fw-bold">Aggiunta ricetta</h2>
 <div class="row mb-5 mx-0">
     <form action="#" class="col-md-10 mx-auto d-flex flex-column gap-5">
-        <input type="text" class="form-control bg-dark border-0 rounded-3" id="nome" placeholder="Nome ricetta">
-        <textarea type="text" class="form-control bg-dark border-0 rounded-3" id="bio" rows="5" placeholder="Procedimento"></textarea>
+        <input type="text" class="form-control bg-dark border-0 rounded-3 text-white" id="nome" placeholder="Nome ricetta">
+        <textarea type="text" class="form-control bg-dark border-0 rounded-3 text-white" id="bio" rows="5" placeholder="Procedimento"></textarea>
         <fieldset id="ingredients">
             <div class="row justify-content-start gap-3 mb-3 mx-0">
                 <div class="col-7">
-                    <input type="text" class="form-control bg-dark border-0 rounded-3" placeholder="Ingrediente">
+                    <input type="text" list="ingredient-1-list" id="ingredient-1" class="form-control bg-dark border-0 rounded-3 text-white ingredient" placeholder="Ingrediente">
+                    <datalist id="ingredient-1-list">
+                        <option value="Option 1">
+                        <option value="Option 2">
+                        <option value="Option 3">
+                    </datalist>
                 </div>
                 <div class="col-3">
-                    <input type="text" class="form-control bg-dark border-0 rounded-3" placeholder="Quantità">
+                    <input type="text" class="form-control bg-dark border-0 rounded-3 text-white" placeholder="Quantità">
                 </div>
                 <div class="col-1">
                     <p class="text-secondary">g</p>
