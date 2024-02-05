@@ -2,6 +2,6 @@
     <i class="fa-solid fa-magnifying-glass fa-2x text-secondary pe-2"></i>
     <input type="text" id="search-input" class="form-control border-0 bg-dark text-white" placeholder="Trova i tuoi amici su CuisineConnect!">
 </div>
-<div id="searchResults" class="row"></div>
+<div id="searchResults" class="row mx-0"></div>
 
 <script src="/web/js/search.js" type="text/javascript"></script>

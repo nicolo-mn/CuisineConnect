@@ -1,8 +1,10 @@
 <?php $templateParams = $GLOBALS['templateParams']?>
 <div class="col-md-8 mx-auto">
-    <div class="row d-flex align-items-center py-7">
+    <div class="row d-flex align-items-center py-7 mx-0">
         <div class="col-4 col-md-3">
-            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
+            <div class="ratio ratio-1x1">
+                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
+            </div>
         </div>
         <section class="col-8 col-md-9">
             <h2 id="username" class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
@@ -15,7 +17,7 @@
             </section>
         </section>
     </div>
-    <div class="row">
+    <div class="row mx-0">
         <section class="d-flex flex-column">
             <h2 class="text-white fs-lg pb-3"><?php echo $templateParams["Nome"]?></h2>
             <p class="text-white fs-4">
@@ -26,7 +28,7 @@
             <?php endif; ?>
         </section>
     </div>
-    <div class="row">
+    <div class="row mx-0">
         <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
             <div class="d-flex justify-content-center align-items-center py-3">
                 <i class="fa-solid fa-table-cells fa-2x text-white"></i>
@@ -38,10 +40,14 @@
             </div>
         </a>
     </div>
-    <div class="row row-cols-3 pt-2" id="post-tab">
+    <div class="row row-cols-3 pt-2 mx-0" id="post-tab">
         <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
         <div class="col g-0">
-            <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+            <a href="#">
+                <div class="ratio ratio-1x1">
+                    <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+                </div>
+            </a>
         </div>
         <?php endforeach; ?>
     </div>
