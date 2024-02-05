@@ -13,7 +13,7 @@
                             <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle">
                         </div>
                     </div>
-                    <p class="text-white m-0 description">
+                    <p class="text-white m-0 notifications-text">
                         <?php echo $notifica["Nome"] . " " . InteractionController::getInstance()->getTextFromNotificationType($notifica["Tipo"]) ?>
                         <?php if ($notifica["Testo"] != null) {
                             echo ": \"" . $notifica["Testo"] . "\"";
