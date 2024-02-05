@@ -36,7 +36,13 @@
                             <i class="fa-regular fa-heart text-white"></i>
                         <?php endif; ?>
                     </button>
-                    <span><?= $post["NumeroLike"] ?></span>
+                    <?php if ($post["NumeroLike"] > 0): ?>
+                        <button type="button" class="like-list bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#likeList">
+                            <span class="text-white"><?= $post["NumeroLike"] ?></span>
+                        </button>
+                    <?php else: ?>
+                        <span><?= $post["NumeroLike"] ?></span>
+                    <?php endif; ?>
                 </section>
             </div>
             <p class="text-white description text-nowrap text-md-wrap">
@@ -53,6 +59,7 @@
                 </div>
             </form>
             <hr class="d-none d-md-block my-3 bg-white"/>
+            <p class="text-white"><?= count($post["Commenti"]) ?> Commenti </p>
             <section class="comment-section d-none mt-3 mt-md-0 d-md-block h-1/2 overflow-auto">
                 <?php foreach ($post["Commenti"] as $commento): ?>
                     <article id="comment-<?= $commento["NotificationID"] ?>" class="d-flex align-items-center mb-2 gap-2">

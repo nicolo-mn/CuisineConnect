@@ -48,6 +48,11 @@ class InteractionController extends Controller
         $this->db->removeLike($request["post"], SessionController::getInstance()->getSessionUserID());
     }
 
+    public function likeList($request)
+    {
+        $this->db->likeList($request["post"]);
+    }
+
     public function addComment($request)
     {
         $this->db->addComment(SessionController::getInstance()->getSessionUserID(), $request["comment"], $request["post"]);

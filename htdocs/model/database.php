@@ -307,4 +307,19 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $stmt->bind_param('ii', $commentID, $userID);
         return $stmt->execute();
     }
+
+    public function likeList($post)
+    {
+        $query = "SELECT Utenti.Username, Utenti.ImmagineProfilo
+              FROM Notifiche
+              JOIN Utenti ON Notifiche.UtenteNotificanteUserID = Utenti.UserID
+              WHERE Notifiche.PostID = ?
+                AND Notifiche.Tipo = 'Like'";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+    }
 }

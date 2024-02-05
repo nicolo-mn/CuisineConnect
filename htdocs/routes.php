@@ -13,7 +13,7 @@ $router->addRoute('GET', '/', function () {
     if (isset($_SESSION["username"])) {
         Renderer::render("home.php");
     } else {
-        header('Location: '."login");
+        header('Location: ' . "login");
     }
 });
 
@@ -78,6 +78,11 @@ $router->addRoute('POST', '/remove-like', function () {
     InteractionController::getInstance()->removeLike($_POST);
 });
 
+$router->addRoute('POST', '/like-list', function () {
+
+    InteractionController::getInstance()->likeList($_POST);
+});
+
 $router->addRoute('POST', '/add-comment', function () {
     InteractionController::getInstance()->addComment($_POST);
 });
@@ -101,7 +106,7 @@ $router->addRoute('POST', '/update-profile', function () {
 
 $router->addRoute('POST', '/search-user', function () {
     UserController::getInstance()->searchUserFromString($_POST["searchString"], $_SESSION["username"]);
-}); 
+});
 
 $router->addRoute('POST', '/mentioned-posts', function () {
     $UserID = UserController::getInstance()->getUserID($_POST["username"]);
@@ -112,7 +117,6 @@ $router->addRoute('POST', '/posted-posts', function () {
     $UserID = UserController::getInstance()->getUserID($_POST["username"]);
     echo json_encode(PostController::getInstance()->getUserPosts($UserID));
 });
-
 
 
 $router->matchRoute();
