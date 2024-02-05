@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         result += 
                         `
                         <a href="/user/${user["Username"]}" class="text-decoration-none">
-                            <div class="row user-searched">
+                            <div class="row user-searched mx-0">
                                 <section class="d-flex justify-content-start py-3 align-items-center">
                                     <img src="${user["ImmagineProfilo"]}" alt="immagine profilo" class="img-fluid rounded-circle col-1 me-3">
                                     <p class="text-white m-0 data-username">@${user["Username"]}</p>
