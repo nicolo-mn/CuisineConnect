@@ -63,14 +63,14 @@
                         <div class="col">
                             <a class="fs-6 text-white m-00"
                                href="user/<?= $commento["Username"] ?>">@<?= $commento["Username"] ?></a>
-                            <p class="text-white col m-0">
+                            <p class="comment text-white col m-0">
                                 <?= $commento["Testo"] ?>
                             </p>
                         </div>
 
                         <?php if ($commento["Username"] === $_SESSION["username"]): ?>
                             <div>
-                                <button class="bg-transparent border-0">
+                                <button type="button" class="edit-comment bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editComment">
                                     <i class="fa-solid fa-pen text-secondary"></i>
                                 </button>
                                 <form class="remove-comment d-inline">
