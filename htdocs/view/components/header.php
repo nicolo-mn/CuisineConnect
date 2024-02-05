@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<header class="container-fluid position-fixed position-md-static">
     <div class="row py-3 d-flex justify-content-between align-items-center">
         <!-- Navbar mobile -->
         <div class="col d-md-none">

@@ -24,23 +24,25 @@ $posts = PostController::getInstance()->getPosts();
             </div>
             <div class="modal-body">
                 <?php if (isset($_SESSION["user_id"])): ?>
-                <form id="postForm" action="/submit-post" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="title">Titolo:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
-                        <small id="titleHelp" class="form-text text-muted">Il titolo deve essere lungo almeno 5 caratteri.</small>
-                    </div>
+                    <form id="postForm" action="/submit-post" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title">Titolo:</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                            <small id="titleHelp" class="form-text text-muted">Il titolo deve essere lungo almeno 5
+                                caratteri.</small>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="description">Descrizione:</label>
-                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="description">Descrizione:</label>
+                            <textarea class="form-control" id="description" name="description" rows="4"
+                                      required></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="file">Aggiungi un file:</label>
-                        <input type="file" class="form-control-file" id="file" name="file">
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="file">Aggiungi un file:</label>
+                            <input type="file" class="form-control-file" id="file" name="file">
+                        </div>
+                    </form>
                 <?php endif; ?>
             </div>
             <div class="modal-footer">
@@ -104,29 +106,72 @@ $posts = PostController::getInstance()->getPosts();
 
 <script>
     function toggleDescription(postId) {
-        let post = $("#"+postId)[0];
-        console.log(post);
-        let image = $(post).find(".post-image")[0];
-        let content = $(post).find(".post-content")[0];
-        let description =$(content).find(".description")[0];
+        let post = $("#" + postId);
+        let image = post.find(".post-image");
+        let content = post.find(".post-content");
+        let description = content.find(".description");
+        let comments = content.find(".comment-section")
 
-        if($(image).hasClass("h-4/5")) {
-            $(image).removeClass("h-4/5");
-            $(content).removeClass("h-1/5");
+        let imageClass = image.hasClass("h-4/5") ? "h-1/5" : "h-4/5";
+        let contentClass = content.hasClass("h-4/5") ? "h-1/5" : "h-4/5";
+        comments.toggleClass("d-none");
 
-            $(image).addClass("h-1/5", 300, "swing");
-            $(content).addClass("h-4/5", 300, "swing");
-            $(description).removeClass("text-nowrap");
-        } else {
-            $(image).removeClass("h-1/5");
-            $(content).removeClass("h-4/5");
-
-            $(image).addClass("h-4/5");
-            $(content).addClass("h-1/5");
-            $(description).addClass("text-nowrap");
-        }
+        image.removeClass("h-4/5 h-1/5").addClass(imageClass, 300, "swing");
+        content.removeClass("h-4/5 h-1/5").addClass(contentClass, 300, "swing");
+        description.toggleClass("text-nowrap");
     }
-    document.addEventListener("DOMContentLoaded", function (){
+</script>
 
+<script src="web/js/likes.js"></script>
+<script>
+    $(document).ready(function () {
+        // Validazione del form
+        $(".commentForm").submit(function (e) {
+            console.log($(this).serialize())
+            e.preventDefault();
+
+            let commentText = $(this).find('input[name^="comment"]').first().val();
+
+            if (commentText.trim() === "") {
+                alert("Il commento non può essere vuoto.");
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "/add-comment",
+                data: $(this).serialize(),
+                success: function (response) {
+                    window.location.reload();
+                },
+                error: function (error) {
+                    console.error("Errore nella richiesta AJAX: ", error);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Validazione del form
+        $(".remove-comment").submit(function (e) {
+            e.preventDefault();
+
+            let comment = $("#comment-"+$(this).find("input").val())
+
+            $.ajax({
+                type: "POST",
+                url: "/remove-comment",
+                data: $(this).serialize(),
+                success: function (response) {
+                    comment.remove();
+                },
+                error: function (error) {
+                    console.error("Errore nella richiesta AJAX: ", error);
+                }
+            });
+
+        });
     });
 </script>
