@@ -288,13 +288,13 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         return $stmt->execute();
     }
 
-    public function updateComment($postID, $userID, $newText)
+    public function updateComment($commentID, $userID, $newText)
     {
-        $query = "UPDATE Notifiche SET Testo = ? WHERE PostID = ? 
+        $query = "UPDATE Notifiche SET Testo = ? WHERE NotificationID = ? 
                                  and UtenteNotificanteUserID = ? 
                                  and Tipo = \"Commento\"";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sii', $newText, $userID, $postID);
+        $stmt->bind_param('sii', $newText, $commentID, $userID);
         return $stmt->execute();
     }
 

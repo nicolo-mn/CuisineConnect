@@ -55,7 +55,7 @@ class InteractionController extends Controller
 
     public function updateComment($request)
     {
-        $this->db->updateComment($request["post"], SessionController::getInstance()->getSessionUserID(), $request["comment"]);
+        $this->db->updateComment($request["commentID"], SessionController::getInstance()->getSessionUserID(), $request["commentText"]);
     }
 
     public function removeComment($request)
