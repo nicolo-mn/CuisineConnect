@@ -13,7 +13,9 @@
         </div>
         <!-- Navbar desktop -->
         <div class="d-none d-md-flex col-md-3 align-items-center">
-            <h2 class="text-secondary">LOGO</h2>
+            <a href="/">
+                <img src="/pub/media/CuisineConnect.svg" alt="logo" class="img-fluid">
+            </a>
         </div>
         <?php if ($_SERVER['REQUEST_URI'] == '/search'): ?>
             <!-- <div class="d-none d-md-flex col-md-6 bg-dark justify-content-center align-items-center px-4 py-1 rounded-pill">
