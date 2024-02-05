@@ -8,4 +8,8 @@ class RecipeController extends Controller {
         $GLOBALS["templateParams"]["Ricette"] = $recipes;
         Renderer::render("myrecipes.php");
     }
+
+    public function addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients) {
+        $this->db->addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
+    }
 }

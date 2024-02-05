@@ -118,5 +118,9 @@ $router->addRoute('POST', '/posted-posts', function () {
     echo json_encode(PostController::getInstance()->getUserPosts($UserID));
 });
 
+$router->addRoute('POST', '/add-recipe', function () {
+    RecipeController::getInstance()->addRecipe(SessionController::getInstance()->getSessionUserID(),$_POST["recipeName"], $_POST["process"], $_POST["ingredients"], $_POST["nutrients"]);
+});
+
 
 $router->matchRoute();

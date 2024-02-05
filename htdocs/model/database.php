@@ -322,4 +322,12 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $result = $stmt->get_result();
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
     }
+
+    public function addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients)
+    {
+        $query = "INSERT INTO Ricette (UserID, Nome, Procedimento, Ingredienti, ValoriNutrizionali) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('issss', $UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
+        return $stmt->execute();
+    }
 }
