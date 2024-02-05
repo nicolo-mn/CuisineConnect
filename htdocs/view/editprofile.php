@@ -1,6 +1,10 @@
 <?php $templateParams = $GLOBALS['templateParams']?>
 <div class="row justify-content-center py-4">
-    <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle col-3 col-md-2">
+    <div class="col-3 col-md-2">
+        <div class="ratio ratio-1x1">
+            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle">
+        </div>
+    </div>
 </div>
 <div class="row mb-5 mx-0">
     <form action="/update-profile" method="POST" class="col-md-10 mx-auto">

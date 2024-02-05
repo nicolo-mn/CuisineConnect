@@ -8,7 +8,11 @@
                     <?php if ($notifica["Letta"] == 0) : ?>
                         <div class="bg-info rounded-circle p-1"></div>
                     <?php endif; ?>
-                    <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle col-1">
+                    <div class="col-1">
+                        <div class="ratio ratio-1x1">
+                            <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle">
+                        </div>
+                    </div>
                     <p class="text-white m-0 description">
                         <?php echo $notifica["Nome"] . " " . InteractionController::getInstance()->getTextFromNotificationType($notifica["Tipo"]) ?>
                         <?php if ($notifica["Testo"] != null) {
@@ -17,7 +21,11 @@
                     </p>
                 </div>
                 <?php if ($notifica["PostID"] != null) : ?>
-                    <img src="<?php echo $notifica["Foto"] ?>" alt="foto post" class="img-fluid col-1">
+                    <div class="col-1">
+                        <div class="ratio ratio-1x1">
+                            <img src="<?php echo $notifica["Foto"] ?>" alt="foto post" class="img-fluid">
+                        </div>
+                    </div>
                 <?php endif; ?>
             </section>
         </div>

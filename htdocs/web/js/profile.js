@@ -47,9 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         const posts = JSON.parse(response);
                         let result = "";
                         posts.forEach(post => {
-                            result += `
+                            result += 
+                            `
                             <div class="col g-0">
-                                <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                                <a href="#">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                                    </div>
+                                </a>
                             </div>
                             `;
                         });

@@ -2,7 +2,9 @@
 <div class="col-md-8 mx-auto">
     <div class="row d-flex align-items-center py-7 mx-0">
         <div class="col-4 col-md-3">
-            <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
+            <div class="ratio ratio-1x1">
+                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
+            </div>
         </div>
         <section class="col-8 col-md-9">
             <h2 id="username" class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
@@ -38,10 +40,14 @@
             </div>
         </a>
     </div>
-    <div class="row row-cols-3 pt-2" id="post-tab">
+    <div class="row row-cols-3 pt-2 mx-0" id="post-tab">
         <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
         <div class="col g-0">
-            <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+            <a href="#">
+                <div class="ratio ratio-1x1">
+                    <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+                </div>
+            </a>
         </div>
         <?php endforeach; ?>
     </div>
