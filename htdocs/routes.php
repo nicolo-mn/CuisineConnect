@@ -70,6 +70,27 @@ $router->addRoute('POST', '/submit-post', function () {
     PostController::getInstance()->addPost($_FILES["file"]);
 });
 
+$router->addRoute('POST', '/like-post', function () {
+    InteractionController::getInstance()->likePost($_POST);
+});
+
+$router->addRoute('POST', '/remove-like', function () {
+    InteractionController::getInstance()->removeLike($_POST);
+});
+
+$router->addRoute('POST', '/add-comment', function () {
+    InteractionController::getInstance()->addComment($_POST);
+});
+
+$router->addRoute('POST', '/update-comment', function () {
+    InteractionController::getInstance()->updateComment($_POST);
+});
+
+$router->addRoute('POST', '/remove-comment', function () {
+    InteractionController::getInstance()->removeComment($_POST);
+});
+
+
 $router->addRoute('POST', '/follow-unfollow', function () {
     UserController::getInstance()->changeUserFollowStatus(UserController::getInstance()->getUserID($_POST["username"]));
 });

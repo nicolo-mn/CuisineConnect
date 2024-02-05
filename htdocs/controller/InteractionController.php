@@ -2,23 +2,28 @@
 
 require_once "core/Controller.php";
 
-class InteractionController extends Controller {
-    public function getCommentsFromPost($postID){
+class InteractionController extends Controller
+{
+    public function getCommentsFromPost($postID)
+    {
         return $this->db->getCommentsFromPost($postID);
     }
 
-    public function notifyFollow($followingUserID, $followedUserID) {
+    public function notifyFollow($followingUserID, $followedUserID)
+    {
         return $this->db->notifyFollow($followingUserID, $followedUserID);
     }
 
-    public function loadNotifications() {
+    public function loadNotifications()
+    {
         $notifications = $this->db->getNotifications(SessionController::getInstance()->getSessionUserID());
         $GLOBALS["templateParams"]["Notifiche"] = $notifications;
         $this->db->readNotifications(SessionController::getInstance()->getSessionUserID());
         Renderer::render("notifications.php");
     }
 
-    public function getTextFromNotificationType($type) {
+    public function getTextFromNotificationType($type)
+    {
         switch ($type) {
             case "Segui":
                 return "ha iniziato a seguirti";
@@ -31,5 +36,30 @@ class InteractionController extends Controller {
             default:
                 return "notification type not found";
         }
+    }
+
+    public function likePost($request)
+    {
+        $this->db->likePost($request["post"], SessionController::getInstance()->getSessionUserID());
+    }
+
+    public function removeLike($request)
+    {
+        $this->db->removeLike($request["post"], SessionController::getInstance()->getSessionUserID());
+    }
+
+    public function addComment($request)
+    {
+        $this->db->addComment(SessionController::getInstance()->getSessionUserID(), $request["comment"], $request["post"]);
+    }
+
+    public function updateComment($request)
+    {
+        $this->db->updateComment($request["post"], SessionController::getInstance()->getSessionUserID(), $request["comment"]);
+    }
+
+    public function removeComment($request)
+    {
+        $this->db->removeComment($request["comment"], SessionController::getInstance()->getSessionUserID());
     }
 }
