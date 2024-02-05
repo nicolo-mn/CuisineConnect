@@ -7,7 +7,7 @@
             </div>
         </div>
         <section class="col-8 col-md-9">
-            <h2 id="username" class="text-white fs-lg text-center pb-2 pb-mb-5">@<?php echo $templateParams['Username'] ?></h2>
+            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-3">@<?php echo $templateParams['Username'] ?></h2>
             <section>
                 <div class="d-flex justify-content-around align-items-center">
                     <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
@@ -19,7 +19,7 @@
     </div>
     <div class="row mx-0">
         <section class="d-flex flex-column">
-            <h2 class="text-white fs-lg pb-3"><?php echo $templateParams["Nome"]?></h2>
+            <h2 class="text-white pb-3"><?php echo $templateParams["Nome"]?></h2>
             <p class="text-white fs-4">
             <?php echo $templateParams["Bio"]?>
             </p>
