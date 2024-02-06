@@ -8,14 +8,16 @@
 </div>
 <div class="row row-cols-3 pt-2 col-md-8 mx-0 mx-md-auto gap-1">
     <?php foreach ($GLOBALS["templateParams"]["Ricette"] as $ricetta): ?>
-        <a href="#" class="p-0">
-            <div class="col g-0 bg-brick">
-                <div class="ratio ratio-1x1">
-                    <div class="h-100 d-flex justify-content-center align-items-center">
-                        <h3 class="text-secondary text-center align-self-center fw-bold"><?php echo $ricetta["Nome"] ?></h3>   
-                    </div>
+        <div class="col g-0 bg-brick">
+            <button class="show-recipe border-0 ratio ratio-1x1 bg-brick" data-bs-toggle="modal" data-bs-target="#popupRecipe">
+                <div class="h-100 d-flex justify-content-center align-items-center">
+                    <h3 class="text-secondary text-center align-self-center fw-bold"><?php echo $ricetta["Nome"] ?></h3>   
                 </div>
-            </div>
-        </a>
+            </button>
+            <input type="hidden" value="<?= $ricetta["RecipeID"] ?>">
+        </div>
     <?php endforeach; ?>
 </div>
+
+<?php require_once "view/modals/popup-recipe.php"; ?>
+<script src="web/js/myrecipes.js"></script>
