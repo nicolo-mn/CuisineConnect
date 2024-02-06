@@ -1,7 +1,7 @@
 <?php
 
 require_once "./core/Controller.php";
-class ImageController {
+class ImageController extends Controller{
     private const UPLOAD_DIR = "pub/media/";
 
     public function addImage($image) {

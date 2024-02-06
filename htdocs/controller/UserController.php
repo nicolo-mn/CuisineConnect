@@ -53,8 +53,14 @@ class UserController extends Controller
         }
     }
 
-    public function updateProfile($nome, $bio) {
+    public function updateProfile($nome, $bio, $profileImage) {
         $this->db->updateProfile(SessionController::getInstance()->getSessionUserID(), $nome, $bio);
+        if (!empty($profileImage["name"])) {
+            $result = ImageController::getInstance()->addImage($profileImage);
+            if($result[0]) {
+                $this->db->updateProfileImage(SessionController::getInstance()->getSessionUserID(), $result[1]);
+            }
+        }
         header("Location:/profile");
     }
 

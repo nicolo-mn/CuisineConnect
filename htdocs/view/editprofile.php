@@ -1,6 +1,6 @@
 <?php $templateParams = $GLOBALS['templateParams']?>
 <div class="row mb-5 mx-0">
-    <form action="/update-profile" method="POST" class="col-md-10 mx-auto">
+    <form action="/update-profile" method="POST" enctype = "multipart/form-data" class="col-md-10 mx-auto">
         <div class="row justify-content-center py-4">
             <div class="col-3">
                 <div class="ratio ratio-1x1">

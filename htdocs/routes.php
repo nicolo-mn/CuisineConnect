@@ -101,7 +101,7 @@ $router->addRoute('POST', '/follow-unfollow', function () {
 });
 
 $router->addRoute('POST', '/update-profile', function () {
-    UserController::getInstance()->updateProfile($_POST["nome"], $_POST["bio"]);
+    UserController::getInstance()->updateProfile($_POST["nome"], $_POST["bio"], $_FILES["profile-image"]);
 });
 
 $router->addRoute('POST', '/search-user', function () {
