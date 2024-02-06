@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("recipe-form").classList.remove("d-none");
                 document.getElementById("loading-overlay").classList.add("d-none");
                 const nutrients = {
-                    "Carbs": response.totalNutrients.CHOCDF,
-                    "Proteins": response.totalNutrients.PROCNT,
-                    "Fats": response.totalNutrients.FAT,
-                    "Calories": response.totalNutrients.ENERC_KCAL,
+                    "Carbs": [response.totalNutrients.CHOCDF.quantity, response.totalNutrients.CHOCDF.unit],
+                    "Proteins": [response.totalNutrients.PROCNT.quantity, response.totalNutrients.PROCNT.unit],
+                    "Fats": [response.totalNutrients.FAT.quantity, response.totalNutrients.FAT.unit],
+                    "Calories": [response.totalNutrients.ENERC_KCAL.quantity, response.totalNutrients.ENERC_KCAL.unit],
                 };
                 // console.log("Name: " + recipeName);
                 // console.log("Process: " + process);
