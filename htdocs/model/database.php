@@ -30,7 +30,7 @@ class Database
 
     public function insertUser($username, $email, $password)
     {
-        $query = "INSERT INTO Utenti (Username, Email, Password) VALUES (?, ?, ?)";
+        $query = "INSERT INTO Utenti (Username, Email, Password, ImmagineProfilo) VALUES (?, ?, ?, '/pub/media/default-profile-pic.jpg')";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sss', $username, $email, $password);
         return $stmt->execute();
