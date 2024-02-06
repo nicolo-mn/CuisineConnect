@@ -3,7 +3,7 @@
     presi dal database per ogni notifica -->
     <a href="<?php echo '/user/' . $notifica["Username"]?>" class="text-decoration-none">
         <div class="row mx-0">
-            <section class="d-flex justify-content-between py-3 align-items-center">
+            <div class="d-flex justify-content-between py-3 align-items-center">
                 <div class="d-flex align-items-center justify-content-start gap-3 col-10">
                     <?php if ($notifica["Letta"] == 0) : ?>
                         <div class="bg-info rounded-circle p-1"></div>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 <?php endif; ?>
-            </section>
+            </div>
         </div>
     </a>
     <!-- <?php var_dump($notifica); ?> -->
