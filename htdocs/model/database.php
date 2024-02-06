@@ -362,4 +362,15 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $stmt->bind_param('issss', $UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
         return $stmt->execute();
     }
+
+    public function getRecipeByID($recipeID)
+    {
+        $query = "SELECT * FROM Ricette WHERE RecipeID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $recipeID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }

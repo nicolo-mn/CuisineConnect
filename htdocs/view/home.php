@@ -1,5 +1,6 @@
 <?php
 $posts = PostController::getInstance()->getPosts();
+$recipe = RecipeController::getInstance()->getRecipeByID(1)[0];
 ?>
 
 <!--<button class="btn btn-secondary rounded-pill">ADD</button>
@@ -8,11 +9,13 @@ $posts = PostController::getInstance()->getPosts();
     Launch demo modal
 </button>-->
 <section class="h-100 overflow-scroll" id="feed">
-    <?php
-    foreach ($posts as $post) {
+    <?php foreach ($posts as $post) {
         require "post.php";
     }
+    //require "recipe.php"
     ?>
+
+
 </section>
 <!-- Modal -->
 <?php require_once "form/edit-comment.php"?>
@@ -21,7 +24,7 @@ $posts = PostController::getInstance()->getPosts();
 <script>
     function toggleDescription(postId) {
         let post = $("#" + postId);
-        let image = post.find(".post-image");
+        let image = post.find(".post-media");
         let content = post.find(".post-content");
         let description = content.find(".description");
         let comments = content.find(".comment-section")

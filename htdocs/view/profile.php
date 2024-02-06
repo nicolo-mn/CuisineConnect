@@ -3,7 +3,7 @@
     <div class="row d-flex align-items-center py-7 mx-0">
         <div class="col-4 col-md-3">
             <div class="ratio ratio-1x1">
-                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo"
+                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture"
                      class="img-fluid rounded-circle">
             </div>
         </div>
@@ -14,8 +14,8 @@
                 <div class="d-flex justify-content-around align-items-center">
                     <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
                     <p class="text-white text-center fs-3"><span
-                            id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti
+                            id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</p>
+                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> following
                     </p>
                 </div>
             </section>
@@ -29,7 +29,7 @@
             </p>
             <?php if ($templateParams["UserID"] != $_SESSION["user_id"]): ?>
                 <input type="submit" id="followBtn"
-                       value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Smetti di seguire" : "Segui" ?>"
+                       value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Unfollow" : "Follow" ?>"
                        class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
             <?php endif; ?>
         </section>

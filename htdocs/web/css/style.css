@@ -37,6 +37,16 @@ img {
     scroll-snap-align: start;
 }
 
+#feed > article .post-media{
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+}
+
+#feed > article .post-media > div{
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
 /* .current-tab{
     border-bottom: 2px solid white !important;
 } */

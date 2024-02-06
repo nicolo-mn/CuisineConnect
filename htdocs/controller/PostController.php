@@ -8,7 +8,7 @@ class PostController extends Controller
 {
     public function addPost($image)
     {
-        $result = (new ImageController())->addImage($image);
+        $result = ImageController::getInstance()->addImage($image);
         if ($result[0]) {
             if ($this->db->insertPost($_SESSION["user_id"], $_POST["title"], $_POST["description"], $result[1])) {
                 echo true;
@@ -27,6 +27,9 @@ class PostController extends Controller
         $posts = $this->db->getPosts(SessionController::getInstance()->getSessionUserID());
         foreach ($posts as &$post) {
             $post["Commenti"] = InteractionController::getInstance()->getCommentsFromPost($post["PostID"]);
+            if(isset($post["RecipeID"])) {
+                $post["Ricetta"] = RecipeController::getInstance()->getRecipeByID($post["RecipeID"])[0];
+            }
         }
 
         return $posts;

@@ -12,4 +12,8 @@ class RecipeController extends Controller {
     public function addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients) {
         $this->db->addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
     }
+
+    public function getRecipeByID($recipeID) {
+        return $this->db->getRecipeByID($recipeID);
+    }
 }
