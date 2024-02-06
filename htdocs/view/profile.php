@@ -27,6 +27,9 @@
                        value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Smetti di seguire" : "Segui" ?>"
                        class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
             <?php endif; ?>
+            <?php if ($templateParams["UserID"] == $_SESSION["user_id"]): ?>
+                <a href="/logout" class="btn btn-secondary">Log out</a>
+            <?php endif; ?>
         </section>
     </div>
     <div class="row mx-0">

@@ -57,6 +57,10 @@ $router->addRoute('GET', '/newrecipe', function () {
     Renderer::render("newrecipe.php");
 });
 
+$router->addRoute('GET', '/logout', function () {
+    SessionController::getInstance()->logout();
+});
+
 // POST routes
 $router->addRoute('POST', '/register', function () {
     UserController::getInstance()->registerUser($_POST);
