@@ -58,6 +58,11 @@ img {
     word-break: break-all;
 }
 
+.edit-profile-pic {
+    bottom: 7%;
+    right: 7%;
+}
+
 @media screen and (max-width: 768px) {
     .abs-section {
         top: -100px;
@@ -84,5 +89,10 @@ img {
 
     .expand-icon {
         transform: translate(0, -50%);
+    }
+
+    .edit-profile-pic {
+        bottom: 0;
+        right: 0;
     }
 }

@@ -175,6 +175,14 @@ WHERE p.UserID in (SELECT FollowedUserID from Followers where FollowingUserID=?)
         return $stmt->execute();
     }
 
+    public function updateProfileImage($UserID, $Image)
+    {
+        $query = "UPDATE Utenti SET ImmagineProfilo = ? WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $Image, $UserID);
+        return $stmt->execute();
+    }
+
     public function getCommentsFromPost($postID)
     {
 
@@ -345,5 +353,13 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         }
 
         return json_encode($post);
+    }
+
+    public function addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients)
+    {
+        $query = "INSERT INTO Ricette (UserID, Nome, Procedimento, Ingredienti, ValoriNutrizionali) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('issss', $UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
+        return $stmt->execute();
     }
 }

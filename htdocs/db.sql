@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS Ricette (
     Nome VARCHAR(255) NOT NULL,
     Ingredienti TEXT NOT NULL,
     Procedimento TEXT NOT NULL,
+    ValoriNutrizionali TEXT NOT NULL,
     FOREIGN KEY (UserID) REFERENCES Utenti(UserID)
 );
 
@@ -98,5 +99,9 @@ VALUES (1, 2, 'Like', 1),
 INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID)
 VALUES (1, 2, 'Menzione', 2),
        (1, 3, 'Menzione', 3);
+
+INSERT INTO Ricette (RecipeID, UserID, Nome, Ingredienti, Procedimento, ValoriNutrizionali) VALUES
+(1, 1, 'Chicken & Rice', '[\"200g of Rice\",\"150g of Chicken\",\"20g of Olive Oil\"]', 'Cook Chicken for 15 minutes, cook rice for 10 minutes, add olive oil', '{\"Carbs\":{\"label\":\"Carbohydrate, by difference\",\"quantity\":158.6,\"unit\":\"g\"},\"Proteins\":{\"label\":\"Protein\",\"quantity\":41.120000000000005,\"unit\":\"g\"},\"Fats\":{\"label\":\"Total lipid (fat)\",\"quantity\":43.81,\"unit\":\"g\"},\"Calories\":{\"label\":\"Energy\",\"quantity\":1219.3,\"unit\":\"kcal\"}}'),
+(2, 1, 'Rice & Tuna', '[\"200g of Rice\",\"150g of Tuna\",\"20g of Olive Oil\"]', 'Ccook rice for 10 minutes, add olive oil and tuna', '{\"Carbs\":{\"label\":\"Carbohydrate, by difference\",\"quantity\":158.6,\"unit\":\"g\"},\"Proteins\":{\"label\":\"Protein\",\"quantity\":49.81999999999999,\"unit\":\"g\"},\"Fats\":{\"label\":\"Total lipid (fat)\",\"quantity\":21.895,\"unit\":\"g\"},\"Calories\":{\"label\":\"Energy\",\"quantity\":1060.3,\"unit\":\"kcal\"}}');
 
 

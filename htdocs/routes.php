@@ -105,7 +105,7 @@ $router->addRoute('POST', '/follow-unfollow', function () {
 });
 
 $router->addRoute('POST', '/update-profile', function () {
-    UserController::getInstance()->updateProfile($_POST["nome"], $_POST["bio"]);
+    UserController::getInstance()->updateProfile($_POST["nome"], $_POST["bio"], $_FILES["profile-image"]);
 });
 
 $router->addRoute('POST', '/search-user', function () {
@@ -120,6 +120,10 @@ $router->addRoute('POST', '/mentioned-posts', function () {
 $router->addRoute('POST', '/posted-posts', function () {
     $UserID = UserController::getInstance()->getUserID($_POST["username"]);
     echo json_encode(PostController::getInstance()->getUserPosts($UserID));
+});
+
+$router->addRoute('POST', '/add-recipe', function () {
+    RecipeController::getInstance()->addRecipe(SessionController::getInstance()->getSessionUserID(),$_POST["recipeName"], $_POST["process"], $_POST["ingredients"], $_POST["nutrients"]);
 });
 
 
