@@ -37,4 +37,4 @@
 
 </div>
 
-<script src="/web/js/newrecipe.js" type="text/javascript"></script>
+<script src="/web/js/newrecipe.js"></script>

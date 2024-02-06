@@ -1,6 +1,6 @@
 <?php $templateParams = $GLOBALS['templateParams'] ?>
 <div class="col-md-8 mx-auto">
-    <div class="row d-flex align-items-center py-7 mx-0">
+    <div class="row d-flex align-items-center py-3 mx-0">
         <div class="col-4 col-md-3">
             <div class="ratio ratio-1x1">
                 <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture"
@@ -8,22 +8,17 @@
             </div>
         </div>
         <section class="col-8 col-md-9">
-            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-3">
-                @<?php echo $templateParams['Username'] ?></h2>
-            <section>
-                <div class="d-flex justify-content-around align-items-center">
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
-                    <p class="text-white text-center fs-3"><span
-                            id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</p>
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> following
-                    </p>
-                </div>
-            </section>
+            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-3">@<?php echo $templateParams['Username'] ?></h2>
+            <div class="d-flex justify-content-around align-items-center">
+                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                <p class="text-white text-center fs-3"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
+                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
+            </div>
         </section>
     </div>
     <div class="row mx-0">
         <section class="d-flex flex-column">
-            <h2 class="text-white pb-3"><?php echo $templateParams["Nome"] ?></h2>
+            <h2 class="text-white pb-1"><?php echo $templateParams["Nome"] ?></h2>
             <p class="text-white fs-4">
                 <?php echo $templateParams["Bio"] ?>
             </p>
@@ -32,17 +27,20 @@
                        value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Unfollow" : "Follow" ?>"
                        class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
             <?php endif; ?>
+            <?php if ($templateParams["UserID"] == $_SESSION["user_id"]): ?>
+                <a href="/logout" class="btn btn-secondary my-2 shadow-none">Log out</a>
+            <?php endif; ?>
         </section>
     </div>
     <div class="row mx-0">
         <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
             <div class="d-flex justify-content-center align-items-center py-3">
-                <i class="fa-solid fa-table-cells fa-2x text-white"></i>
+                <span class="fa-solid fa-table-cells fa-2x text-white"></span>
             </div>
         </a>
         <a href="#" class="text-decoration-none col-6" id="mentioned">
             <div class="d-flex justify-content-center align-items-center py-3">
-                <i class="fa-solid fa-user-group fa-2x text-white"></i>
+                <span class="fa-solid fa-user-group fa-2x text-white"></span>
             </div>
         </a>
     </div>
@@ -65,4 +63,4 @@
 <script src="web/js/posts.js"></script>
 <script src="web/js/likes.js"></script>
 <script src="web/js/comments.js"></script>
-<script src="/web/js/profile.js" type="text/javascript"></script>
+<script src="/web/js/profile.js"></script>

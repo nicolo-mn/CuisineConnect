@@ -25,4 +25,9 @@ class SessionController extends Controller
 
         return false;
     }
+
+    public function logout() {
+        session_destroy();
+        header('Location: ' . "login");
+    }
 }
