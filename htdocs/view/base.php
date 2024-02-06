@@ -16,7 +16,6 @@
     <script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
     <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
     <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
-    <script type="javascript">$=jquery</script>
     <main class="flex-grow-1 overflow-auto container-fluid p-0">
         <?php if (isset($templateParams["nome"])) {
             require($templateParams["nome"]);

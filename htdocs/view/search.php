@@ -4,4 +4,4 @@
 </div>
 <div id="searchResults" class="row mx-0"></div>
 
-<script src="/web/js/search.js" type="text/javascript"></script>
+<script src="/web/js/search.js"></script>

@@ -8,13 +8,11 @@
         </div>
         <section class="col-8 col-md-9">
             <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-3">@<?php echo $templateParams['Username'] ?></h2>
-            <section>
-                <div class="d-flex justify-content-around align-items-center">
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
-                    <p class="text-white text-center fs-3"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
-                    <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
-                </div>
-            </section>
+            <div class="d-flex justify-content-around align-items-center">
+                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                <p class="text-white text-center fs-3"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
+                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
+            </div>
         </section>
     </div>
     <div class="row mx-0">
@@ -31,12 +29,12 @@
     <div class="row mx-0">
         <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
             <div class="d-flex justify-content-center align-items-center py-3">
-                <i class="fa-solid fa-table-cells fa-2x text-white"></i>
+                <span class="fa-solid fa-table-cells fa-2x text-white"></span>
             </div>
         </a>
         <a href="#" class="text-decoration-none col-6" id="mentioned">
             <div class="d-flex justify-content-center align-items-center py-3">
-                <i class="fa-solid fa-user-group fa-2x text-white"></i>
+                <span class="fa-solid fa-user-group fa-2x text-white"></span>
             </div>
         </a>
     </div>
@@ -54,5 +52,5 @@
 </div>
 
 
-<script src="/web/js/profile.js" type="text/javascript"></script>
+<script src="/web/js/profile.js"></script>
     
