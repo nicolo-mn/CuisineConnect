@@ -1,7 +1,9 @@
-<div class="row justify-content-end mb-5">
-    <h2 class="text-secondary text-center fw-bold col-md-6 mb-5 mb-md-0">Le mie ricette</h2>
+<div class="row justify-content-end mb-5 mx-0">
+    <div class="col-md-6 mb-5 mb-md-0 p-0">
+        <h2 class="text-secondary text-center fw-bold ">Le mie ricette</h2>
+    </div>
     <div class="col-md-3">
-        <a href="/logout" class="btn btn-secondary w-100 mx-3 shadow-none">Add a new recipe!</a>
+        <a href="/newrecipe" class="btn btn-secondary w-100 shadow-none">Add a new recipe!</a>
     </div>
 </div>
 <div class="row row-cols-3 pt-2 col-md-8 mx-0 mx-md-auto gap-1">
