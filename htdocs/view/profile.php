@@ -1,9 +1,10 @@
-<?php $templateParams = $GLOBALS['templateParams']?>
+<?php $templateParams = $GLOBALS['templateParams'] ?>
 <div class="col-md-8 mx-auto">
     <div class="row d-flex align-items-center py-7 mx-0">
         <div class="col-4 col-md-3">
             <div class="ratio ratio-1x1">
-                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo" class="img-fluid rounded-circle">
+                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="immagine profilo"
+                     class="img-fluid rounded-circle">
             </div>
         </div>
         <section class="col-8 col-md-9">
@@ -17,12 +18,14 @@
     </div>
     <div class="row mx-0">
         <section class="d-flex flex-column">
-            <h2 class="text-white pb-3"><?php echo $templateParams["Nome"]?></h2>
+            <h2 class="text-white pb-3"><?php echo $templateParams["Nome"] ?></h2>
             <p class="text-white fs-4">
-            <?php echo $templateParams["Bio"]?>
+                <?php echo $templateParams["Bio"] ?>
             </p>
-            <?php if($templateParams["UserID"] != $_SESSION["user_id"]): ?>
-            <input type="submit" id="followBtn" value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Smetti di seguire" : "Segui" ?>" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
+            <?php if ($templateParams["UserID"] != $_SESSION["user_id"]): ?>
+                <input type="submit" id="followBtn"
+                       value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Smetti di seguire" : "Segui" ?>"
+                       class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
             <?php endif; ?>
         </section>
     </div>
@@ -39,18 +42,22 @@
         </a>
     </div>
     <div class="row row-cols-3 pt-2 mx-0" id="post-tab">
-        <?php foreach(PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
-        <div class="col g-0">
-            <a href="#">
-                <div class="ratio ratio-1x1">
+        <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
+            <div class="col g-0">
+                <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
                     <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
-                </div>
-            </a>
-        </div>
+                </button>
+                <input type="hidden" value="<?= $post["PostID"] ?>">
+            </div>
         <?php endforeach; ?>
     </div>
 </div>
 
+<?php require_once "view/modals/popup-post.php"; ?>
+<?php require_once "form/edit-comment.php"?>
+<?php require_once "form/like-list.php"?>
 
+<script src="web/js/posts.js"></script>
+<script src="web/js/likes.js"></script>
+<script src="web/js/comments.js"></script>
 <script src="/web/js/profile.js"></script>
-    
