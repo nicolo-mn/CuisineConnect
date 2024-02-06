@@ -70,6 +70,10 @@ $router->addRoute('POST', '/submit-post', function () {
     PostController::getInstance()->addPost($_FILES["file"]);
 });
 
+$router->addRoute('POST', '/get-post', function () {
+    PostController::getInstance()->getPostFullInfo($_POST);
+});
+
 $router->addRoute('POST', '/like-post', function () {
     InteractionController::getInstance()->likePost($_POST);
 });

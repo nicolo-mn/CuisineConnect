@@ -67,7 +67,7 @@ class Database
 
     public function getUserPosts($UserID)
     {
-        $query = "SELECT * FROM Posts WHERE UserID = ? ORDER BY DataCreazione DESC";
+        $query = "SELECT PostID, Foto FROM Posts WHERE UserID = ? ORDER BY DataCreazione DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $UserID);
         $stmt->execute();
@@ -321,5 +321,29 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $stmt->execute();
         $result = $stmt->get_result();
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getPostFullInfo($postID, $userID)
+    {
+        $query = "SELECT p.*, (SELECT count(*) from Notifiche 
+                                                            WHERE UtenteNotificanteUserID = ? 
+                                                              and Tipo = \"like\" 
+                                                              and PostID = p.PostID) as isLike
+                                                              FROM Posts p
+              WHERE p.PostID = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $userID, $postID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $post = $result->fetch_all(MYSQLI_ASSOC)[0];
+        $post["Commenti"] = InteractionController::getInstance()->getCommentsFromPost($postID);
+
+        foreach ($post["Commenti"] as &$item) {
+            $item["owner"] = $item["UtenteNotificanteUserID"] == SessionController::getInstance()->getSessionUserID();
+        }
+
+        return json_encode($post);
     }
 }

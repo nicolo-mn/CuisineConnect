@@ -9,7 +9,7 @@
                 <form id="editCommentForm" action="/submit-post" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="commentField">Commento:</label>
-                        <input type="text" class="form-control" id="commentText" name="commentText" required>
+                        <input type="text" data-provide="typeahead" class="form-control" id="commentText" name="commentText" required>
                     </div>
                     <input type="hidden" id="commentID" name="commentID">
                     <div class="modal-footer">

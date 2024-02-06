@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     $(document).on("click", ".like-button", function () {
         let $button = $(this);
-        let heart = $button.children().first();
-        let counter = $button.siblings("span").first();
+        let heart = $button.children(".fa-heart").first();
+        let counter = $button.siblings("button").first().children().first();
         let data = new FormData();
         let input = $button.siblings("input").first();
         data.append("post", input.val());
