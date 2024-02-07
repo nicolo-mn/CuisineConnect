@@ -7,6 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
             $(this).children("span").toggleClass("fa-angle-up fa-angle-down");
         });
     })
+
+
+    var sidebar = document.querySelector('nav > ul');
+    sidebar.style.right = '-250px';
+    var menuBtn = document.querySelector('.menu-btn');
+
+    // Funzione per aprire/chiudere il menu
+    function toggleMenu() {
+        console.log("clicked")
+        $(sidebar).toggleClass("d-none", 0, "easeOutSine", function () {
+            console.log("dfsfd");
+            if (sidebar.style.right === '0px') {
+                sidebar.style.right = '-250px';
+            } else {
+                sidebar.style.right = '0px';
+            }
+        });
+
+    }
+
+    // Event listener per il pulsante del menu
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Event listener per il clic al di fuori del menu per chiuderlo
+    document.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target !== menuBtn && !sidebar.contains(target)) {
+            sidebar.style.right = '-250px';
+            $(sidebar).addClass("d-none");
+        }
+    });
 });
 
 function toggleDescription(postElement) {

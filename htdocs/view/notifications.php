@@ -1,4 +1,6 @@
-<h1 class="text-secondary text-center">Notifications</h1>
+<?php if ($_SERVER["REQUEST_URI"] === "/notifications"): ?>
+    <h1 class="text-secondary text-center">Notifications</h1>
+<?php endif ?>
 <?php if (isset($GLOBALS["templateParams"]["Notifiche"])): ?>
     <?php foreach ($GLOBALS["templateParams"]["Notifiche"] as $notifica) : ?>
         <a href="<?php echo '/user/' . $notifica["Username"] ?>" class="text-decoration-none">
