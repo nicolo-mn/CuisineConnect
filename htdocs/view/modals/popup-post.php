@@ -48,7 +48,7 @@
                                     <button type="button" class="like-list bg-transparent border-0"
                                             data-bs-toggle="modal"
                                             data-bs-target="#likeList">
-                                        <span class="like-counter text-white">2</span>
+                                        <span class="like-counter text-white"></span>
                                     </button>
                                 </div>
                             </div>
