@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var title = $("#title").val();
 
         // Resetta il messaggio di aiuto
-        $("#titleHelp").text("Il titolo deve essere lungo almeno 5 caratteri.");
+        $("#titleHelp").text("Title must be at least 5 characters longy.");
 
         // Validazione del titolo
         if (title.length < 5) {
             // Se il titolo è troppo corto, mostra un messaggio di errore
-            $("#titleHelp").text("Il titolo deve essere lungo almeno 5 caratteri.");
+            $("#titleHelp").text("Title must be at least 5 characters longy.");
             return false;
         }
 
