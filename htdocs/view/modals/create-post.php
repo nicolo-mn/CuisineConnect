@@ -9,14 +9,14 @@
                 <?php if (isset($_SESSION["user_id"])): ?>
                     <form id="postForm" action="/submit-post" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="title">Titolo:</label>
+                            <label for="title">Title:</label>
                             <input type="text" class="form-control" id="title" name="title" required/>
                             <small id="titleHelp" class="form-text text-muted">Il titolo deve essere lungo almeno 5
                                 caratteri.</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="description">Descrizione:</label>
+                            <label for="description">Description:</label>
                             <textarea class="form-control" id="description" name="description" rows="4"
                                       required></textarea>
                         </div>
@@ -33,7 +33,7 @@
                         <input type="text" name="mention" id="mention" class="form-control mb-2">
 
                         <div class="form-group">
-                            <label for="file">Aggiungi un file:</label>
+                            <label for="file">Add a file:</label>
                             <input type="file" class="form-control-file" id="file" name="file"/>
                         </div>
                     </form>

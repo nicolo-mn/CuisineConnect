@@ -9,7 +9,7 @@ $posts = PostController::getInstance()->getPosts();
 </button>-->
 <div class="d-flex justify-content-end h-100">
     <section class="h-100 overflow-scroll align-items-center w-md-3/4 w-lg-1/2" id="feed">
-        <h1 class="hide">CuisineConnect Home Feed</h1>
+        <h1 hidden>CuisineConnect Home Feed</h1>
         <?php if (isset($posts)) {
             foreach ($posts as $post) {
                 require "post.php";
