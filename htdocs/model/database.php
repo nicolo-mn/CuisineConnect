@@ -381,4 +381,32 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $stmt->bind_param('i', $recipeID);
         return $stmt->execute();
     }
+
+    public function getFollowersList($UserID)
+    {
+        $query = "SELECT Utenti.Username, Utenti.ImmagineProfilo
+              FROM Followers
+              JOIN Utenti ON Followers.FollowingUserID = Utenti.UserID
+              WHERE Followers.FollowedUserID = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getFollowingList($UserID)
+    {
+        $query = "SELECT Utenti.Username, Utenti.ImmagineProfilo
+              FROM Followers
+              JOIN Utenti ON Followers.FollowedUserID = Utenti.UserID
+              WHERE Followers.FollowingUserID = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
