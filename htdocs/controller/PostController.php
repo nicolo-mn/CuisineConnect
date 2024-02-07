@@ -15,6 +15,7 @@ class PostController extends Controller
                 $_POST["title"],
                 $_POST["description"],
                 $_POST["recipe"] == "null" ? null : $_POST["recipe"],
+                $_POST["mention"],
                 $result[1]
             )) {
                 echo true;

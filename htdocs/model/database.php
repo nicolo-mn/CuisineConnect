@@ -47,12 +47,30 @@ class Database
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertPost($UserID, $Titolo, $Descrizione, $ricetta, $Foto)
+    public function insertPost($UserID, $Titolo, $Descrizione, $ricetta, $mention, $Foto)
     {
         $query = "INSERT INTO Posts (UserID, Titolo, Descrizione, RecipeID, Foto) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('issis', $UserID, $Titolo, $Descrizione, $ricetta, $Foto);
-        return $stmt->execute();
+
+        if(!$stmt->execute()) {
+            return false;
+        }
+
+        if (isset($mention)){
+            InteractionController::getInstance()->addMention($UserID, $mention, $this->getPostID($Titolo, $UserID));
+        }
+
+        return true;
+    }
+
+    public function getPostID($title, $userID) {
+        $query = "SELECT PostID FROM Posts WHERE UserID = ? and Titolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('is', $userID, $title);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["PostID"];
     }
 
     public function getUser($Username)
@@ -433,5 +451,15 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addMention($user, $mentioned, $post)
+    {
+        $query = "INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID) 
+VALUES ((SELECT UserID FROM Utenti WHERE Username = ? LIMIT 1), ?, 'Segui', ?)";
+        $stmt = $this->db->prepare($query);
+        echo $mentioned." ".$user." ".$post;
+        $stmt->bind_param('sii', $mentioned, $user, $post);
+        return $stmt->execute();
     }
 }

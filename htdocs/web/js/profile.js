@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createComment(commentID, profilePic, commentUser, commentText, isOwner) {
         let update = "";
-        console.log(isOwner)
 
         if (isOwner) {
-            console.log(isOwner)
             update += "<div>\n" +
                 "                                <button type=\"button\" class=\"edit-comment bg-transparent border-0\" data-bs-toggle=\"modal\" data-bs-target=\"#editComment\">\n" +
                 "                                    <i class=\"fa-solid fa-pen text-secondary\"></i>\n" +
@@ -91,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             `
                             <div class="col g-0">
                                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                                    <img src="${post["Foto"]}" alt="post photo" class="img-fluid"/>
+                                    <img src="/${post["Foto"]}" alt="post photo" class="img-fluid"/>
                                 </button>
                                 <input type="hidden" value="${post["PostID"]}"/>
                             </div>
@@ -140,7 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     $modal.find(".description").text(post["Descrizione"]);
                     $modal.find("#PostID").val(post["PostID"]);
                     $modal.find(".commentForm input[name^=\"post\"]").val(post["PostID"]);
-                    console.log(post["PostID"], $modal.find("#PostID"))
+                    $modal.find("button.like-list").on("click", function () {
+                        loadLikeList(post["PostID"]);
+                    })
                     if (post["isLike"]) {
                         $modal.find(".fa-heart").removeClass("fa-regular text-white");
                         $modal.find(".fa-heart").addClass("fa text-danger");
@@ -154,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     let comments = ""
 
                     $(post["Commenti"]).each(function () {
-                        console.log(this)
                         comments += createComment(
                             this["NotificationID"],
                             this["ImmagineProfilo"],
@@ -209,12 +208,11 @@ function fetchRecipeData(modal, recipeID) {
         url: "/get-recipe",
         data: {RecipeID: recipeID},
         success: function (response) {
-            console.log(response);
+
             let recipe = JSON.parse(response);
-            console.log(recipe);
+
             $(modal).find(".recipe-name").text(recipe["Nome"]);
             let nutritionalValues = JSON.parse(recipe["ValoriNutrizionali"]);
-            console.log(nutritionalValues)
             let nutritionalValuesText = "";
             for (const key in nutritionalValues) {
                 const [quantity, unit] = nutritionalValues[key];
@@ -234,6 +232,37 @@ function fetchRecipeData(modal, recipeID) {
             })
             $(modal).find(".recipe-ingredients").html(ingredientsText);
             $(modal).find(".recipe-instructions").text(recipe["Procedimento"]);
+        },
+        error: function (error) {
+            console.error("Errore nella richiesta AJAX: ", error);
+        }
+    });
+}
+
+function loadLikeList(postID) {
+    let formData = new FormData();
+    formData.append("post", postID)
+    $.ajax({
+        type: "POST",
+        url: "/like-list",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            let users = JSON.parse(response);
+            $("#likeList .modal-body").html("");
+            let html = "";
+            $(users).each(function (){
+                html += '<div class="d-flex justify-content-between align-items-center mb-2">\n' +
+                    '    <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">\n' +
+                    '        <img src="'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
+                    '             class="img-fluid"/>\n' +
+                    '    </div>\n' +
+                    '    <a class="fs-6 text-primary m-00"\n' +
+                    '       href="user/'+this["Username"]+'">@'+this["Username"]+'</a>\n' +
+                    '</div>'
+                $("#likeList .modal-body").html(html);
+            })
         },
         error: function (error) {
             console.error("Errore nella richiesta AJAX: ", error);

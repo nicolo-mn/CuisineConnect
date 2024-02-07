@@ -32,7 +32,7 @@ img {
     overflow-y: auto;
 }
 
-#feed::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
 }
 

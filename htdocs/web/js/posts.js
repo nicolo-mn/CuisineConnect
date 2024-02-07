@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).ready(function () {
 
         $("#post").on("click", function (event) {
-            console.log("post")
             // Esegui la validazione
             if (validateForm()) {
                 let form = $("#postForm")[0];

@@ -9,12 +9,9 @@ $(".show-recipe").on("click", function () {
             url: "/get-recipe",
             data: {RecipeID: recipeID},
             success: function (response) {
-                console.log(response);
                 let recipe = JSON.parse(response);
-                console.log(recipe);
                 $(modal).find(".recipe-name").text(recipe["Nome"]);
                 let nutritionalValues = JSON.parse(recipe["ValoriNutrizionali"]);
-                console.log(nutritionalValues)
                 let nutritionalValuesText = "";
                 for (const key in nutritionalValues) {
                     const [quantity, unit] = nutritionalValues[key];

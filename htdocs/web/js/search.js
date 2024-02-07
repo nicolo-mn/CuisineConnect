@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 processData: false,
                 contentType: false,
                 success: function(response) {
-                    console.log(response);
                     const users = JSON.parse(response);
                     let result = "";
                     users.forEach(user => {
@@ -37,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         `;
                     });
                     document.getElementById("searchResults").innerHTML = result;
-                    console.log("Risultato: ", response);
                 },
                 error: function(error) {
                     console.error("Errore nella richiesta AJAX: ", error);

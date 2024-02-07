@@ -79,4 +79,4 @@
     </div>
 </div>
 
-<script src="web/js/myrecipes.js"></script>
+<script src="/web/js/myrecipes.js"></script>

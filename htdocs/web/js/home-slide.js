@@ -24,6 +24,5 @@ $(".post-media").each(function () {
         const x = e.pageX - this.offsetLeft;
         const walk = (x - startX) * 3; //scroll-fast
         this.scrollLeft = scrollLeft - walk;
-        console.log(walk);
     });
 });

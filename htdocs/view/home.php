@@ -29,8 +29,8 @@ $posts = PostController::getInstance()->getPosts();
 <?php require_once "form/edit-comment.php" ?>
 <?php require_once "form/like-list.php" ?>
 
-<script src="web/js/likes.js"></script>
-<script src="web/js/comments.js"></script>
-<script src="web/js/home-slide.js"></script>
+<script src="/web/js/likes.js"></script>
+<script src="/web/js/comments.js"></script>
+<script src="/web/js/home-slide.js"></script>
 
 

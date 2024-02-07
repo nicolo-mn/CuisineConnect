@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 ingredients.push(`${quantity}g of ${ingredient}`);
             }
         );
-        // console.log("ingredienti: " + ingredients);
         document.getElementById("recipe-form").classList.add("d-none");
         document.getElementById("loading-overlay").classList.remove("d-none");
         $.ajax({

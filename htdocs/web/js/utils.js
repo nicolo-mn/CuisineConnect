@@ -15,9 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Funzione per aprire/chiudere il menu
     function toggleMenu() {
-        console.log("clicked")
         $(sidebar).toggleClass("d-none", 0, "easeOutSine", function () {
-            console.log("dfsfd");
             if (sidebar.style.right === '0px') {
                 sidebar.style.right = '-250px';
             } else {

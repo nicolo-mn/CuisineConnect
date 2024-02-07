@@ -66,4 +66,8 @@ class InteractionController extends Controller
     {
         $this->db->removeComment($request["comment"], SessionController::getInstance()->getSessionUserID());
     }
+
+    public function addMention($user, $mentioned, $post) {
+        $this->db->addMention($user, $mentioned, $post);
+    }
 }

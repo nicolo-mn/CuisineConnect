@@ -17,8 +17,8 @@
 <script src="/web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
 <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
-<script src="web/js/posts.js"></script>
-<script src="web/js/utils.js"></script>
+<script src="/web/js/posts.js"></script>
+<script src="/web/js/utils.js"></script>
 
 <main class="flex-grow-1 overflow-<?= ($_SERVER["REQUEST_URI"] === "/") ? "hidden" : "auto"?>  container-fluid p-0">
     <?php if (isset($templateParams["nome"])) {

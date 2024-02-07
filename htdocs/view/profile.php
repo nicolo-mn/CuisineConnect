@@ -48,7 +48,7 @@
         <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
             <div class="col g-0">
                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                    <img src="<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid" />
+                    <img src="/<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid" />
                 </button>
                 <input type="hidden" value="<?= $post["PostID"] ?>" />
             </div>
@@ -62,6 +62,6 @@
 <?php require_once "form/edit-comment.php"?>
 <?php require_once "form/like-list.php"?>
 
-<script src="web/js/likes.js"></script>
-<script src="web/js/comments.js"></script>
+<script src="/web/js/likes.js"></script>
+<script src="/web/js/comments.js"></script>
 <script src="/web/js/profile.js"></script>

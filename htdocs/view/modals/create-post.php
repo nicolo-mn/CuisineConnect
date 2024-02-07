@@ -23,12 +23,14 @@
                         <label for="recipe" hidden>Select your recipe</label>
                         <select class="form-select my-3" aria-label="Default select example" name="recipe" id="recipe">
                             <option value="null" selected>Open this select menu</option>
-                            <?php foreach(RecipeController::getInstance()->loadUserRecipesIDs() as $recipesID): ?>
+                            <?php foreach (RecipeController::getInstance()->loadUserRecipesIDs() as $recipesID): ?>
                                 <option value="<?= $recipesID["RecipeID"] ?>">
                                     <?= $recipesID["Nome"] ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <label for="mention">Menziona qualcuno:</label>
+                        <input type="text" name="mention" id="mention" class="form-control mb-2">
 
                         <div class="form-group">
                             <label for="file">Aggiungi un file:</label>
