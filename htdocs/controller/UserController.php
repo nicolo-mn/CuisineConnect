@@ -73,4 +73,12 @@ class UserController extends Controller
         $user = $this->db->getUser($username);
         return $user[0]["UserID"];
     }
+
+    public function getFollowersList($userID) {
+        return $this->db->getFollowersList($userID);
+    }
+
+    public function getFollowingList($userID) {
+        return $this->db->getFollowingList($userID);
+    }
 }

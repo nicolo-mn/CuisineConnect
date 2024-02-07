@@ -8,11 +8,15 @@
             </div>
         </div>
         <section class="col-8 col-md-9">
-            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-3">@<?php echo $templateParams['Username'] ?></h2>
+            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-4">@<?php echo $templateParams['Username'] ?></h2>
             <div class="d-flex justify-content-around align-items-center">
-                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
-                <p class="text-white text-center fs-3"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> seguaci</p>
-                <p class="text-white text-center fs-3"><?php echo $templateParams['NumeroFollowing'] ?> <br> seguiti</p>
+                <p class="text-white text-center"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                <button type="button" class="followers-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followersList">
+                    <span class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</span>
+                </button>
+                <button type="button" class="following-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followingList">
+                    <span class="text-white text-center"><?php echo $templateParams['NumeroFollowing'] ?> <br> following</span>
+                </button>
             </div>
         </section>
     </div>
@@ -48,7 +52,7 @@
         <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
             <div class="col g-0">
                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                    <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+                    <img src="<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid">
                 </button>
                 <input type="hidden" value="<?= $post["PostID"] ?>">
             </div>
@@ -57,6 +61,8 @@
 </div>
 
 <?php require_once "view/modals/popup-post.php"; ?>
+<?php require_once "view/modals/followers-list.php"; ?>
+<?php require_once "view/modals/following-list.php"; ?>
 <?php require_once "form/edit-comment.php"?>
 <?php require_once "form/like-list.php"?>
 

@@ -3,7 +3,7 @@
     <div class="row py-3 d-flex justify-content-between align-items-center">
         <!-- Navbar mobile -->
         <div class="col d-md-none">
-            <a href="/search">
+            <a href="/search" title="Search">
                 <span
                     class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></span>
             </a>

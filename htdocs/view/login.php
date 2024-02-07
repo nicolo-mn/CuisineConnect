@@ -5,16 +5,16 @@
             Taste the world! your flavorful adventure starts here
         </p>
 
-        <section class="text-center">
+        <div class="text-center">
             <p class="text-secondary fw-bold mb-1">
-                <i class="fa-solid fa-mountain-city"></i>
+                <span class="fa-solid fa-mountain-city"></span>
                 Share your culinary experience
             </p>
             <p class="text-secondary fw-bold">
-                <i class="fa-solid fa-bowl-food"></i>
+                <span class="fa-solid fa-bowl-food"></span>
                 Learn from an always growing community
             </p>
-        </section>
+        </div>
     </header>
 </section>
 

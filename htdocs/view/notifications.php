@@ -1,7 +1,5 @@
 <?php if (isset($GLOBALS["templateParams"]["Notifiche"])): ?>
     <?php foreach ($GLOBALS["templateParams"]["Notifiche"] as $notifica) : ?>
-        <!-- TODO metti link a post ed eventualmente correggi parametri
-        presi dal database per ogni notifica -->
         <a href="<?php echo '/user/' . $notifica["Username"] ?>" class="text-decoration-none">
             <div class="row mx-0">
                 <div class="d-flex justify-content-between py-3 align-items-center">
@@ -11,7 +9,7 @@
                         <?php endif; ?>
                         <div class="col-1">
                             <div class="ratio ratio-1x1">
-                                <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt=""
+                                <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt="profile picture"
                                      class="img-fluid rounded-circle">
                             </div>
                         </div>
@@ -25,7 +23,7 @@
                     <?php if ($notifica["PostID"] != null) : ?>
                         <div class="col-1">
                             <div class="ratio ratio-1x1">
-                                <img src="<?php echo $notifica["Foto"] ?>" alt="foto post" class="img-fluid">
+                                <img src="<?php echo $notifica["Foto"] ?>" alt="post picture" class="img-fluid">
                             </div>
                         </div>
                     <?php endif; ?>

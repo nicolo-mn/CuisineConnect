@@ -46,18 +46,18 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("username", username);
             $.ajax({
                 type: "POST",
-                url: "/follow-unfollow", // Sostituisci con l'URL della tua route
+                url: "/follow-unfollow", 
                 data: formData,
-                processData: false,  // Non processare i dati (FormData si occupa di questo)
-                contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
+                processData: false,  
+                contentType: false,  
                 success: function (response) {
                     let newValue;
                     let followers = parseInt(document.getElementById("followers").innerHTML);
-                    if (document.getElementById("followBtn").value === "Segui") {
-                        newValue = "Smetti di seguire";
+                    if (document.getElementById("followBtn").value === "Follow") {
+                        newValue = "Unfollow";
                         followers++;
                     } else {
-                        newValue = "Segui";
+                        newValue = "Follow";
                         followers--;
                     }
                     document.getElementById("followers").innerHTML = followers;
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             `
                             <div class="col g-0">
                                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                                    <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                                    <img src="${post["Foto"]}" alt="post-photo" class="img-fluid">
                                 </button>
                                 <input type="hidden" value="${post["PostID"]}">
                             </div>

@@ -135,5 +135,9 @@ $router->addRoute('POST', '/get-recipe', function () {
     echo json_encode(RecipeController::getInstance()->getRecipeByID($_POST["RecipeID"])[0]);
 });
 
+$router->addRoute('POST', '/delete-recipe', function () {
+    RecipeController::getInstance()->deleteRecipe($_POST["RecipeID"]);
+});
+
 
 $router->matchRoute();

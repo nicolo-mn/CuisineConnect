@@ -20,4 +20,8 @@ class RecipeController extends Controller {
     public function getRecipeByID($recipeID) {
         return $this->db->getRecipeByID($recipeID);
     }
+
+    public function deleteRecipe($recipeID) {
+        $this->db->deleteRecipe($recipeID);
+    }
 }
