@@ -12,10 +12,10 @@
             <div class="d-flex justify-content-around align-items-center">
                 <p class="text-white text-center"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
                 <button type="button" class="followers-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followersList">
-                    <p class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</p>
+                    <span class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</span>
                 </button>
                 <button type="button" class="following-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followingList">
-                    <p class="text-white text-center"><?php echo $templateParams['NumeroFollowing'] ?> <br> following</p>
+                    <span class="text-white text-center"><?php echo $templateParams['NumeroFollowing'] ?> <br> following</span>
                 </button>
             </div>
         </section>
