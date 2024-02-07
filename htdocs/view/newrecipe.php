@@ -1,4 +1,4 @@
-<h2 class="d-none d-md-block text-secondary text-center mb-5 fw-bold">Aggiunta ricetta</h2>
+<h2 class="text-secondary text-center mb-5 fw-bold">New Recipe</h2>
 <div class="row mb-5 mx-0">
     <form action="#" id="recipe-form" class="col-md-10 mx-auto d-flex flex-column gap-5">
         <input type="text" class="form-control bg-dark border-0 rounded-3 text-white" id="nome" placeholder="Recipe name" />
