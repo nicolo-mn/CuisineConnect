@@ -59,7 +59,7 @@
                                 <input type="hidden" value="1" name="post">
                                 <div class="input-group">
                                     <label for="comment" hidden>Add a comment</label>
-                                    <input type="text" name="comment" id="comment" placeholder="Aggiungi un commento"
+                                    <input type="text" name="comment" id="comment" placeholder="Add a comment"
                                            class="form-control border-0 text-white bg-dark py-2 px-3" required/>
                                     <button type="submit" class="input-group-text bg-secondary border-0">
                                         <span class="fa-regular fa-paper-plane"></span>
@@ -68,7 +68,7 @@
                             </form>
                             <hr class="d-none d-md-block my-3 bg-white"/>
                             <section class="comment-section d-none mt-3 mt-md-0 h-1/2 overflow-auto">
-                                <h3 class="text-white"><span class="comment-counter"></span> Commenti</h3>
+                                <h3 class="text-white"><span class="comment-counter"></span> Comments</h3>
                                 <div class="comments"></div>
                             </section>
                         </div>

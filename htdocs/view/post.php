@@ -60,7 +60,7 @@
                 <div class="input-group">
                     <label for="addComment-<?= $post["PostID"] ?>" hidden>Add a comment</label>
                     <input type="text" name="comment" id="addComment-<?= $post["PostID"] ?>"
-                           placeholder="Aggiungi un commento"
+                           placeholder="Add a comment"
                            class="form-control border-0 text-white bg-dark py-2 px-3" required/>
                     <button type="submit" class="input-group-text bg-secondary border-0">
                         <span class="fa-regular fa-paper-plane"></span>
@@ -69,7 +69,7 @@
             </form>
             <hr class="d-none d-md-block my-3 bg-white"/>
             <section class="comment-section d-none mt-3 mt-md-0 d-md-block h-1/2 overflow-auto">
-                <h3 class="fs-5 text-white"><?= count($post["Commenti"]) ?> Commenti </h3>
+                <h3 class="fs-5 text-white"><?= count($post["Commenti"]) ?> Comments </h3>
                 <?php foreach ($post["Commenti"] as $commento): ?>
                     <article id="comment-<?= $commento["NotificationID"] ?>"
                              class="d-flex align-items-center mb-2 gap-2">

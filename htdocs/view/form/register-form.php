@@ -1,6 +1,6 @@
 <form id="registrationForm" action="/register" method="post" class="d-flex flex-column px-5 gap-3">
     <label for="email" hidden>E-mail</label>
-    <input type="email" name="email" id="email" placeholder="email"
+    <input type="email" name="email" id="email" placeholder="Email"
            class="border-0 text-white bg-dark rounded-pill py-2 px-3">
     <span id="emailError" class="text-danger fs-7" hidden></span>
     <label for="username" hidden>Username</label>

@@ -25,13 +25,13 @@ class InteractionController extends Controller
     {
         switch ($type) {
             case "Segui":
-                return "ha iniziato a seguirti";
+                return "started following you";
             case "Like":
-                return "ha messo like ad un tuo post";
+                return "liked your post";
             case "Commento":
-                return "ha commentato un tuo post";
+                return "commented on your post";
             case "Menzione":
-                return "ti ha menzionato in un post";
+                return "mentioned you in a post";
             default:
                 return "notification type not found";
         }
