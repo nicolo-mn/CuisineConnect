@@ -13,7 +13,7 @@
                         <div class="col-1">
                             <div class="ratio ratio-1x1">
                                 <img src="<?php echo $notifica["ImmagineProfilo"] ?>" alt="profile picture"
-                                     class="img-fluid rounded-circle">
+                                     class="img-fluid rounded-circle" />
                             </div>
                         </div>
                         <p class="text-white m-0 notifications-text">
@@ -26,7 +26,7 @@
                     <?php if ($notifica["PostID"] != null) : ?>
                         <div class="col-1">
                             <div class="ratio ratio-1x1">
-                                <img src="<?php echo $notifica["Foto"] ?>" alt="post picture" class="img-fluid">
+                                <img src="<?php echo $notifica["Foto"] ?>" alt="post picture" class="img-fluid" />
                             </div>
                         </div>
                     <?php endif; ?>

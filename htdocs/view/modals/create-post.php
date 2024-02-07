@@ -10,7 +10,7 @@
                     <form id="postForm" action="/submit-post" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="title">Titolo:</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
+                            <input type="text" class="form-control" id="title" name="title" required/>
                             <small id="titleHelp" class="form-text text-muted">Il titolo deve essere lungo almeno 5
                                 caratteri.</small>
                         </div>
@@ -27,12 +27,12 @@
                                 <option value="<?= $recipesID["RecipeID"] ?>">
                                     <?= $recipesID["Nome"] ?>
                                 </option>
-                            <?php endforeach ?>
+                            <?php endforeach; ?>
                         </select>
 
                         <div class="form-group">
                             <label for="file">Aggiungi un file:</label>
-                            <input type="file" class="form-control-file" id="file" name="file">
+                            <input type="file" class="form-control-file" id="file" name="file"/>
                         </div>
                     </form>
                 <?php endif; ?>

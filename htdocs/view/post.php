@@ -3,7 +3,7 @@
              class="post d-flex flex-column flex-md-row g-0 h-100 overflow-hidden">
         <div class="post-media d-flex col-md-6 h-4/5 h-md-100">
             <div class="post-image w-100">
-                <img src="<?= $post["Foto"] ?>" alt="" class="h-100 w-100">
+                <img src="<?= $post["Foto"] ?>" alt="" class="h-100 w-100" />
             </div>
             <?php if (isset($post["Ricetta"])): ?>
                 <div class="h-100 w-100">
@@ -27,7 +27,7 @@
                     <div class="profile-pic-container overflow-hidden rounded-circle p-0">
                         <img
                             src="<?= $post["ImmagineProfilo"] ?>" alt=""
-                            class="img-fluid">
+                            class="img-fluid" />
                     </div>
                 </div>
                 <a class="d-none d-md-block text-white col m-0" href="user/<?= $post["Username"] ?>">
@@ -38,7 +38,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2 class="text-white fs-5 mt-3"><?= $post["Titolo"] ?></h2>
                 <div class="text-white">
-                    <input type="hidden" value="<?= $post["PostID"] ?>">
+                    <input type="hidden" value="<?= $post["PostID"] ?>" />
                     <button class="like-button <?= $post["isLike"] ? "liked" : "" ?> border-0 bg-transparent">
                         <?php if ($post["isLike"]): ?>
                             <span class="fa fa-heart text-danger"></span>
@@ -56,7 +56,7 @@
                 <?= $post["Descrizione"] ?>
             </p>
             <form class="commentForm">
-                <input type="hidden" value="<?= $post["PostID"] ?>" name="post">
+                <input type="hidden" value="<?= $post["PostID"] ?>" name="post" />
                 <div class="input-group">
                     <label for="addComment-<?= $post["PostID"] ?>" hidden>Add a comment</label>
                     <input type="text" name="comment" id="addComment-<?= $post["PostID"] ?>"
@@ -75,7 +75,7 @@
                              class="d-flex align-items-center mb-2 gap-2">
                         <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">
                             <img src="<?= $commento["ImmagineProfilo"] ?>" alt=""
-                                 class="img-fluid">
+                                 class="img-fluid" />
                         </div>
                         <div class="col">
                             <a class="fs-6 text-white m-00"
@@ -92,7 +92,7 @@
                                     <span class="fa-solid fa-pen text-secondary"></span>
                                 </button>
                                 <form class="remove-comment d-inline">
-                                    <input type="hidden" value="<?= $commento["NotificationID"] ?>" name="comment">
+                                    <input type="hidden" value="<?= $commento["NotificationID"] ?>" name="comment" />
                                     <button class="bg-transparent border-0">
                                         <span class="fa-solid fa-trash text-secondary"></span>
                                     </button>

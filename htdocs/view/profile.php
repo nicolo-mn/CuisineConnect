@@ -4,18 +4,18 @@
         <div class="col-4 col-md-3">
             <div class="ratio ratio-1x1">
                 <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture"
-                     class="img-fluid rounded-circle">
+                     class="img-fluid rounded-circle" />
             </div>
         </div>
         <section class="col-8 col-md-9">
             <h1 id="username" class="text-white text-center pb-2 pb-mb-5 pe-4">@<?php echo $templateParams['Username'] ?></h1>
             <div class="d-flex justify-content-around align-items-center">
-                <p class="text-white text-center m-0"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                <p class="text-white text-center m-0"><?php echo $templateParams['NumeroPost'] ?> <br/> posts</p>
                 <button type="button" class="followers-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followersList">
-                    <span class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</span>
+                    <span class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br/> followers</span>
                 </button>
                 <button type="button" class="following-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followingList">
-                    <span class="text-white text-center"><?php echo $templateParams['NumeroFollowing'] ?> <br> following</span>
+                    <span class="text-white text-center"><?php echo $templateParams['NumeroFollowing'] ?> <br/> following</span>
                 </button>
             </div>
         </section>
@@ -29,7 +29,7 @@
             <?php if ($templateParams["UserID"] != $_SESSION["user_id"]): ?>
                 <input type="submit" id="followBtn"
                        value="<?php echo UserController::getInstance()->isUserFollowed($templateParams["UserID"]) ? "Unfollow" : "Follow" ?>"
-                       class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10">
+                       class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 my-5 mx-3 mx-md-10" />
             <?php endif; ?>
             <?php if ($templateParams["UserID"] == $_SESSION["user_id"]): ?>
                 <a href="/logout" class="btn btn-secondary my-2 shadow-none">Log out</a>
@@ -48,9 +48,9 @@
         <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
             <div class="col g-0">
                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                    <img src="<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid">
+                    <img src="<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid" />
                 </button>
-                <input type="hidden" value="<?= $post["PostID"] ?>">
+                <input type="hidden" value="<?= $post["PostID"] ?>" />
             </div>
         <?php endforeach; ?>
     </div>

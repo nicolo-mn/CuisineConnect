@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "                                <div class=\"profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3\">\n" +
             "                                    <img\n" +
             "                                        src=\"" + profilePic + "\"\n" +
-            "                                        alt=\"\"\n" +
-            "                                        class=\"img-fluid\">\n" +
+            "                                        alt=\"profile picture\"\n" +
+            "                                        class=\"img-fluid\"/>\n" +
             "                                </div>\n" +
             "                                <div class=\"col\">\n" +
             "                                    <a class=\"fs-6 text-white m-00\"\n" +
@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             `
                             <div class="col g-0">
                                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                                    <img src="${post["Foto"]}" alt="post-photo" class="img-fluid">
+                                    <img src="${post["Foto"]}" alt="post photo" class="img-fluid"/>
                                 </button>
-                                <input type="hidden" value="${post["PostID"]}">
+                                <input type="hidden" value="${post["PostID"]}"/>
                             </div>
                             `;
                         });
