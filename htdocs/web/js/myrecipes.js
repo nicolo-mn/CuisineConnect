@@ -35,6 +35,22 @@ $(".show-recipe").on("click", function () {
             })
             $modal.find(".recipe-ingredients").html(ingredientsText);
             $modal.find(".recipe-instructions").text(recipe["Procedimento"]);
+            $(".delete-recipe").on("click", function () {
+                formData.append("RecipeID", RecipeID.val());
+                $.ajax({
+                    type: "POST",
+                    url: "/delete-recipe",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        window.location.href = "/recipes";
+                    },
+                    error: function (error) {
+                        console.error("Errore nella richiesta AJAX: ", error);
+                    }
+                });
+            })
         },
         error: function (error) {
             console.error("Errore nella richiesta AJAX: ", error);

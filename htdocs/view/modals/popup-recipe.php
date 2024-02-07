@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog w-100 w-md-2/5 my-0 h-100 px-1 py-6">
         <div class="modal-content h-100 bg-primary overflow-hidden">
             <div class="modal-body h-100 p-0 rounded-5">
-            <section class="recipe bg-brick text-secondary d-flex flex-column justify-content-center g-0 post h-100 overflow-hidden p-3">
+            <section class="recipe bg-brick text-secondary d-flex flex-column justify-content-center g-0 post h-100 overflow-hidden p-3 position-relative">
                 <h3 class="recipe-name font-bold"></h3>
                 <div class="recipe-nutritional-values d-flex justify-content-between align-items-center"></div>
                 <section class="ingredients">
@@ -13,6 +13,7 @@
                     <h4 class="fw-light fs-5">Instructions:</h4>
                     <p class="recipe-instructions text-white"></p>
                 </section>
+                <span class="delete-recipe fa-solid fa-trash fa-2x bg-secondary text-primary position-absolute bottom-0 end-0 p-3 m-5 rounded-circle" role="button"></span>
             </section>
             </div>
         </div>

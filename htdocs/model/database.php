@@ -373,4 +373,12 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function deleteRecipe($recipeID)
+    {
+        $query = "DELETE FROM Ricette WHERE RecipeID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $recipeID);
+        return $stmt->execute();
+    }
 }
