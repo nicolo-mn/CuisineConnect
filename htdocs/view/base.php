@@ -11,17 +11,49 @@
 </head>
 
 <body class="bg-primary d-flex flex-column">
-    <?php require "view/components/header.php"; ?>
-    <script src="/web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
-    <script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
-    <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
-    <main class="flex-grow-1 overflow-auto container-fluid p-0">
-        <?php if (isset($templateParams["nome"])) {
-            require($templateParams["nome"]);
+<?php require "view/components/header.php"; ?>
+<script src="/web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
+<script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
+<script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
+<script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
+<main class="flex-grow-1 overflow-auto container-fluid p-0">
+    <?php if (isset($templateParams["nome"])) {
+        require($templateParams["nome"]);
+    }
+    ?>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var sidebar = document.getElementsByClassName('nav')[0];
+        sidebar.style.right = '-250px';
+        var menuBtn = document.querySelector('.menu-btn');
+
+        // Funzione per aprire/chiudere il menu
+        function toggleMenu() {
+            console.log("clicked")
+            if (sidebar.style.right === '0px') {
+                sidebar.style.right = '-250px';
+            } else {
+                sidebar.style.right = '0px';
+            }
         }
-        ?>
-    </main>
+
+        // Event listener per il pulsante del menu
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Event listener per il clic al di fuori del menu per chiuderlo
+        document.addEventListener('click', function (event) {
+            var target = event.target;
+            console.log(target)
+            if (target !== menuBtn && !sidebar.contains(target)) {
+                sidebar.style.right = '-250px';
+            }
+        });
+    });
+
+
+</script>
 </body>
 
 </html>

@@ -38,13 +38,21 @@ img {
 }
 
 #feed > article .post-media{
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: x mandatory;
     overflow-y: auto;
+}
+
+#feed > article .post-media.active{
+    scroll-snap-type: none;
 }
 
 #feed > article .post-media > div{
     flex-shrink: 0;
     scroll-snap-align: start;
+}
+
+.z-index-1 {
+    z-index: 1;
 }
 
 /* .current-tab{
