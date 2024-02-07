@@ -14,7 +14,7 @@
 <body class="bg-primary d-flex flex-column">
 <?php require "view/components/header.php"; ?>
 <script src="/web/bootstrap-5.0.2/dist/js/bootstrap.bundle.js"></script>
-<script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
+<script src="/web/fontawesome-free-6.5.1-web/js/all.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
 <script src="web/js/posts.js"></script>
