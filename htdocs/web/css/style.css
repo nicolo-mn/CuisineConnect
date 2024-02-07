@@ -32,6 +32,10 @@ img {
     overflow-y: auto;
 }
 
+#feed::-webkit-scrollbar {
+    display: none;
+}
+
 #feed > article {
     flex-shrink: 0;
     scroll-snap-align: start;

@@ -47,6 +47,7 @@ $router->addRoute('GET', '/search', function () {
 
 $router->addRoute('GET', '/notifications', function () {
     InteractionController::getInstance()->loadNotifications();
+    Renderer::render("notifications.php");
 });
 
 $router->addRoute('GET', '/recipes', function () {
@@ -131,7 +132,7 @@ $router->addRoute('POST', '/add-recipe', function () {
 });
 
 $router->addRoute('POST', '/get-recipe', function () {
-    RecipeController::getInstance()->getRecipeByID($_POST["RecipeID"]);
+    echo json_encode(RecipeController::getInstance()->getRecipeByID($_POST["RecipeID"])[0]);
 });
 
 

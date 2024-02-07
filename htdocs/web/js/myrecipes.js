@@ -15,6 +15,7 @@ $(".show-recipe").on("click", function () {
             console.log(recipe);
             $modal.find(".recipe-name").text(recipe["Nome"]);
             let nutritionalValues = JSON.parse(recipe["ValoriNutrizionali"]);
+            console.log(nutritionalValues)
             let nutritionalValuesText = "";
             for (const key in nutritionalValues) {
                 const [quantity, unit] = nutritionalValues[key];

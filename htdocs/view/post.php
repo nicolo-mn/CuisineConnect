@@ -1,9 +1,8 @@
 <?php if (isset($post)): ?>
-    <article id="post-<?= $post["PostID"] ?>" class="post d-flex flex-column flex-md-row
-     justify-content-center g-0 post h-100 w-100 overflow-hidden">
-        <div class="d-flex flex-column flex-md-row
-     justify-content-center g-0 post h-100 w-100 overflow-hidden">
-            <div class="post-media d-flex col-md-3 h-4/5 h-md-100">
+    <article id="post-<?= $post["PostID"] ?>"
+             class="post d-flex flex-column flex-md-row g-0 post h-100 overflow-hidden">
+        <div class="d-flex flex-column flex-md-row g-0 post h-100 overflow-hidden">
+            <div class="post-media d-flex col-md-6 h-4/5 h-md-100">
                 <div class="post-image w-100">
                     <img src="<?= $post["Foto"] ?>" alt="" class="h-100 w-100">
                 </div>
@@ -17,7 +16,7 @@
                     </div>
                 <?php endif ?>
             </div>
-            <div class="post-content col-md-3 px-3 py-2 info-block h-1/5 h-md-auto">
+            <div class="post-content col-md-6 px-3 py-2 info-block h-1/5 h-md-auto">
                 <button id="description-toggle-<?= $post["PostID"] ?>"
                         onclick="toggleDescription('post-<?= $post["PostID"] ?>')"
                         class="d-md-none rounded-circle border-0

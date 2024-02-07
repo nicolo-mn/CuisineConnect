@@ -44,6 +44,5 @@ class PostController extends Controller
     public function getPostFullInfo($request)
     {
         echo $this->db->getPostFullInfo($request["PostID"], SessionController::getInstance()->getSessionUserID());
-
     }
 }

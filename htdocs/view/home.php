@@ -7,14 +7,22 @@ $posts = PostController::getInstance()->getPosts();
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
 </button>-->
-<section class="h-100 overflow-scroll" id="feed">
-    <?php if (isset($posts)) {
-        foreach ($posts as $post) {
-            require "post.php";
+<div class="d-flex justify-content-end h-100">
+    <section class="h-100 overflow-scroll align-items-center w-md-3/4 w-lg-1/2" id="feed">
+        <?php if (isset($posts)) {
+            foreach ($posts as $post) {
+                require "post.php";
+            }
         }
-    }
-    ?>
-</section>
+        ?>
+    </section>
+    <section class="d-none d-md-block w-1/4">
+        <?php
+        InteractionController::getInstance()->loadNotifications();
+        require "notifications.php";
+        ?>
+    </section>
+</div>
 <!-- Modal -->
 <?php require_once "form/edit-comment.php" ?>
 <?php require_once "form/like-list.php" ?>

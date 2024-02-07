@@ -19,7 +19,6 @@ class InteractionController extends Controller
         $notifications = $this->db->getNotifications(SessionController::getInstance()->getSessionUserID());
         $GLOBALS["templateParams"]["Notifiche"] = $notifications;
         $this->db->readNotifications(SessionController::getInstance()->getSessionUserID());
-        Renderer::render("notifications.php");
     }
 
     public function getTextFromNotificationType($type)
