@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             `
                             <div class="col g-0">
                                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                                    <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                                    <img src="${post["Foto"]}" alt="post-photo" class="img-fluid">
                                 </button>
                                 <input type="hidden" value="${post["PostID"]}">
                             </div>

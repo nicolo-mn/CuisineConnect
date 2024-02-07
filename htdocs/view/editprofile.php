@@ -4,7 +4,7 @@
         <div class="row justify-content-center py-4">
             <div class="col-3">
                 <div class="ratio ratio-1x1">
-                    <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="" class="img-fluid rounded-circle">
+                    <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture" class="img-fluid rounded-circle">
                     <label for="profile-image"><i class="fa-solid fa-pencil text-primary bg-secondary position-absolute rounded-circle p-2 edit-profile-pic"></i></label>
                     <input type="file" name="profile-image" id="profile-image" class="d-none">
                 </div>

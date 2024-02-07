@@ -48,7 +48,7 @@
         <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>
             <div class="col g-0">
                 <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
-                    <img src="<?php echo $post["Foto"] ?>" alt="food" class="img-fluid">
+                    <img src="<?php echo $post["Foto"] ?>" alt="post picture" class="img-fluid">
                 </button>
                 <input type="hidden" value="<?= $post["PostID"] ?>">
             </div>
