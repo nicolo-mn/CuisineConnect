@@ -8,7 +8,7 @@
                         <div class="post-media d-flex h-4/5 overflow-scroll">
                             <div class="post-image w-100 flex-shrink-0">
                                 <img src=""
-                                     alt="" class="h-100 w-100">
+                                     alt="post image" class="h-100 w-100">
                             </div>
                             <div class="post-receipe h-100 w-100 flex-shrink-0">
                                 <section class="recipe bg-brick text-secondary d-flex flex-column
