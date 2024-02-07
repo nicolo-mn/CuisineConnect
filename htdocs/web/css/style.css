@@ -59,9 +59,9 @@ article .post-media > div{
     z-index: 1;
 }
 
-/* .current-tab{
-    border-bottom: 2px solid white !important;
-} */
+.z-index-2 {
+    z-index: 2;
+}
 
 .post-image.inactive {
     height: 20% !important;

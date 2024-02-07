@@ -4,12 +4,11 @@
         <!-- Navbar mobile -->
         <div class="col d-md-none">
             <a href="/search" title="Search">
-                <span
-                    class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></span>
+                <span class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></span>
             </a>
         </div>
         <div class="col d-md-none d-flex justify-content-end">
-            <button class="border-0 p-3 me-2 rounded-circle bg-primary z-index-1">
+            <button class="border-0 p-3 me-2 rounded-circle bg-primary z-index-2">
                 <span class="menu-btn fa-solid fa-burger fa-2x text-secondary"></span>
             </button>
         </div>
