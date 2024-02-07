@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Ascolta l'evento di input sulla barra di ricerca
         $("#search-input").on("input", function() {
             let searchString = $(this).val();
+            if (searchString === "") {
+                document.getElementById("searchResults").innerHTML = "";
+                return;
+            }
             let formData = new FormData();
             formData.append("searchString", searchString);
 
