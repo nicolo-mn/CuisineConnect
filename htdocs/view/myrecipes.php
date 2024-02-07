@@ -14,7 +14,7 @@
                     <span class="text-secondary text-center align-self-center fw-bold fs-3"><?php echo $ricetta["Nome"] ?></span>   
                 </span>
             </button>
-            <input type="hidden" value="<?= $ricetta["RecipeID"] ?>">
+            <input type="hidden" value="<?= $ricetta["RecipeID"] ?>" />
         </div>
     <?php endforeach; ?>
 </div>
