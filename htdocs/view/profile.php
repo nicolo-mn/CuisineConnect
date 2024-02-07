@@ -10,7 +10,7 @@
         <section class="col-8 col-md-9">
             <h1 id="username" class="text-white text-center pb-2 pb-mb-5 pe-4">@<?php echo $templateParams['Username'] ?></h1>
             <div class="d-flex justify-content-around align-items-center">
-                <p class="text-white text-center"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
+                <p class="text-white text-center m-0"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
                 <button type="button" class="followers-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followersList">
                     <span class="text-white text-center"><span id="followers"><?php echo $templateParams['NumeroFollower'] ?></span> <br> followers</span>
                 </button>

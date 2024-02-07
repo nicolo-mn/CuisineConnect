@@ -129,8 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 success: function (response) {
                     let post = JSON.parse(response);
                     let $modal = $("#popupPost");
-                    if (post["RecipeID"])
-                        fetchRecipeData($modal, post["RecipeID"])
+                    if (post["RecipeID"]) {
+                        fetchRecipeData($modal, post["RecipeID"]);
+                    } else {
+                        $modal.find('.post-receipe').remove();
+                    }                    
                     $modal.find(".post-image img").attr("src", post["Foto"]);
                     $modal.find(".post-title").text(post["Titolo"]);
                     $modal.find(".description").text(post["Descrizione"]);
