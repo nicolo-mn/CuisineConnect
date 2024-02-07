@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Titolo</title>
+    <title>CuisineConnect</title>
     <link rel="stylesheet" type="text/css" href="/web/bootstrap-5.0.2/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="/web/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/web/css/jquery-ui.min.css"/>
