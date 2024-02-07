@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 success: function (response) {
                     let newValue;
                     let followers = parseInt(document.getElementById("followers").innerHTML);
-                    if (document.getElementById("followBtn").value === "Segui") {
-                        newValue = "Smetti di seguire";
+                    if (document.getElementById("followBtn").value === "Follow") {
+                        newValue = "Unfollow";
                         followers++;
                     } else {
-                        newValue = "Segui";
+                        newValue = "Follow";
                         followers--;
                     }
                     document.getElementById("followers").innerHTML = followers;
