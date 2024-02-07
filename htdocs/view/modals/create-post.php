@@ -11,8 +11,7 @@
                         <div class="form-group">
                             <label for="title">Title:</label>
                             <input type="text" class="form-control" id="title" name="title" required/>
-                            <small id="titleHelp" class="form-text text-muted">Il titolo deve essere lungo almeno 5
-                                caratteri.</small>
+                            <small id="titleHelp" class="form-text text-muted">Title must be at least 5 characters long.</small>
                         </div>
 
                         <div class="form-group">
@@ -29,12 +28,12 @@
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <label for="mention">Menziona qualcuno:</label>
+                        <label for="mention">Mention someone:</label>
                         <input type="text" name="mention" id="mention" class="form-control mb-2">
 
                         <div class="form-group">
                             <label for="file">Add a file:</label>
-                            <input type="file" class="form-control-file" id="file" name="file"/>
+                            <input type="file" class="form-control-file" id="file" name="file" required/>
                         </div>
                     </form>
                 <?php endif; ?>
