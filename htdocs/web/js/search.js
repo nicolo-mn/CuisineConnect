@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <div class="d-flex justify-content-start py-3 align-items-center">
                                     <div class="col-1 me-3">
                                         <div class="ratio ratio-1x1">
-                                            <img src="${user["ImmagineProfilo"]}" alt="profile picture" class="img-fluid rounded-circle"/>
+                                            <img src="/${user["ImmagineProfilo"]}" alt="profile picture" class="img-fluid rounded-circle"/>
                                         </div>
                                     </div>
                                     <p class="text-white m-0 data-username">@${user["Username"]}</p>

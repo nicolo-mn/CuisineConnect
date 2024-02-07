@@ -1,5 +1,5 @@
 <?php if ($_SERVER["REQUEST_URI"] !== "/login" && $_SERVER["REQUEST_URI"] !== "/register"): ?>
-    <header class="container-fluid <?php if ($_SERVER["REQUEST_URI"] === "/"): ?> position-fixed position-md-static<?php endif; ?>">
+    <header class="container-fluid <?php if ($_SERVER["REQUEST_URI"] === "/"): ?> position-fixed position-md-static<?php endif; ?> z-index-2">
         <div class="row py-3 d-flex justify-content-between align-items-center">
             <!-- Navbar mobile -->
             <div class="col d-md-none">

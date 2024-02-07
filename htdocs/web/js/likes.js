@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         $(users).each(function (){
                             html += '<div class="d-flex justify-content-between align-items-center mb-2">\n' +
                                 '    <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">\n' +
-                                '        <img src="'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
+                                '        <img src="/'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
                                 '             class="img-fluid"/>\n' +
                                 '    </div>\n' +
                                 '    <a class="fs-6 text-primary m-00"\n' +

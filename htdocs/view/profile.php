@@ -3,7 +3,7 @@
     <div class="row d-flex align-items-center py-3 mx-0">
         <div class="col-4 col-md-3">
             <div class="ratio ratio-1x1">
-                <img src="<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture"
+                <img src="/<?php echo $templateParams["ImmagineProfilo"] ?>" alt="profile picture"
                      class="img-fluid rounded-circle" />
             </div>
         </div>

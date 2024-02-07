@@ -1,6 +1,9 @@
 <div class="modal fade" id="popupPost" tabindex="-1" aria-labelledby="popupPost" aria-hidden="true">
     <div class="modal-dialog modal-dialog w-100 w-md-2/5 my-0 h-100 px-1 py-6">
         <div class="modal-content h-100 bg-primary overflow-hidden">
+            <button type="button" class="border-0 w-2 h-2 opacity-100 bg-primary z-index-2 opacity-1 position-absolute text-secondary" data-bs-dismiss="modal" aria-label="Close">
+                <span class="fa fa-close"></span>
+            </button>
             <div class="modal-body h-100 p-0 rounded-5">
                 <article class="post d-flex flex-column
      justify-content-center g-0 h-100">
@@ -60,7 +63,7 @@
                                 <div class="input-group">
                                     <label for="comment" hidden>Add a comment</label>
                                     <input type="text" name="comment" id="comment" placeholder="Add a comment"
-                                           class="form-control border-0 text-white bg-dark py-2 px-3" required/>
+                                           class="form-control border-0 text-white bg-dark py-2 px-3 " style="z-index: 0 !important;" required/>
                                     <button type="submit" class="input-group-text bg-secondary border-0">
                                         <span class="fa-regular fa-paper-plane"></span>
                                     </button>

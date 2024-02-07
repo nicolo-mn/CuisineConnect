@@ -6,7 +6,7 @@
             <?php
             foreach (json_decode($recipe["ValoriNutrizionali"]) as $macro => $valore): ?>
                 <div class="text-center text-white">
-                    <p class="mb-0"><?= number_format($valore->quantity, $decimals = 0) . $valore->unit; ?></p>
+                    <p class="mb-0"><?= number_format($valore[0], $decimals = 0) . $valore[1]; ?></p>
                     <p><?= $macro ?></p>
                 </div>
             <?php endforeach; ?>

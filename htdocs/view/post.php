@@ -1,9 +1,9 @@
 <?php if (isset($post)): ?>
     <article id="post-<?= $post["PostID"] ?>"
-             class="post d-flex flex-column flex-md-row g-0 h-100 overflow-hidden">
+             class="post d-flex flex-column flex-md-row g-0 h-100 w-100 overflow-hidden">
         <div class="post-media d-flex col-md-6 h-4/5 h-md-100">
             <div class="post-image w-100">
-                <img src="<?= $post["Foto"] ?>" alt="post picture" class="h-100 w-100"/>
+                <img src="/<?= $post["Foto"] ?>" alt="post picture" class="h-100 w-100"/>
             </div>
             <?php if (isset($post["Ricetta"])): ?>
                 <div class="h-100 w-100">
@@ -22,14 +22,14 @@
                 <span class="fa-solid fa-angle-up text-secondary"></span>
             </button>
             <div class="align-items-center abs-section d-flex gap-3">
-                <div
+                <a href="/user/<?= $post["Username"] ?>"
                     class="h-5 w-5 rounded-circle p-1 bg-white d-flex justify-content-center align-items-center">
                     <div class="profile-pic-container overflow-hidden rounded-circle p-0">
                         <img
                             src="<?= $post["ImmagineProfilo"] ?>" alt="profile picture"
                             class="img-fluid"/>
                     </div>
-                </div>
+                </a>
                 <a class="d-none d-md-block text-white col m-0" href="user/<?= $post["Username"] ?>">
                     @<?= $post["Username"] ?>
                 </a>
@@ -74,7 +74,7 @@
                     <article id="comment-<?= $commento["NotificationID"] ?>"
                              class="d-flex align-items-center mb-2 gap-2">
                         <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">
-                            <img src="<?= $commento["ImmagineProfilo"] ?>" alt="profile picture"
+                            <img src="/<?= $commento["ImmagineProfilo"] ?>" alt="profile picture"
                                  class="img-fluid"/>
                         </div>
                         <div class="col">

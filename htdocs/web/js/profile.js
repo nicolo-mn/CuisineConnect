@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return "<article id=\"comment-" + commentID + "\" class=\"d-flex align-items-center mb-2 gap-2\">\n" +
             "                                <div class=\"profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3\">\n" +
             "                                    <img\n" +
-            "                                        src=\"" + profilePic + "\"\n" +
+            "                                        src=\"/" + profilePic + "\"\n" +
             "                                        alt=\"profile picture\"\n" +
             "                                        class=\"img-fluid\"/>\n" +
             "                                </div>\n" +
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     } else {
                         $modal.find('.post-receipe').remove();
                     }                    
-                    $modal.find(".post-image img").attr("src", post["Foto"]);
+                    $modal.find(".post-image img").attr("src", "/"+post["Foto"]);
                     $modal.find(".post-title").text(post["Titolo"]);
                     $modal.find(".description").text(post["Descrizione"]);
                     $modal.find(".description").text(post["Descrizione"]);
@@ -255,7 +255,7 @@ function loadLikeList(postID) {
             $(users).each(function (){
                 html += '<div class="d-flex justify-content-between align-items-center mb-2">\n' +
                     '    <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">\n' +
-                    '        <img src="'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
+                    '        <img src="/'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
                     '             class="img-fluid"/>\n' +
                     '    </div>\n' +
                     '    <a class="fs-6 text-primary m-00"\n' +
