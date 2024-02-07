@@ -25,7 +25,7 @@
                 <input type="text" class="form-control border-0 bg-dark text-white" placeholder="Trova i tuoi amici su CuisineConnect!">
             </div> -->
         <?php endif; ?>
-        <nav class="col-md-5">
+        <nav class="col-md-5  z-index-1">
             <ul class="d-none list-unstyled d-md-flex w-12 ps-4  w-md-auto bg-primary top-0 pt-10 pt-md-0 vh-100 h-md-auto
             position-absolute position-md-static justify-content-end align-items-center gap-2"
                 style="transition: all 0.3s ease;">
