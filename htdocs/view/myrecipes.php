@@ -1,6 +1,6 @@
 <div class="row justify-content-end mb-5 mx-0">
     <div class="col-md-6 mb-5 mb-md-0 p-0">
-        <h2 class="text-secondary text-center fw-bold ">Le mie ricette</h2>
+        <h2 class="text-secondary text-center fw-bold ">My recipes</h2>
     </div>
     <div class="col-md-3">
         <a href="/newrecipe" class="btn btn-secondary w-100 shadow-none">Add a new recipe!</a>

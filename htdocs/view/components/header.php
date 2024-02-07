@@ -31,37 +31,37 @@
                 style="transition: all 0.3s ease;">
                 <li class="nav-item">
                     <button class="nav-link m-0 p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#addPost">
-                        <span class="text-secondary d-md-none">Nuovo Post</span>
+                        <span class="text-secondary d-md-none">Add a post</span>
                         <span class="fa-solid fa-plus text-secondary bg-primary p-3 rounded-circle"></span>
                     </button>
                 </li>
                 <li class="nav-item">
                     <a href="/search" class="nav-link m-0 p-0">
-                        <span class="text-secondary d-md-none">Ricerca</span>
+                        <span class="text-secondary d-md-none">Search</span>
                         <span class="fa-solid fa-magnifying-glass text-secondary bg-primary p-3 rounded-circle"></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/notifications" class="nav-link m-0 p-0">
-                        <span class="text-secondary d-md-none">Notifiche</span>
+                        <span class="text-secondary d-md-none">Notifications</span>
                         <span class="fa-solid fa-bell text-secondary bg-primary p-3 rounded-circle"></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/recipes" class="nav-link m-0 p-0">
-                        <span class="text-secondary d-md-none">Ricette</span>
+                        <span class="text-secondary d-md-none">Recipes</span>
                         <span class="fa-solid fa-receipt text-secondary bg-primary p-3 rounded-circle"></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/profile" class="nav-link m-0 p-0">
-                        <span class="text-secondary d-md-none">Profilo</span>
+                        <span class="text-secondary d-md-none">Profile</span>
                         <span class="fa-solid fa-user text-secondary bg-primary p-3 rounded-circle"></span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/editprofile" class="nav-link m-0 p-0">
-                        <span class="text-secondary d-md-none">Modifica Profilo</span>
+                        <span class="text-secondary d-md-none">Edit profile</span>
                         <span class="fa-solid fa-pen-to-square text-secondary bg-primary p-3 rounded-circle"></span>
                     </a>
                 </li>

@@ -18,7 +18,7 @@ $posts = PostController::getInstance()->getPosts();
         ?>
     </section>
     <section class="d-none d-md-block w-1/4 border-start border-dark overflow-auto">
-        <h3 class="text-white text-center">Notifiche</h3>
+        <h3 class="text-white text-center">Notifications</h3>
         <?php
         InteractionController::getInstance()->loadNotifications();
         require "notifications.php";
