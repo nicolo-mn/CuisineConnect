@@ -10,7 +10,7 @@
                                 <img src=""
                                      alt="" class="h-100 w-100">
                             </div>
-                            <div class="h-100 w-100 flex-shrink-0">
+                            <div class="post-receipe h-100 w-100 flex-shrink-0">
                                 <section class="recipe bg-brick text-secondary d-flex flex-column
      justify-content-center g-0 post h-100 overflow-hidden p-3">
                                     <h3 class="font-bold recipe-name"></h3>
