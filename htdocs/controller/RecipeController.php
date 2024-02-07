@@ -14,6 +14,6 @@ class RecipeController extends Controller {
     }
 
     public function getRecipeByID($recipeID) {
-        return $this->db->getRecipeByID($recipeID);
+        echo json_encode($this->db->getRecipeByID($recipeID)[0]);
     }
 }

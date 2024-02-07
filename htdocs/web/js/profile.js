@@ -88,13 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         let result = "";
                         posts.forEach(post => {
                             result +=
-                                `
+                            `
                             <div class="col g-0">
-                                <a href="#">
-                                    <div class="ratio ratio-1x1">
-                                        <img src="${post["Foto"]}" alt="food" class="img-fluid">
-                                    </div>
-                                </a>
+                                <button class="show-post border-0 ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#popupPost">
+                                    <img src="${post["Foto"]}" alt="food" class="img-fluid">
+                                </button>
+                                <input type="hidden" value="${post["PostID"]}">
                             </div>
                             `;
                         });

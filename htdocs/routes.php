@@ -130,5 +130,9 @@ $router->addRoute('POST', '/add-recipe', function () {
     RecipeController::getInstance()->addRecipe(SessionController::getInstance()->getSessionUserID(),$_POST["recipeName"], $_POST["process"], $_POST["ingredients"], $_POST["nutrients"]);
 });
 
+$router->addRoute('POST', '/get-recipe', function () {
+    RecipeController::getInstance()->getRecipeByID($_POST["RecipeID"]);
+});
+
 
 $router->matchRoute();
