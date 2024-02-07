@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     $(document).ready(function() {
-        // Ascolta l'evento di input sulla barra di ricerca
         $("#search-input").on("input", function() {
             let searchString = $(this).val();
             if (searchString === "") {
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             $.ajax({
                 type: "POST",
-                url: "/search-user",  // Sostituisci con l'URL della tua route
+                url: "/search-user",  
                 data: formData,
                 processData: false,
                 contentType: false,

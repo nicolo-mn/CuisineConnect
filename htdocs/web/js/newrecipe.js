@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
-        // Aggiungi il nuovo div al fieldset
         document.getElementById("ingredients").appendChild(newIngredientDiv);
     });
     
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Authorization": "Basic " + btoa(nutrition_api_id + ":" + nutrition_api_key)
             },
             success: function(response) {
-                // console.log(response);
                 document.getElementById("recipe-form").classList.remove("d-none");
                 document.getElementById("loading-overlay").classList.add("d-none");
                 const nutrients = {
@@ -58,10 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     "Fats": [response.totalNutrients.FAT.quantity, response.totalNutrients.FAT.unit],
                     "Calories": [response.totalNutrients.ENERC_KCAL.quantity, response.totalNutrients.ENERC_KCAL.unit],
                 };
-                // console.log("Name: " + recipeName);
-                // console.log("Process: " + process);
-                // console.log("Ingredients: " + ingredients);
-                // console.log(nutrients);
                 const formData = new FormData();
                 formData.append("recipeName", recipeName);
                 formData.append("process", process);
@@ -80,43 +74,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             },
             error: function(error) {
-                // console.error('Errore nella richiesta API:', error);
                 document.getElementById("recipe-form").classList.remove("d-none");
                 document.getElementById("loading-overlay").classList.add("d-none");
                 document.getElementById("error-check").classList.remove("d-none");
             }
         });
-    });
-    
-
-    // $.ajax({
-    //     url: `https://api.edamam.com/api/food-database/v2/parser`,
-    //     type: 'GET',
-    //     data: {
-    //         'ingr': "apple",
-    //         'app_id': food_api_id,
-    //         'app_key': food_api_key,
-    //     },
-    //     success: function(response) {
-    //         // Gestisci la risposta ottenuta dall'API qui
-    //         console.log(response);
-    //         // const hints = response.hints;
-    //         // let result = "";
-    //         // hints.array.forEach(element => {
-    //         //     result +=
-    //         //     `
-    //         //         <option value="${element.food.label}">
-    //         //     `;
-    //         // });
-    //         // document.getElementById("ingredient-1-list").innerHTML = result;
-    //     },
-    //     error: function(error) {
-    //         console.error('Errore nella richiesta API:', error);
-    //     }
-    // });
-    
-    
-    
-    
-    
+    });  
 });

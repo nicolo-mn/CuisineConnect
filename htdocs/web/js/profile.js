@@ -46,10 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("username", username);
             $.ajax({
                 type: "POST",
-                url: "/follow-unfollow", // Sostituisci con l'URL della tua route
+                url: "/follow-unfollow", 
                 data: formData,
-                processData: false,  // Non processare i dati (FormData si occupa di questo)
-                contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
+                processData: false,  
+                contentType: false,  
                 success: function (response) {
                     let newValue;
                     let followers = parseInt(document.getElementById("followers").innerHTML);
