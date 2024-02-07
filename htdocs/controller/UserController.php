@@ -24,6 +24,8 @@ class UserController extends Controller
             if (password_verify($request["password"], $user["Password"])){
                 SessionController::RegisterSession($user["UserID"], $request["username"]);
                 header("Location:/");
+            } else {
+                header("Location:/login");
             }
         } else {
             header("Location:/login");
