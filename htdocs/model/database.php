@@ -456,7 +456,7 @@ VALUES ((SELECT Posts.UserID FROM Posts WHERE PostID = ? LIMIT 1 ), ?, ?, ?, \"C
     public function addMention($user, $mentioned, $post)
     {
         $query = "INSERT INTO Notifiche (UtenteNotificatoUserID, UtenteNotificanteUserID, Tipo, PostID) 
-VALUES ((SELECT UserID FROM Utenti WHERE Username = ? LIMIT 1), ?, 'Segui', ?)";
+VALUES ((SELECT UserID FROM Utenti WHERE Username = ? LIMIT 1), ?, 'Menzione', ?)";
         $stmt = $this->db->prepare($query);
         echo $mentioned." ".$user." ".$post;
         $stmt->bind_param('sii', $mentioned, $user, $post);
