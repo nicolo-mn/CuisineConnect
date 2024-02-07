@@ -8,7 +8,7 @@
             </div>
         </div>
         <section class="col-8 col-md-9">
-            <h2 id="username" class="text-white text-center pb-2 pb-mb-5 pe-4">@<?php echo $templateParams['Username'] ?></h2>
+            <h1 id="username" class="text-white text-center pb-2 pb-mb-5 pe-4">@<?php echo $templateParams['Username'] ?></h1>
             <div class="d-flex justify-content-around align-items-center">
                 <p class="text-white text-center"><?php echo $templateParams['NumeroPost'] ?> <br> posts</p>
                 <button type="button" class="followers-list bg-transparent border-0 p-0" data-bs-toggle="modal" data-bs-target="#followersList">
@@ -37,16 +37,12 @@
         </section>
     </div>
     <div class="row mx-0">
-        <a href="#" class="text-decoration-none col-6 border-bottom" id="posted">
-            <div class="d-flex justify-content-center align-items-center py-3">
+        <button class="text-decoration-none col-6 border-bottom bg-transparent border-0 py-3" id="posted">
                 <span class="fa-solid fa-table-cells fa-2x text-white"></span>
-            </div>
-        </a>
-        <a href="#" class="text-decoration-none col-6" id="mentioned">
-            <div class="d-flex justify-content-center align-items-center py-3">
+        </button>
+        <button class="text-decoration-none col-6 bg-transparent border-0 py-3" id="mentioned">
                 <span class="fa-solid fa-user-group fa-2x text-white"></span>
-            </div>
-        </a>
+        </button>
     </div>
     <div class="row row-cols-3 pt-2 mx-0" id="post-tab">
         <?php foreach (PostController::getInstance()->getUserPosts($templateParams["UserID"]) as $post): ?>

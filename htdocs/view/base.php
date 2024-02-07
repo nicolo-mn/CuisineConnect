@@ -18,6 +18,7 @@
 <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
 <script src="web/js/posts.js"></script>
+<script src="web/js/utils.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var sidebar = document.querySelector('nav > ul');

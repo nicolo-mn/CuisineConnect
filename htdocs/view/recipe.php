@@ -1,6 +1,6 @@
 <?php if (isset($recipe)): ?>
     <section class="recipe bg-brick text-secondary d-flex flex-column
-     justify-content-center g-0 post h-100 overflow-hidden p-3">
+     justify-content-center g-0 h-100 overflow-hidden p-3">
         <h3 class="font-bold"><?= $recipe["Nome"] ?></h3>
         <div class="d-flex justify-content-between align-items-center">
             <?php

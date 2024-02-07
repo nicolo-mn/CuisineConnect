@@ -1,6 +1,6 @@
 <?php if (isset($post)): ?>
     <article id="post-<?= $post["PostID"] ?>"
-             class="post d-flex flex-column flex-md-row g-0 post h-100 overflow-hidden">
+             class="post d-flex flex-column flex-md-row g-0 h-100 overflow-hidden">
         <div class="post-media d-flex col-md-6 h-4/5 h-md-100">
             <div class="post-image w-100">
                 <img src="<?= $post["Foto"] ?>" alt="" class="h-100 w-100">
@@ -17,10 +17,9 @@
         </div>
         <header class="post-content col-md-6 px-3 py-2 info-block h-1/5 h-md-auto">
             <button id="description-toggle-<?= $post["PostID"] ?>"
-                    onclick="toggleDescription('post-<?= $post["PostID"] ?>')"
-                    class="d-md-none rounded-circle border-0
+                    class="toggle-description d-md-none rounded-circle border-0
                 translate-middle-y me-3 position-absolute end-0 top-0 bg-primary h-3 w-3">
-                <i class="fa-solid fa-angle-up text-secondary"></i>
+                <span class="fa-solid fa-angle-up text-secondary"></span >
             </button>
             <div class="align-items-center abs-section d-flex gap-3">
                 <div
@@ -42,9 +41,9 @@
                     <input type="hidden" value="<?= $post["PostID"] ?>">
                     <button class="like-button <?= $post["isLike"] ? "liked" : "" ?> border-0 bg-transparent">
                         <?php if ($post["isLike"]): ?>
-                            <i class="fa fa-heart text-danger"></i>
+                            <span class="fa fa-heart text-danger"></span >
                         <?php else: ?>
-                            <i class="fa-regular fa-heart text-white"></i>
+                            <span class="fa-regular fa-heart text-white"></span >
                         <?php endif; ?>
                     </button>
                     <?php if ($post["NumeroLike"] > 0): ?>
@@ -68,7 +67,7 @@
                            placeholder="Aggiungi un commento"
                            class="form-control border-0 text-white bg-dark py-2 px-3" required/>
                     <button type="submit" class="input-group-text bg-secondary border-0">
-                        <i class="fa-regular fa-paper-plane"></i>
+                        <span class="fa-regular fa-paper-plane"></span >
                     </button>
                 </div>
             </form>
@@ -94,12 +93,12 @@
                             <div>
                                 <button type="button" class="edit-comment bg-transparent border-0"
                                         data-bs-toggle="modal" data-bs-target="#editComment">
-                                    <i class="fa-solid fa-pen text-secondary"></i>
+                                    <span class="fa-solid fa-pen text-secondary"></span >
                                 </button>
                                 <form class="remove-comment d-inline">
                                     <input type="hidden" value="<?= $commento["NotificationID"] ?>" name="comment">
                                     <button class="bg-transparent border-0">
-                                        <i class="fa-solid fa-trash text-secondary"></i>
+                                        <span class="fa-solid fa-trash text-secondary"></span >
                                     </button>
                                 </form>
                             </div>

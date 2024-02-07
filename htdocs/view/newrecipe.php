@@ -18,7 +18,7 @@
         </fieldset>
         <div class="d-flex justify-content-end">
             <a href="#" class="d-inline me-3" id="add-ingredient">
-                <i class="fa-solid fa-plus-circle fa-2x text-secondary"></i>
+                <span class="fa-solid fa-plus-circle fa-2x text-secondary"></span >
             </a>
         </div>
         <div class="row justify-content-between mt-7 mx-0">

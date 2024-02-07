@@ -3,10 +3,12 @@
     <div class="row py-3 d-flex justify-content-between align-items-center">
         <!-- Navbar mobile -->
         <div class="col d-md-none">
-            <a href="/search" title="Search">
+            <?php if ($_SERVER["REQUEST_URI"] !== "/"): ?>
+                <a href="/" title="Home">
                 <span
-                    class="fa-solid fa-magnifying-glass fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></span>
-            </a>
+                    class="fa-solid fa-home fa-2x text-secondary bg-primary p-3 ms-2 rounded-circle"></span>
+                </a>
+            <?php endif ?>
         </div>
         <div class="col d-md-none d-flex justify-content-end">
             <button class="border-0 p-3 me-2 rounded-circle bg-primary z-index-1">
@@ -27,7 +29,7 @@
         <?php endif; ?>
         <nav class="col-md-5">
             <ul class="d-none list-unstyled d-md-flex w-12 ps-4  w-md-auto bg-primary top-0 pt-10 pt-md-0 vh-100 h-md-auto
-            position-absolute position-md-static justify-content-end align-items-center gap-2"
+            position-absolute position-md-static justify-content-end align-items-center gap-2 mb-0"
                 style="transition: all 0.3s ease;">
                 <li class="nav-item">
                     <button class="nav-link m-0 p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#addPost">
