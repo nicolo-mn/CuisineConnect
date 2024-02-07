@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
         newIngredientDiv.className = "row justify-content-start gap-3 mx-0 ingredient-container";
         newIngredientDiv.innerHTML = `
             <div class="col-7 p-0">
-                <input type="text" class="form-control bg-dark border-0 rounded-3 text-white ingredient" placeholder="Ingrediente">
+                <input type="text" class="form-control bg-dark border-0 rounded-3 text-white ingredient" placeholder="Ingredient"/>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control bg-dark border-0 rounded-3 text-white quantity" placeholder="Quantità">
+                <input type="text" class="form-control bg-dark border-0 rounded-3 text-white quantity" placeholder="Quantity"/>
             </div>
             <div class="col-1">
                 <p class="text-secondary">g</p>
