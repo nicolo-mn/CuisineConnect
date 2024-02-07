@@ -16,7 +16,7 @@
         <!-- Navbar desktop -->
         <div class="d-none d-md-flex col-md-3 align-items-center">
             <a href="/">
-                <img src="/pub/media/CuisineConnect.svg" alt="logo" class="img-fluid">
+                <img src="/pub/media/CuisineConnect.svg" alt="logo" class="img-fluid"/>
             </a>
         </div>
         <nav class="col-md-5 z-index-1">

@@ -7,7 +7,7 @@
 
     <input type="submit" value="Login" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2">
 </form>
-<div class="d-flex flex-column px-5 gap-3">
-    <p class="text-secondary fw-light fs-sm">New to CuisineConnect?</p>
+<div class="d-flex flex-column px-5 mt-5">
+    <p class="text-secondary fw-light fs-sm mb-1">New to CuisineConnect?</p>
     <a href="/register" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2 text-center text-decoration-none">Register</a>
 </div>

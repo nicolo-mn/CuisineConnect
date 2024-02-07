@@ -1,6 +1,6 @@
 <section class="p-5">
-    <header>
-        <h1 class="text-secondary text-center font-family-Poppins fs-lg fw-bold">CuisineConnect</h1>
+    <header class="d-flex flex-column align-items-center">
+        <img src="/pub/media/CuisineConnect.svg" alt="logo" class="img-fluid col-md-6 mb-2">
         <p class="text-center text-secondary fs-7 fw-light">
             Taste the world! your flavorful adventure starts here
         </p>
