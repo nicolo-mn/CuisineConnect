@@ -31,7 +31,7 @@ class Database
     public function insertUser($username, $email, $password)
     {
         echo $username." ".$email." ".$password;
-        $query = "INSERT INTO Utenti (Username, Nome, Email, Password, ImmagineProfilo) VALUES (?, ?, ?, ?, '/pub/media/default-profile-pic.jpg')";
+        $query = "INSERT INTO Utenti (Username, Nome, Email, Password, ImmagineProfilo) VALUES (?, ?, ?, ?, 'pub/media/default-profile-pic.jpg')";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss', $username, $username, $email, $password);
         return $stmt->execute();
@@ -198,7 +198,8 @@ WHERE p.UserID in (SELECT FollowedUserID from Followers where FollowingUserID=?)
     {
         $query = "UPDATE Utenti SET ImmagineProfilo = ? WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si', $Image, $UserID);
+        $var1 = trim($Image, "/");
+        $stmt->bind_param('si', $var1, $UserID);
         return $stmt->execute();
     }
 
