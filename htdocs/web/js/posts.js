@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     $(document).ready(function () {
-        // Ascolta l'evento di sottoposizione del form
-
 
         $("#post").on("click", function (event) {
+            console.log("post")
             // Esegui la validazione
             if (validateForm()) {
                 let form = $("#postForm")[0];
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     processData: false,  // Non processare i dati (FormData si occupa di questo)
                     contentType: false,  // Non impostare l'intestazione Content-Type (FormData si occupa di questo)
                     success: function (response) {
-                        console.log(response);
+                        $("#addPost").modal('hide')
                     },
                     error: function (error) {
                         // Gestisci gli errori della richiesta

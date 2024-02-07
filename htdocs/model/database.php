@@ -47,11 +47,11 @@ class Database
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertPost($UserID, $Titolo, $Descrizione, $Foto)
+    public function insertPost($UserID, $Titolo, $Descrizione, $ricetta, $Foto)
     {
-        $query = "INSERT INTO Posts (UserID, Titolo, Descrizione, Foto) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO Posts (UserID, Titolo, Descrizione, RecipeID, Foto) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('isss', $UserID, $Titolo, $Descrizione, $Foto);
+        $stmt->bind_param('issis', $UserID, $Titolo, $Descrizione, $ricetta, $Foto);
         return $stmt->execute();
     }
 
@@ -216,14 +216,29 @@ FROM Notifiche, Utenti WHERE Tipo='Commento' and PostID=? AND UtenteNotificanteU
 
     public function getNotifications($UserID)
     {
-        $query = "SELECT Notifiche.*, Utenti.Nome, Utenti.Username, Utenti.ImmagineProfilo, Posts.PostID, Posts.Foto
-                  FROM Notifiche
-                  JOIN Utenti ON Utenti.UserID = Notifiche.UtenteNotificanteUserID
-                  LEFT JOIN Posts ON Notifiche.PostID = Posts.PostID
-                  WHERE Notifiche.UtenteNotificatoUserID = ?
-                  ORDER BY Notifiche.DataNotifica DESC;";
+        $query = "(
+    SELECT Notifiche.*, Utenti.Nome, Utenti.Username, Utenti.ImmagineProfilo, Posts.PostID, Posts.Foto
+    FROM Notifiche
+    JOIN Utenti ON Utenti.UserID = Notifiche.UtenteNotificanteUserID
+    LEFT JOIN Posts ON Notifiche.PostID = Posts.PostID
+    WHERE Notifiche.UtenteNotificatoUserID = ?
+      AND Notifiche.Letta = 0
+)
+UNION ALL
+(
+    SELECT Notifiche.*, Utenti.Nome, Utenti.Username, Utenti.ImmagineProfilo, Posts.PostID, Posts.Foto
+    FROM Notifiche
+    JOIN Utenti ON Utenti.UserID = Notifiche.UtenteNotificanteUserID
+    LEFT JOIN Posts ON Notifiche.PostID = Posts.PostID
+    WHERE Notifiche.UtenteNotificatoUserID = ?
+      AND Notifiche.Letta = 1
+    ORDER BY Notifiche.DataNotifica DESC
+    LIMIT 10
+)
+ORDER BY DataNotifica DESC;
+";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $UserID);
+        $stmt->bind_param('ii', $UserID, $UserID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -256,6 +271,16 @@ FROM Notifiche, Utenti WHERE Tipo='Commento' and PostID=? AND UtenteNotificanteU
     public function getUserRecipes($UserID)
     {
         $query = "SELECT * FROM Ricette WHERE UserID = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $UserID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserRecipesIDs($UserID)
+    {
+        $query = "SELECT RecipeID, Nome FROM Ricette WHERE UserID = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $UserID);
         $stmt->execute();

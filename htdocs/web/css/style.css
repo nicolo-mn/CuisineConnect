@@ -41,16 +41,16 @@ img {
     scroll-snap-align: start;
 }
 
-#feed > article .post-media{
+article .post-media{
     scroll-snap-type: x mandatory;
     overflow-y: auto;
 }
 
-#feed > article .post-media.active{
+article .post-media.active{
     scroll-snap-type: none;
 }
 
-#feed > article .post-media > div{
+article .post-media > div{
     flex-shrink: 0;
     scroll-snap-align: start;
 }

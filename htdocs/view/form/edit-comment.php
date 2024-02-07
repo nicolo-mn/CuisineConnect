@@ -2,13 +2,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Comment</h1>
+                <h2 class="modal-title fs-5" id="editCommentLabel">Edit Comment</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="editCommentForm" action="/submit-post" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="commentField">Commento:</label>
+                        <label for="commentText">Commento:</label>
                         <input type="text" data-provide="typeahead" class="form-control" id="commentText" name="commentText" required>
                     </div>
                     <input type="hidden" id="commentID" name="commentID">

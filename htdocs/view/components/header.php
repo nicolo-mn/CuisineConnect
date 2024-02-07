@@ -30,6 +30,12 @@
             position-absolute position-md-static justify-content-end align-items-center gap-2"
                 style="transition: all 0.3s ease;">
                 <li class="nav-item">
+                    <button class="nav-link m-0 p-0 border-0 bg-transparent" data-bs-toggle="modal" data-bs-target="#addPost">
+                        <span class="text-secondary d-md-none">Nuovo Post</span>
+                        <span class="fa-solid fa-plus text-secondary bg-primary p-3 rounded-circle"></span>
+                    </button>
+                </li>
+                <li class="nav-item">
                     <a href="/search" class="nav-link m-0 p-0">
                         <span class="text-secondary d-md-none">Ricerca</span>
                         <span class="fa-solid fa-magnifying-glass text-secondary bg-primary p-3 rounded-circle"></span>

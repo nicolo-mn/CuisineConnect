@@ -16,6 +16,7 @@
 <script src="https://kit.fontawesome.com/368369d391.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery.min.js" crossorigin="anonymous"></script>
 <script src="/web/js/jquery-ui.min.js" crossorigin="anonymous"></script>
+<script src="web/js/posts.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var sidebar = document.querySelector('nav > ul');
@@ -58,6 +59,8 @@
     }
     ?>
 </main>
+
+<?= require "modals/create-post.php"?>
 </body>
 
 </html>

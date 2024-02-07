@@ -9,6 +9,7 @@ $posts = PostController::getInstance()->getPosts();
 </button>-->
 <div class="d-flex justify-content-end h-100">
     <section class="h-100 overflow-scroll align-items-center w-md-3/4 w-lg-1/2" id="feed">
+        <h1 class="hide">CuisineConnect Home Feed</h1>
         <?php if (isset($posts)) {
             foreach ($posts as $post) {
                 require "post.php";
@@ -16,7 +17,8 @@ $posts = PostController::getInstance()->getPosts();
         }
         ?>
     </section>
-    <section class="d-none d-md-block w-1/4">
+    <section class="d-none d-md-block w-1/4 border-start border-dark overflow-auto">
+        <h3 class="text-white text-center">Notifiche</h3>
         <?php
         InteractionController::getInstance()->loadNotifications();
         require "notifications.php";
@@ -45,7 +47,6 @@ $posts = PostController::getInstance()->getPosts();
     }
 </script>
 
-<script src="web/js/posts.js"></script>
 <script src="web/js/likes.js"></script>
 <script src="web/js/comments.js"></script>
 <script src="web/js/home-slide.js"></script>

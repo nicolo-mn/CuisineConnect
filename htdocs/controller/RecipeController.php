@@ -9,6 +9,10 @@ class RecipeController extends Controller {
         Renderer::render("myrecipes.php");
     }
 
+    public function loadUserRecipesIDs() {
+        return $this->db->getUserRecipesIDs(SessionController::getInstance()->getSessionUserId());
+    }
+
     public function addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients) {
         $this->db->addRecipe($UserID, $RecipeName, $RecipeProcess, $RecipeIngredients, $RecipeNutrients);
     }

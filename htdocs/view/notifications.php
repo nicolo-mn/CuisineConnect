@@ -32,6 +32,5 @@
                 </div>
             </div>
         </a>
-        <!-- <?php var_dump($notifica); ?> -->
     <?php endforeach; ?>
 <?php endif ?>
