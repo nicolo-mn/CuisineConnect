@@ -31,11 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Resetta il messaggio di aiuto
         $("#titleHelp").text("Title must be at least 5 characters longy.");
-
+        var file = $("#file").files[0];
         // Validazione del titolo
         if (title.length < 5) {
             // Se il titolo è troppo corto, mostra un messaggio di errore
             $("#titleHelp").text("Title must be at least 5 characters longy.");
+            return false;
+        }
+
+        if (!file) {
+            $("#fileHelp").text("File must be uploaded");
             return false;
         }
 

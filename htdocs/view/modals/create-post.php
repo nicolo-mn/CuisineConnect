@@ -34,6 +34,7 @@
                         <div class="form-group">
                             <label for="file">Add a file:</label>
                             <input type="file" class="form-control-file" id="file" name="file" required/>
+                            <small id="titleHelp" class="form-text text-muted">File must be uploaded</small>
                         </div>
                     </form>
                 <?php endif; ?>

@@ -13,6 +13,7 @@ class UserController extends Controller
             $this->login($request);
             return true;
         }
+        header("Location:/register");
         return false;
     }
 
@@ -24,6 +25,8 @@ class UserController extends Controller
                 SessionController::RegisterSession($user["UserID"], $request["username"]);
                 header("Location:/");
             }
+        } else {
+            header("Location:/login");
         }
     }
 
