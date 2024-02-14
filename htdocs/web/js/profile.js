@@ -96,12 +96,100 @@ document.addEventListener("DOMContentLoaded", function () {
                             `;
                         });
                         $("#post-tab").html(result);
+                        showPost();
                     },
                     error: function (error) {
                         console.error("Errore nella richiesta AJAX: ", error);
                     }
                 });
             }
+        }
+
+        function showPost() {
+            $(".show-post").on("click", function () {
+                let postID = $(this).siblings("input").first();
+                let formData = new FormData();
+                formData.append("PostID", postID.val());
+                $.ajax({
+                    type: "POST",
+                    url: "/get-post",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        let post = JSON.parse(response);
+                        let $modal = $("#popupPost");
+                        if (post["RecipeID"]) {
+                            fetchRecipeData($modal, post["RecipeID"]);
+                        } else {
+                            $modal.find('.post-receipe').remove();
+                        }                    
+                        $modal.find(".post-image img").attr("src", "/"+post["Foto"]);
+                        $modal.find(".post-title").text(post["Titolo"]);
+                        $modal.find(".description").text(post["Descrizione"]);
+                        $modal.find(".description").text(post["Descrizione"]);
+                        $modal.find("#PostID").val(post["PostID"]);
+                        $modal.find(".commentForm input[name^=\"post\"]").val(post["PostID"]);
+                        $modal.find("button.like-list").on("click", function () {
+                            loadLikeList(post["PostID"]);
+                        })
+                        if (post["isLike"]) {
+                            $modal.find(".fa-heart").removeClass("fa-regular text-white");
+                            $modal.find(".fa-heart").addClass("fa text-danger");
+                            $modal.find(".like-button").addClass("liked");
+                        } else {
+                            $modal.find(".fa-heart").addClass("fa-regular text-white");
+                            $modal.find(".fa-heart").removeClass("fa text-danger liked");
+                            $modal.find(".like-button").removeClass("liked");
+                        }
+    
+                        let comments = ""
+    
+                        $(post["Commenti"]).each(function () {
+                            comments += createComment(
+                                this["NotificationID"],
+                                this["ImmagineProfilo"],
+                                this["Username"],
+                                this["Testo"],
+                                this["owner"]
+                            )
+                        })
+    
+                        $modal.find(".comment-section .comments").html(comments);
+                        $modal.find(".comment-counter").text(post["Commenti"].length);
+                        $modal.find(".like-counter").text(post["NumeroLike"]);
+    
+                        function handleCommentAjax(url, data, successCallback) {
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: data,
+                                success: function (response) {
+                                    successCallback(response);
+                                },
+                                error: function (error) {
+                                    console.error("Errore nella richiesta AJAX: ", error);
+                                }
+                            });
+                        }
+    
+                        $(".remove-comment").submit(function (e) {
+                            e.preventDefault();
+    
+                            let commentID = $(this).find("input").val();
+                            let comment = $("#comment-" + commentID);
+    
+                            handleCommentAjax("/remove-comment", $(this).serialize(), function () {
+                                comment.remove();
+                            });
+                        });
+    
+                    },
+                    error: function (error) {
+                        console.error("Errore nella richiesta AJAX: ", error);
+                    }
+                });
+            })
         }
 
         $("#mentioned").on("click", function (event) {
@@ -114,90 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadPosts("posted");
         });
 
-        $(".show-post").on("click", function () {
-            let postID = $(this).siblings("input").first();
-            let formData = new FormData();
-            formData.append("PostID", postID.val());
-            $.ajax({
-                type: "POST",
-                url: "/get-post",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    let post = JSON.parse(response);
-                    let $modal = $("#popupPost");
-                    if (post["RecipeID"]) {
-                        fetchRecipeData($modal, post["RecipeID"]);
-                    } else {
-                        $modal.find('.post-receipe').remove();
-                    }                    
-                    $modal.find(".post-image img").attr("src", "/"+post["Foto"]);
-                    $modal.find(".post-title").text(post["Titolo"]);
-                    $modal.find(".description").text(post["Descrizione"]);
-                    $modal.find(".description").text(post["Descrizione"]);
-                    $modal.find("#PostID").val(post["PostID"]);
-                    $modal.find(".commentForm input[name^=\"post\"]").val(post["PostID"]);
-                    $modal.find("button.like-list").on("click", function () {
-                        loadLikeList(post["PostID"]);
-                    })
-                    if (post["isLike"]) {
-                        $modal.find(".fa-heart").removeClass("fa-regular text-white");
-                        $modal.find(".fa-heart").addClass("fa text-danger");
-                        $modal.find(".like-button").addClass("liked");
-                    } else {
-                        $modal.find(".fa-heart").addClass("fa-regular text-white");
-                        $modal.find(".fa-heart").removeClass("fa text-danger liked");
-                        $modal.find(".like-button").removeClass("liked");
-                    }
-
-                    let comments = ""
-
-                    $(post["Commenti"]).each(function () {
-                        comments += createComment(
-                            this["NotificationID"],
-                            this["ImmagineProfilo"],
-                            this["Username"],
-                            this["Testo"],
-                            this["owner"]
-                        )
-                    })
-
-                    $modal.find(".comment-section .comments").html(comments);
-                    $modal.find(".comment-counter").text(post["Commenti"].length);
-                    $modal.find(".like-counter").text(post["NumeroLike"]);
-
-                    function handleCommentAjax(url, data, successCallback) {
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: data,
-                            success: function (response) {
-                                successCallback(response);
-                            },
-                            error: function (error) {
-                                console.error("Errore nella richiesta AJAX: ", error);
-                            }
-                        });
-                    }
-
-                    $(".remove-comment").submit(function (e) {
-                        e.preventDefault();
-
-                        let commentID = $(this).find("input").val();
-                        let comment = $("#comment-" + commentID);
-
-                        handleCommentAjax("/remove-comment", $(this).serialize(), function () {
-                            comment.remove();
-                        });
-                    });
-
-                },
-                error: function (error) {
-                    console.error("Errore nella richiesta AJAX: ", error);
-                }
-            });
-        })
+        
     });
 
 });
