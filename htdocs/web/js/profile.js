@@ -121,8 +121,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         let $modal = $("#popupPost");
                         if (post["RecipeID"]) {
                             fetchRecipeData($modal, post["RecipeID"]);
+                            $modal.find('.post-receipe').show();
                         } else {
-                            $modal.find('.post-receipe').remove();
+                            $modal.find('.post-receipe').hide();
                         }                    
                         $modal.find(".post-image img").attr("src", "/"+post["Foto"]);
                         $modal.find(".post-title").text(post["Titolo"]);
