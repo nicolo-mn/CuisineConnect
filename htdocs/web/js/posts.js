@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Resetta il messaggio di aiuto
         $("#titleHelp").text("Title must be at least 5 characters longy.");
-        var file = $("#file").files[0];
+        var file = $("#file")[0].files[0];
         // Validazione del titolo
         if (title.length < 5) {
             // Se il titolo è troppo corto, mostra un messaggio di errore
