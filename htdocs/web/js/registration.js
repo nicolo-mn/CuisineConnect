@@ -1,8 +1,26 @@
 addEventListener("DOMContentLoaded", (event) => {
     $(document).ready(function () {
-        $("#registrationForm").submit(function (event) {
-            if (!validateForm()) {
-                event.preventDefault();
+        $("#registrationForm").submit(function (e) {
+            e.preventDefault();
+            if (validateForm()) {
+                const formData = new FormData(this);
+                $.ajax({
+                    url: "/register",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        console.log(data);
+                        const resBool = JSON.parse(data);
+                        if(!resBool) {
+                            $("#errorRegistration").html("Username already taken.");
+                            $("#errorRegistration").removeAttr("hidden");
+                        } else {
+                            window.location.href = "/";
+                        }
+                    }
+                });
             }
         });
     });

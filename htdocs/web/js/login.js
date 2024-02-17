@@ -13,7 +13,9 @@ window.onload = function() {
             success: function(response) {
                 const resObj = JSON.parse(response);
                 if (!resObj) {
-                    document.getElementById('errorLoginText').hidden = false;
+                    const errorText = document.getElementById('errorLoginText');
+                    errorText.hidden = false;
+                    errorText.textContent = 'Check your informations: credentials invalid or not existent';
                 } else {
                     window.location.href = '/';
                 }

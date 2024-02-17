@@ -3,18 +3,25 @@ include_once "SessionController.php";
 require_once "./core/Controller.php";
 class UserController extends Controller
 {
-    public function registerUser($request): bool
+    public function registerUser($request)
     {
+        if (count($this->db->getUser($request["username"]))) {
+            echo json_encode(false);
+            return;
+        }
         if($this->db->insertUser(
             $request["username"],
             $request["email"],
             password_hash($request["password"], PASSWORD_DEFAULT)
         )) {
-            $this->login($request);
-            return true;
+            // $this->login($request);
+            $userId = $this->db->getUser($request["username"])[0]["UserID"];
+            SessionController::RegisterSession($userId, $request["username"]);
+            echo json_encode(true);
+        } else {
+            // header("Location:/register");
+            echo json_encode(false);
         }
-        header("Location:/register");
-        return false;
     }
 
     public function login($request)
@@ -23,7 +30,6 @@ class UserController extends Controller
             $user = $result[0];
             if (password_verify($request["password"], $user["Password"])){
                 SessionController::RegisterSession($user["UserID"], $request["username"]);
-                // header("Location:/");
                 echo json_encode(true);
             } else {
                 echo json_encode(false);

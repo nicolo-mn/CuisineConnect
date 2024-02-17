@@ -4,7 +4,7 @@
 
     <label for="password" hidden>Password:</label>
     <input type="password" id="password" name="password" placeholder="Password" class="border-0 text-white bg-dark rounded-pill py-2 px-3" minlength="6" required>
-    <p id="errorLoginText" class="text-center text-danger" hidden>Check your informations: credentials invalid or not existent</p>
+    <p id="errorLoginText" class="text-center text-danger" hidden></p>
     <input type="submit" value="Login" class="bg-secondary rounded-pill border-0 fs-4 fw-bold py-2">
 </form>
 <div class="d-flex flex-column px-5 mt-5">
