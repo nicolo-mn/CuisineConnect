@@ -23,12 +23,13 @@ class UserController extends Controller
             $user = $result[0];
             if (password_verify($request["password"], $user["Password"])){
                 SessionController::RegisterSession($user["UserID"], $request["username"]);
-                header("Location:/");
+                // header("Location:/");
+                echo json_encode(true);
             } else {
-                header("Location:/login");
+                echo json_encode(false);
             }
         } else {
-            header("Location:/login");
+            echo json_encode(false);
         }
     }
 
