@@ -26,6 +26,11 @@ addEventListener("DOMContentLoaded", (event) => {
     });
 
     function validateForm() {
+        $("#usernameError").attr("hidden", true);
+        $("#emailError").attr("hidden", true);
+        $("#passwordError").attr("hidden", true);
+        $("#password2Error").attr("hidden", true);
+
         var username = $("#username").val();
         var email = $("#email").val();
         var password = $("#password").val();
