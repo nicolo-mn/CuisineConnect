@@ -18,11 +18,19 @@ $router->addRoute('GET', '/', function () {
 });
 
 $router->addRoute('GET', '/login', function () {
-    Renderer::render("login.php");
+    if (SessionController::getInstance()->isUserLoggedIn()) {
+        header('Location: ' . "/");
+    } else {
+        Renderer::render("login.php");
+    }
 });
 
 $router->addRoute('GET', '/register', function () {
-    Renderer::render("login.php");
+    if (SessionController::getInstance()->isUserLoggedIn()) {
+        header('Location: ' . "/");
+    } else {
+        Renderer::render("login.php");
+    }
 });
 
 $router->addRoute('GET', '/profile', function () {

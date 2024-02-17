@@ -30,4 +30,8 @@ class SessionController extends Controller
         session_destroy();
         header('Location: ' . "login");
     }
+
+    public function isUserLoggedIn() {
+        return isset($_SESSION["username"]);
+    }
 }
