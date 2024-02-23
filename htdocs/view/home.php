@@ -1,12 +1,6 @@
 <?php
 $posts = PostController::getInstance()->getPosts();
 ?>
-
-<!--<button class="btn btn-secondary rounded-pill">ADD</button>
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-</button>-->
 <div class="d-flex justify-content-end h-100">
     <section class="h-100 overflow-scroll align-items-center w-md-3/4 w-lg-1/2" id="feed">
         <h1 hidden>CuisineConnect Home Feed</h1>
@@ -27,7 +21,7 @@ $posts = PostController::getInstance()->getPosts();
 </div>
 <!-- Modal -->
 <?php require_once "form/edit-comment.php" ?>
-<?php require_once "form/like-list.php" ?>
+<?php require_once "view/modals/like-list.php" ?>
 
 <script src="/web/js/likes.js"></script>
 <script src="/web/js/comments.js"></script>

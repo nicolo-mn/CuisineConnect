@@ -59,8 +59,8 @@
 <?php require_once "view/modals/popup-post.php"; ?>
 <?php require_once "view/modals/followers-list.php"; ?>
 <?php require_once "view/modals/following-list.php"; ?>
+<?php require_once "view/modals/like-list.php"?>
 <?php require_once "form/edit-comment.php"?>
-<?php require_once "form/like-list.php"?>
 
 <script src="/web/js/likes.js"></script>
 <script src="/web/js/comments.js"></script>
