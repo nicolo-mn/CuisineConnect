@@ -4,35 +4,37 @@ document.addEventListener("DOMContentLoaded", function () {
         let update = "";
 
         if (isOwner) {
-            update += "<div>\n" +
-                "                                <button type=\"button\" class=\"edit-comment bg-transparent border-0\" data-bs-toggle=\"modal\" data-bs-target=\"#editComment\">\n" +
-                "                                    <i class=\"fa-solid fa-pen text-secondary\"></i>\n" +
-                "                                </button>\n" +
-                "                                <form class=\"remove-comment d-inline\">\n" +
-                "                                    <input type=\"hidden\" value=\"" + commentID + "\" name=\"comment\">\n" +
-                "                                    <button class=\"bg-transparent border-0\">\n" +
-                "                                        <i class=\"fa-solid fa-trash text-secondary\"></i>\n" +
-                "                                    </button>\n" +
-                "                                </form>\n" +
-                "                            </div>"
+            update +=
+                `
+                <div>
+                    <button type="button" class="edit-comment bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editComment">
+                        <i class="fa-solid fa-pen text-secondary"></i>
+                    </button>
+                    <form class="remove-comment d-inline">
+                        <input type="hidden" value="${commentID}" name="comment">
+                        <button class="bg-transparent border-0">
+                            <i class="fa-solid fa-trash text-secondary"></i>
+                        </button>
+                    </form>
+                </div>
+                `;
         }
-
-        return "<article id=\"comment-" + commentID + "\" class=\"d-flex align-items-center mb-2 gap-2\">\n" +
-            "                                <div class=\"profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3\">\n" +
-            "                                    <img\n" +
-            "                                        src=\"/" + profilePic + "\"\n" +
-            "                                        alt=\"profile picture\"\n" +
-            "                                        class=\"img-fluid\"/>\n" +
-            "                                </div>\n" +
-            "                                <div class=\"col\">\n" +
-            "                                    <a class=\"fs-6 text-white m-00\"\n" +
-            "                                       href=\"user/user2\">@" + commentUser + "</a>\n" +
-            "                                    <p class=\"comment text-white col m-0\">\n" +
-            "                                        " + commentText + "</p>\n" +
-            "                                </div>\n" +
-            "\n" + update +
-            "\n" +
-            "                            </article>"
+        return  `<article id="comment-${commentID}" class="d-flex align-items-center mb-2 gap-2">
+                    <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">
+                        <img
+                            src="/${profilePic}"
+                            alt="profile picture"
+                            class="img-fluid"/>
+                    </div>
+                    <div class="col">
+                        <a class="fs-6 text-white m-00"
+                        href="user/user2">@${commentUser}</a>
+                        <p class="comment text-white col m-0">
+                            ${commentText}</p>
+                    </div>
+                    ${update}
+                </article>
+                `
     }
 
     $(document).ready(function () {
@@ -203,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadPosts("posted");
         });
 
-        
+        showPost();
     });
 
 });
@@ -259,14 +261,18 @@ function loadLikeList(postID) {
             $("#likeList .modal-body").html("");
             let html = "";
             $(users).each(function (){
-                html += '<div class="d-flex justify-content-between align-items-center mb-2">\n' +
-                    '    <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">\n' +
-                    '        <img src="/'+this["ImmagineProfilo"]+'" alt="profile-image"\n' +
-                    '             class="img-fluid"/>\n' +
-                    '    </div>\n' +
-                    '    <a class="fs-6 text-primary m-00"\n' +
-                    '       href="user/'+this["Username"]+'">@'+this["Username"]+'</a>\n' +
-                    '</div>'
+                html += 
+                    `
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="profile-pic-container overflow-hidden rounded-circle p-0 h-3 w-3">
+                            <img src="/${this["ImmagineProfilo"]}" alt="profile-image"
+                                class="img-fluid"/>
+                        </div>
+                        <a class="fs-6 text-primary m-00"
+                        href="user/${this["Username"]}">@${this["Username"]}</a>
+                    </div>
+                    `;
+                
                 $("#likeList .modal-body").html(html);
             })
         },
