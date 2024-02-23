@@ -1,4 +1,4 @@
-<div class="modal fade" id="addPost" tabindex="-1" aria-labelledby="addPostLabel" aria-hidden="true">
+<div class="modal fade overflow-scroll" id="addPost" tabindex="-1" aria-labelledby="addPostLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
