@@ -25,9 +25,8 @@
         require($templateParams["nome"]);
     }
     ?>
+    <?= require "modals/create-post.php"?>
 </main>
-
-<?= require "modals/create-post.php"?>
 </body>
 
 </html>
