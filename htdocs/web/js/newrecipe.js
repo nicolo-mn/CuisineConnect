@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("ingredients").appendChild(newIngredientDiv);
     });
     
-    const nutrition_api_id = 'f05f76cc';
-    const nutrition_api_key = 'e7ed1f6e1b40fb76a56a496515884e1a';
+    const nutrition_api_id = 'deleted_api_id';
+    const nutrition_api_key = 'deleted_api_key';
 
     document.getElementById("recipe-form").addEventListener("submit", function(event) {
         event.preventDefault();
